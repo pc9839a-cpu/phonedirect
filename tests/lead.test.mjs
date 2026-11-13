@@ -18,6 +18,7 @@ test('GET does not submit a lead',async()=>{
   assert.equal(response.status,405);
   assert.equal(response.headers.get('X-Lead-Bridge-Configured'),'yes');
   assert.equal((await onRequestGet({env:{}})).headers.get('X-Lead-Bridge-Configured'),'no');
+  assert.equal((await onRequestGet({env:{SHEETS_INGEST_TOKEN:'test-only-secret'}})).headers.get('X-Lead-Bridge-Configured'),'yes');
   assert.equal((await response.json()).ok,false);
 });
 test('rejects malformed records and missing consent',async()=>{
@@ -51,6 +52,16 @@ test('only acknowledges a matching receipt after upstream confirms save',async t
   assert.equal(data.lead.phone,'01012345678');
   assert.equal(data.lead.carrier,'SKT');
   assert.equal(data.lead.receipt,receipt);
+});
+test('uses the verified deployed Apps Script URL when the optional URL variable is absent',async t=>{
+  let target=null;
+  t.mock.method(globalThis,'fetch',async(url)=>{
+    target=url;
+    return new Response(JSON.stringify({ok:true,receipt}),{status:200,headers:{'Content-Type':'application/json'}});
+  });
+  const response=await call(lead,{SHEETS_INGEST_TOKEN:'test-only-secret'});
+  assert.equal(response.status,200);
+  assert.equal(target,'https://script.google.com/macros/s/AKfycbxfyfm31B2XgMv5GywGbS4iFN3P8BGfAYbw-GRaBijL73pF_-tIBKMKXaPjYLx1XwDgHw/exec');
 });
 test('does not show success if Google Apps Script cannot confirm receipt',async t=>{
   t.mock.method(globalThis,'fetch',async()=>new Response(JSON.stringify({ok:true,receipt:'mismatch'}),{status:200}));

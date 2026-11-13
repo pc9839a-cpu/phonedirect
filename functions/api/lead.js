@@ -5,11 +5,14 @@ const str=(v,max=200)=>typeof v==='string'?v.trim().slice(0,max):'';
 const phones=/^01[016789]\d{8}$/;
 const carriers={SK:'SKT',KT:'KT',LG:'LG U+'};
 const models={s26:'S26',plus:'S26+',ultra:'S26 Ultra',flip:'Flip8',fold:'Fold8'};
+// Public Apps Script deployment URL. Only the INGEST_TOKEN is confidential.
+const DEFAULT_SHEETS_WEB_APP_URL='https://script.google.com/macros/s/AKfycbxfyfm31B2XgMv5GywGbS4iFN3P8BGfAYbw-GRaBijL73pF_-tIBKMKXaPjYLx1XwDgHw/exec';
+const resolveWebAppUrl=env=>typeof env?.SHEETS_WEB_APP_URL==='string'&&env.SHEETS_WEB_APP_URL.trim()?env.SHEETS_WEB_APP_URL.trim():DEFAULT_SHEETS_WEB_APP_URL;
 // GET is never allowed to submit data. A non-sensitive header indicates only
 // whether both Cloudflare Pages secrets are present; it does not check Sheet writes.
 export async function onRequestGet({env}){
   const response=json(405,{ok:false,message:'POST 요청만 지원합니다.'});
-  const hasUrl=typeof env?.SHEETS_WEB_APP_URL==='string'&&env.SHEETS_WEB_APP_URL.trim().length>0;
+  const hasUrl=Boolean(resolveWebAppUrl(env));
   const hasToken=typeof env?.SHEETS_INGEST_TOKEN==='string'&&env.SHEETS_INGEST_TOKEN.trim().length>0;
   response.headers.set('X-Lead-Bridge-Configured',hasUrl&&hasToken?'yes':'no');
   response.headers.set('X-Lead-Bridge-Missing',hasUrl?(hasToken?'none':'token'):(hasToken?'url':'url,token'));
@@ -32,11 +35,11 @@ export async function onRequestPost({request,env}){
   if(!name||!phones.test(phone)||!Object.hasOwn(carriers,carrier)||!Object.hasOwn(models,model)
      ||b.consent!==true||!/^[A-Za-z0-9._-]{16,128}$/.test(receipt))
     return json(422,{ok:false,message:'필수 신청 정보를 다시 확인해 주세요.'});
-  if(!env||!env.SHEETS_WEB_APP_URL||!env.SHEETS_INGEST_TOKEN)
+  if(!env||!env.SHEETS_INGEST_TOKEN)
     return json(503,{ok:false,message:'현재 상담 접수 연결을 준비 중입니다. 잠시 후 다시 시도해 주세요.'});
   let endpoint;
   try{
-    endpoint=new URL(env.SHEETS_WEB_APP_URL);
+    endpoint=new URL(resolveWebAppUrl(env));
     if(endpoint.protocol!=='https:'||endpoint.hostname!=='script.google.com'||!/^\/macros\/s\/[^/]+\/exec$/.test(endpoint.pathname))
       throw Error('Invalid endpoint');
   }catch(_){return json(503,{ok:false,message:'접수 서버 설정을 확인 중입니다. 잠시 후 다시 시도해 주세요.'});}
