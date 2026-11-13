@@ -100,20 +100,40 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   margin:0;padding:0;border:0;object-fit:contain;
   filter:none;transform:none;transform-origin:center;
 }
+/* Repeat the discount emphasis on a calm six-second cycle. */
 @media(prefers-reduced-motion:no-preference){
-  .sale-title .line{animation:pdHeroBadgeIn .58s cubic-bezier(.2,.8,.2,1) both}
-  .sale-title .prefix{animation:pdHeroPrefixIn .66s .19s cubic-bezier(.2,.8,.2,1) both}
-  .sale-title .value{animation:pdHeroNumberPop .83s .24s cubic-bezier(.16,1,.3,1) both,pdHeroNumberGlow 5.8s 1.15s ease-in-out infinite}
-  .sale-title .value::after{animation:pdHeroUnderlineIn .72s .7s cubic-bezier(.2,.75,.25,1) both,pdHeroUnderlineGlow 5.8s 1.45s ease-in-out infinite}
+  .sale-title .line{animation:pdHeroBadgeLoop 6.4s ease-in-out infinite}
+  .sale-title .prefix{animation:pdHeroPrefixLoop 6.4s ease-in-out infinite}
+  .sale-title .value{animation:pdHeroNumberLoop 6.4s cubic-bezier(.2,.8,.2,1) infinite,pdHeroNumberGlow 6.4s ease-in-out infinite}
+  .sale-title .value::after{animation:pdHeroUnderlineLoop 6.4s ease-in-out infinite}
   .sale-art{animation:pdHeroPhoto .75s .15s both}
 }
-@keyframes pdHeroBadgeIn{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
-@keyframes pdHeroPrefixIn{from{opacity:0;transform:translateY(13px)}to{opacity:1;transform:translateY(0)}}
-@keyframes pdHeroNumberPop{0%{opacity:0;transform:translateY(18px) scale(.86)}66%{opacity:1;transform:translateY(-3px) scale(1.025)}100%{opacity:1;transform:translateY(0) scale(1)}}
-@keyframes pdHeroNumberGlow{0%,72%,100%{text-shadow:0 0 0 rgba(23,105,245,0)}84%{text-shadow:0 0 21px rgba(23,105,245,.24)}}
-@keyframes pdHeroUnderlineIn{from{opacity:0;transform:scaleX(0)}to{opacity:1;transform:scaleX(1)}}
-@keyframes pdHeroUnderlineGlow{0%,72%,100%{box-shadow:0 2px 12px rgba(31,114,247,.2)}84%{box-shadow:0 2px 24px rgba(31,114,247,.55)}}
+@keyframes pdHeroBadgeLoop{
+  0%,9%,26%,100%{transform:translateY(0)}
+  16%{transform:translateY(-3px)}
+}
+@keyframes pdHeroPrefixLoop{
+  0%,10%,29%,100%{transform:translateY(0)}
+  18%{transform:translateY(-3px)}
+}
+@keyframes pdHeroNumberLoop{
+  0%,10%,26%,100%{transform:translateY(0) scale(1)}
+  17%{transform:translateY(-3px) scale(1.075)}
+  22%{transform:translateY(1px) scale(.992)}
+}
+@keyframes pdHeroNumberGlow{
+  0%,10%,26%,100%{text-shadow:0 0 0 rgba(23,105,245,0)}
+  17%{text-shadow:0 0 27px rgba(23,105,245,.34)}
+}
+@keyframes pdHeroUnderlineLoop{
+  0%,8%,28%,100%{transform:scaleX(1);box-shadow:0 2px 12px rgba(31,114,247,.2)}
+  13%{transform:scaleX(.54);box-shadow:0 2px 12px rgba(31,114,247,.16)}
+  20%{transform:scaleX(1);box-shadow:0 2px 23px rgba(31,114,247,.52)}
+}
 @keyframes pdHeroPhoto{from{opacity:0;transform:translateY(19px)}to{opacity:1;transform:translateY(0)}}
+.sale-device-motion{position:absolute;z-index:2;left:0;right:0;top:-16px;width:100%;height:calc(100% + 32px);pointer-events:none;display:block}
+.sale-device-composite.is-motion-hidden{opacity:0}
+
 @media(min-width:768px){
   .sale-hero{padding-top:70px;padding-bottom:34px}
   .sale-title .line{min-height:42px;padding:9px 21px}
@@ -888,6 +908,96 @@ if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-moti
 }
 
 
+
+
+/* Separate micro-floating phone movements inside the existing single product image.
+   The original image remains a fallback and is never replaced or refetched. */
+(function initHeroPhoneMotion(){
+  const original=document.querySelector('.sale-device-composite');
+  const stage=document.querySelector('.sale-art');
+  if(!original||!stage||!('requestAnimationFrame' in window)||
+     window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const canvas=document.createElement('canvas');
+  canvas.className='sale-device-motion';
+  canvas.setAttribute('aria-hidden','true');
+  const ctx=canvas.getContext('2d',{alpha:true});
+  if(!ctx)return;
+  stage.appendChild(canvas);
+  const profiles=[
+    {x:.29,s:.115,amp:3.8,period:4.1,phase:0},
+    {x:.52,s:.18,amp:4.6,period:5.3,phase:1.2},
+    {x:.74,s:.13,amp:3.7,period:4.7,phase:2.4},
+    {x:.915,s:.09,amp:4.3,period:5.9,phase:3.5}
+  ];
+  let inView=false,frame=0,lastPaint=-1000;
+  function paint(now){
+    if(!original.naturalWidth||!original.naturalHeight)return;
+    const widthCss=original.clientWidth,heightCss=original.clientHeight;
+    if(widthCss<1||heightCss<1)return;
+    const ratio=Math.min(window.devicePixelRatio||1,2);
+    const widthPx=Math.round(widthCss*ratio);
+    const heightPx=Math.round((heightCss+32)*ratio);
+    if(canvas.width!==widthPx||canvas.height!==heightPx){
+      canvas.width=widthPx;canvas.height=heightPx;
+    }
+    ctx.clearRect(0,0,widthPx,heightPx);
+    const iw=original.naturalWidth,ih=original.naturalHeight;
+    const scaleX=widthPx/iw,scaleY=heightCss*ratio/ih;
+    const shiftY=16*ratio;
+    const t=now/1000;
+    const wave=profiles.map(p=>p.amp*Math.sin(t*Math.PI*2/p.period+p.phase));
+    for(let x=0;x<iw;x+=12){
+      const sw=Math.min(12,iw-x),fx=(x+sw*.5)/iw;
+      let sum=0,total=0;
+      profiles.forEach((p,i)=>{
+        const distance=Math.abs((fx-p.x)/p.s);
+        const w=Math.exp(-distance*distance*distance*distance*1.5);
+        sum+=w*wave[i];total+=w;
+      });
+      const dy=total>0.001 ? sum/Math.max(1,total)*ratio : 0;
+      ctx.drawImage(original,x,0,sw,ih,x*scaleX,shiftY+dy,sw*scaleX+.35,ih*scaleY);
+    }
+    if(!original.classList.contains('is-motion-hidden')){
+      original.classList.add('is-motion-hidden');
+    }
+  }
+  function tick(now){
+    frame=0;
+    if(!inView||document.hidden)return;
+    if(now-lastPaint>=40){
+      paint(now);
+      lastPaint=now;
+    }
+    frame=requestAnimationFrame(tick);
+  }
+  function updatePlayback(){
+    if(inView&&!document.hidden){
+      if(!frame)frame=requestAnimationFrame(tick);
+    }else if(frame){
+      cancelAnimationFrame(frame);frame=0;
+    }
+  }
+  function ready(){
+    if(!original.naturalWidth)return;
+    paint(performance.now());
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(entries=>{
+        inView=entries.some(entry=>entry.isIntersecting);
+        updatePlayback();
+      },{threshold:.01}).observe(stage);
+    }else{
+      inView=true;updatePlayback();
+    }
+    if('ResizeObserver' in window){
+      new ResizeObserver(()=>paint(performance.now())).observe(original);
+    }else{
+      window.addEventListener('resize',()=>paint(performance.now()),{passive:true});
+    }
+    document.addEventListener('visibilitychange',updatePlayback);
+  }
+  if(original.complete&&original.naturalWidth){ready();}
+  else original.addEventListener('load',ready,{once:true});
+})();
 
 })();
 </script>
