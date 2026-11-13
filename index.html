@@ -476,8 +476,52 @@ phonePrefix.addEventListener('change',syncPhone);
   });
 });
 syncPhone();
-qs('#leadForm').addEventListener('submit',e=>{e.preventDefault();const m=qs('#formMessage');m.classList.remove('error');const name=qs('#name').value.trim(),number=phone.value.replace(/\D/g,''),carrier=qs('input[name="carrier"]:checked'),model=qs('input[name="model"]:checked');if(!name){m.textContent='성함을 입력해 주세요.';m.classList.add('error');qs('#name').focus();return}if(!/^01[016789]\d{8}$/.test(number) || phoneMiddle.value.length!==4 || phoneLast.value.length!==4){m.textContent='전화번호를 정확히 입력해 주세요.';m.classList.add('error');(phoneMiddle.value.length!==4?phoneMiddle:phoneLast).focus();return}if(!carrier){m.textContent='기존 통신사를 선택해 주세요.';m.classList.add('error');return}if(!model){m.textContent='희망 기종을 선택해 주세요.';m.classList.add('error');return}if(!qs('#privacy').checked){m.textContent='개인정보 동의를 확인해 주세요.';m.classList.add('error');qs('#privacy').focus();return}m.textContent='현재는 디자인 검수용입니다. 입력하신 정보는 저장하거나 전송하지 않았습니다.';});
-
+let pendingReceipt='',pendingFingerprint='',submitting=false;
+qs('#leadForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  if(submitting)return;
+  const form=qs('#leadForm'), m=qs('#formMessage'),button=form.querySelector('button[type="submit"]');
+  m.classList.remove('error');
+  const name=qs('#name').value.trim(),number=phone.value.replace(/\D/g,''),carrier=qs('input[name="carrier"]:checked'),model=qs('input[name="model"]:checked');
+  if(!name){m.textContent='성함을 입력해 주세요.';m.classList.add('error');qs('#name').focus();return}
+  if(!/^01[016789]\d{8}$/.test(number)||phoneMiddle.value.length!==4||phoneLast.value.length!==4){m.textContent='전화번호를 정확히 입력해 주세요.';m.classList.add('error');(phoneMiddle.value.length!==4?phoneMiddle:phoneLast).focus();return}
+  if(!carrier){m.textContent='기존 통신사를 선택해 주세요.';m.classList.add('error');return}
+  if(!model){m.textContent='희망 기종을 선택해 주세요.';m.classList.add('error');return}
+  if(!qs('#privacy').checked){m.textContent='개인정보 동의를 확인해 주세요.';m.classList.add('error');qs('#privacy').focus();return}
+  const fingerprint=[name,number,carrier.value,model.value].join('|');
+  if(fingerprint!==pendingFingerprint||!pendingReceipt){
+    pendingFingerprint=fingerprint;
+    pendingReceipt=window.crypto&&typeof window.crypto.randomUUID==='function'
+      ?window.crypto.randomUUID()
+      :Date.now().toString(36)+'-'+Math.random().toString(36).slice(2);
+  }
+  const query=new URLSearchParams(window.location.search);
+  const controller=new AbortController(), timer=setTimeout(()=>controller.abort(),25000);
+  submitting=true;button.disabled=true;button.textContent='접수 중입니다...';m.textContent='';
+  try{
+    const response=await fetch('/api/lead',{
+      method:'POST',credentials:'same-origin',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({
+        name,phone:number,carrier:carrier.value,model:model.value,consent:true,
+        receipt:pendingReceipt,source:location.pathname,referrer:document.referrer,
+        utm_source:query.get('utm_source')||'',utm_campaign:query.get('utm_campaign')||''
+      }),signal:controller.signal
+    });
+    let result=null;try{result=await response.json()}catch(_){}
+    if(!response.ok||!result||result.ok!==true||result.receipt!==pendingReceipt)
+      throw Error(result&&typeof result.message==='string'?result.message:'신청을 저장하지 못했습니다. 잠시 후 다시 시도해 주세요.');
+    m.classList.remove('error');m.textContent='상담 신청이 정상 접수되었습니다. 담당자가 연락드리겠습니다.';
+    form.reset();syncPhone();pendingReceipt='';pendingFingerprint='';
+  }catch(err){
+    m.classList.add('error');
+    m.textContent=err&&err.name==='AbortError'
+      ?'접수 확인 시간이 초과되었습니다. 같은 내용으로 다시 신청해 주세요.'
+      :(err&&err.message?err.message:'신청을 저장하지 못했습니다. 잠시 후 다시 시도해 주세요.');
+  }finally{
+    clearTimeout(timer);submitting=false;button.disabled=false;button.textContent='구매 조건 상담 신청하기 ↗';
+  }
+});
 
 /* Preview-only sample: never connect this list to unmasked lead submissions. */
 const activityList=qs('#activityList');
