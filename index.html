@@ -162,8 +162,13 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .journey-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;width:100%;max-width:1080px;margin:0 auto;padding:0;list-style:none}
 .journey-step{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-width:0;min-height:302px;margin:0;padding:28px 15px 29px;border:1px solid #e4e8ef;border-radius:23px;background:#fff;box-shadow:0 8px 22px rgba(26,48,81,.095);text-align:center;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
 .journey-step-label{display:block;flex:none;margin:0;color:#394b65;font-size:15px;font-weight:780;line-height:1.4;letter-spacing:.095em}
-.journey-icon{display:flex;align-items:center;justify-content:center;flex:none;width:94px;height:94px;margin:14px auto 12px;color:#17283d}
-.journey-icon svg{display:block;width:86px;height:86px;overflow:visible;fill:none;stroke:currentColor;stroke-width:2.35;stroke-linecap:round;stroke-linejoin:round}
+.journey-icon{display:block;flex:none;width:94px;height:94px;margin:14px auto 12px;background-image:url('/assets/phonedirect-steps-sprite-20261113.png');background-repeat:no-repeat;background-size:300% 200%;background-position:0% 0%;image-rendering:auto}
+.journey-icon-1{background-position:0% 0%}
+.journey-icon-2{background-position:50% 0%}
+.journey-icon-3{background-position:100% 0%}
+.journey-icon-4{background-position:0% 100%}
+.journey-icon-5{background-position:50% 100%}
+.journey-icon-6{background-position:100% 100%}
 .journey-step-copy{width:100%;min-width:0;text-align:center}
 .journey-step-copy h3{margin:0;color:#15253c;font-size:23px;line-height:1.3;font-weight:890;letter-spacing:-.65px;word-break:keep-all}
 .journey-step-copy p{margin:11px auto 0;max-width:285px;color:#44536a;font-size:15px;line-height:1.62;letter-spacing:-.16px;word-break:keep-all}
@@ -178,12 +183,12 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
  .journey-step{display:grid;grid-template-columns:82px minmax(0,1fr);grid-template-rows:auto 1fr;column-gap:15px;align-items:center;min-height:138px;padding:19px 17px;border-radius:18px;text-align:left}
  .journey-step-label{grid-column:2;grid-row:1;align-self:end;margin:0 0 4px;font-size:11.5px}
  .journey-icon{grid-column:1;grid-row:1 / span 2;width:80px;height:82px;margin:0}
- .journey-icon svg{width:72px;height:72px}
+ 
  .journey-step-copy{grid-column:2;grid-row:2;align-self:start;text-align:left}
  .journey-step-copy h3{font-size:19px;line-height:1.36;letter-spacing:-.5px}
  .journey-step-copy p{max-width:none;margin:4px 0 0;font-size:13.5px;line-height:1.58}
 }
-@media(max-width:359px){.purchase-journey{padding-left:13px;padding-right:13px}.journey-step{grid-template-columns:67px minmax(0,1fr);column-gap:10px;padding:16px 12px}.journey-icon{width:65px;height:72px}.journey-icon svg{width:61px;height:61px}.journey-step-copy h3{font-size:17px}.journey-step-copy p{font-size:12.5px}}
+@media(max-width:359px){.purchase-journey{padding-left:13px;padding-right:13px}.journey-step{grid-template-columns:67px minmax(0,1fr);column-gap:10px;padding:16px 12px}.journey-icon{width:65px;height:72px}.journey-step-copy h3{font-size:17px}.journey-step-copy p{font-size:12.5px}}
 @media(prefers-reduced-motion:reduce){.journey-step{transition:none}}
 
 /* Phone number: compact 3-part field, one line even on 320px screens */
@@ -377,32 +382,32 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   <ol class="journey-list">
     <li class="journey-step">
       <span class="journey-step-label">STEP 01</span>
-      <span class="journey-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M17 28v-6a15 15 0 0 1 30 0v6"/><rect x="13" y="26" width="7" height="14" rx="3"/><rect x="44" y="26" width="7" height="14" rx="3"/><path d="M22 25c0-8 4-12 10-12s10 4 10 12v8c0 8-5 13-10 13s-10-5-10-13z"/><path d="M25 28c3 2 5 2 7 0 3-2 6-2 9-1"/><path d="M44 39c-2 4-6 6-12 6"/><path d="M17 56v-3c0-5 6-8 15-8s15 3 15 8v3"/><path d="M28 48l4 5 4-5"/></svg></span>
+      <span class="journey-icon journey-icon-1" aria-hidden="true"></span>
       <div class="journey-step-copy"><h3>상담후 신청</h3><p>온라인 또는 전화상담을 통해 상담해 보고 나서 신청하기</p></div>
     </li>
     <li class="journey-step">
       <span class="journey-step-label">STEP 02</span>
-      <span class="journey-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="15" y="12" width="34" height="45" rx="5"/><path d="M26 12V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/><path d="m23 25 3 3 5-6M35 25h7M23 37l3 3 5-6M35 37h7M23 49l3 3 5-6M35 49h7"/></svg></span>
+      <span class="journey-icon journey-icon-2" aria-hidden="true"></span>
       <div class="journey-step-copy"><h3>신청서 작성</h3><p>1차상담원이 안내 및 공식 신청서 URL 발송</p></div>
     </li>
     <li class="journey-step">
       <span class="journey-step-label">STEP 03</span>
-      <span class="journey-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="m10 19 22-11 22 11v28L32 58 10 47z"/><path d="m10 19 22 11 22-11M32 30v28M22 13l22 11v12M40 15 18 26"/></svg></span>
+      <span class="journey-icon journey-icon-3" aria-hidden="true"></span>
       <div class="journey-step-copy"><h3>단말기 발송</h3><p>물류 창고에서 택배사를통해 기기를 발송</p></div>
     </li>
     <li class="journey-step">
       <span class="journey-step-label">STEP 04</span>
-      <span class="journey-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="14" y="5" width="32" height="48" rx="6"/><path d="M24 11h12M27 47h6"/><path d="m35 30 7 6 4-2 7 8-1 6-7 5-11-11-4-5c-2-3-2-7 1-8 2-1 3 0 4 1z" fill="#fff"/><path d="m47 18 3-3M50 24h5M40 16v-5"/></svg></span>
+      <span class="journey-icon journey-icon-4" aria-hidden="true"></span>
       <div class="journey-step-copy"><h3>단말기 개통</h3><p>단말기 수령 후에 지정 상담사에게 연락하기</p></div>
     </li>
     <li class="journey-step">
       <span class="journey-step-label">STEP 05</span>
-      <span class="journey-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="7" y="24" width="14" height="26" rx="3"/><path d="M13 45h2M17 19c7-10 22-13 32-3l4 4M46 10l7 10-11 2"/><rect x="43" y="14" width="14" height="26" rx="3"/><path d="M49 35h2M47 45c-8 10-23 12-33 3l-4-4M18 55l-8-11 11-2"/></svg></span>
+      <span class="journey-icon journey-icon-5" aria-hidden="true"></span>
       <div class="journey-step-copy"><h3>정보백업하기</h3><p>개통 완료 후 기존 핸드폰 정보 이동 완료하기</p></div>
     </li>
     <li class="journey-step">
       <span class="journey-step-label">STEP 06</span>
-      <span class="journey-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M8 27h48v12H8zM13 39h38v18H13zM32 27v30"/><path d="M32 27c-3-8-16-12-17-5-1 5 8 7 17 5zM32 27c3-8 16-12 17-5 1 5-8 7-17 5z"/></svg></span>
+      <span class="journey-icon journey-icon-6" aria-hidden="true"></span>
       <div class="journey-step-copy"><h3>선물받기</h3><p>구매후기 작성 후 푸짐한 사은품 받기</p></div>
     </li>
   </ol>
