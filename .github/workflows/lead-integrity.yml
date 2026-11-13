@@ -53,11 +53,11 @@ jobs:
           bridge=''
           for i in 1 2 3 4 5; do
             status="$(curl --retry 1 --max-time 15 -sS -L -D headers.txt -o response.json -w '%{http_code}' 'https://phonedirect.pages.dev/api/lead')"
-            bridge="$(grep -i '^x-lead-bridge-configured:' headers.txt | tail -1 | tr -d '\\r' | awk '{print $2}' || true)"
+            bridge="$(python3 -c 'from pathlib import Path; lines=Path("headers.txt").read_text().splitlines(); print(next((s.partition(":")[2].strip() for s in reversed(lines) if s.lower().startswith("x-lead-bridge-configured:")), "unknown"))')"
             if [[ -n "$bridge" ]]; then break; fi
             sleep 5
           done
-          missing="$(grep -i '^x-lead-bridge-missing:' headers.txt | tail -1 | awk -F: '{print $2}' | tr -d ' \\r' || true)"
+          missing="$(python3 -c 'from pathlib import Path; lines=Path("headers.txt").read_text().splitlines(); print(next((s.partition(":")[2].strip() for s in reversed(lines) if s.lower().startswith("x-lead-bridge-missing:")), "unknown"))')"
           echo "DB bridge configured: ${bridge:-unknown}; missing: ${missing:-unknown} (GET HTTP ${status})"
           if [[ "$bridge" != 'yes' ]]; then
             echo '::error::Cloudflare Pages Sheets bridge secrets are missing (no) or the new backend is not deployed (unknown). Configure SHEETS_WEB_APP_URL and SHEETS_INGEST_TOKEN.'
