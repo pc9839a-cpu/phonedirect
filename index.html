@@ -150,35 +150,39 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .section{padding:60px 22px 67px;scroll-margin-top:20px}.sec-eyebrow{margin:0 0 11px;color:var(--blue);letter-spacing:.35px;font-weight:800;font-size:13px}.sec-title{margin:0;color:#14233b;font-size:34px;line-height:1.26;letter-spacing:-1.25px;font-weight:900}.sec-desc{margin:14px 0 0;font-size:16px;color:#617083;line-height:1.65}
 
 
-/* PhoneDirect six-step purchase guide v2 — PNG sprite, centered 2×3 layout */
-.purchase-journey{padding:57px 18px 65px;background:#fff;color:#11243c;text-align:center;scroll-margin-top:20px}
-.journey-heading{max-width:680px;margin:0 auto 30px;text-align:center}
-.journey-heading h2{margin:0 auto;color:#142841;font-size:clamp(28px,7.7vw,36px);font-weight:950;line-height:1.3;letter-spacing:-1.45px;word-break:keep-all}
-.journey-heading h2 strong{color:#1769f5;font-weight:950}
-.journey-heading::after{content:"";display:block;width:50px;height:3px;margin:19px auto 0;border-radius:50px;background:#1769f5}
-.journey-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:690px;margin:0 auto;padding:0;list-style:none}
-.journey-step{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-width:0;min-height:249px;margin:0;padding:21px 11px 23px;border:1px solid #e4eaf3;border-radius:19px;background:#f8faff;box-shadow:0 7px 20px rgba(24,54,99,.055);text-align:center}
-.journey-step:last-child{background:#edf5ff;border-color:#bcd6ff}
-.journey-step-label{display:block;width:100%;margin:0 auto 2px;color:#1769f5;font-size:12px;line-height:1.3;letter-spacing:.04em;font-weight:950;text-align:center}
-.journey-icon{display:block;flex:none;width:112px;height:112px;max-width:100%;margin:1px auto 9px;border:0;background:transparent url('/assets/phonedirect-steps-sprite-20261113.png') no-repeat 0 0;background-size:300% 200%;image-rendering:auto}
-.journey-icon-1{background-position:0% 0%}
-.journey-icon-2{background-position:50% 0%}
-.journey-icon-3{background-position:100% 0%}
-.journey-icon-4{background-position:0% 100%}
-.journey-icon-5{background-position:50% 100%}
-.journey-icon-6{background-position:100% 100%}
-.journey-step-copy{width:100%;min-width:0;margin:0;padding:0;text-align:center}
-.journey-step-copy h3{margin:0 auto;color:#14263e;font-size:18px;line-height:1.42;font-weight:950;letter-spacing:-.5px;word-break:keep-all}
-.journey-step-copy p{max-width:315px;margin:8px auto 0;color:#5c6b7f;font-size:13px;line-height:1.58;letter-spacing:-.15px;word-break:keep-all}
-@media(max-width:359px){
-.purchase-journey{padding:48px 13px 54px}
-.journey-list{gap:9px}
-.journey-step{padding:18px 8px 19px;min-height:241px;border-radius:15px}
-.journey-icon{width:94px;height:94px;margin-top:5px;margin-bottom:10px}
-.journey-step-copy h3{font-size:16px}
-.journey-step-copy p{font-size:12px}
-.journey-heading h2{font-size:27px}
+/* PhoneDirect purchase guide — single style owner; desktop 3×2, mobile 1 column */
+.purchase-journey{padding:72px 26px 82px;background:#f7f9fc;text-align:center;scroll-margin-top:18px}
+.journey-heading{max-width:800px;margin:0 auto 38px;text-align:center}
+.journey-eyebrow{margin:0 0 11px;color:#1769f5;font-size:11px;font-weight:850;letter-spacing:.16em;line-height:1.4}
+.journey-heading h2{margin:0;color:#18263a;font-size:clamp(28px,4.3vw,39px);font-weight:900;line-height:1.25;letter-spacing:-1.6px;word-break:keep-all}
+.journey-heading h2 strong{color:#1769f5;font-weight:920}
+.journey-intro{margin:12px 0 0;color:#627187;font-size:15px;line-height:1.65;letter-spacing:-.2px}
+.journey-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;width:100%;max-width:1080px;margin:0 auto;padding:0;list-style:none}
+.journey-step{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-width:0;min-height:252px;margin:0;padding:25px 16px 24px;border:1px solid #e3e9f1;border-radius:21px;background:#fff;box-shadow:0 8px 24px rgba(26,48,81,.065);text-align:center;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.journey-step-label{display:block;flex:none;margin:0;color:#728196;font-size:12px;font-weight:800;line-height:1.4;letter-spacing:.095em}
+.journey-icon{display:flex;align-items:center;justify-content:center;flex:none;width:78px;height:76px;margin:12px auto 10px;color:#17283d}
+.journey-icon svg{display:block;width:68px;height:68px;overflow:visible;fill:none;stroke:currentColor;stroke-width:2.35;stroke-linecap:round;stroke-linejoin:round}
+.journey-step-copy{width:100%;min-width:0;text-align:center}
+.journey-step-copy h3{margin:0;color:#15253c;font-size:21px;line-height:1.3;font-weight:860;letter-spacing:-.65px;word-break:keep-all}
+.journey-step-copy p{margin:9px auto 0;max-width:270px;color:#5c697d;font-size:13.5px;line-height:1.65;letter-spacing:-.16px;word-break:keep-all}
+@media(hover:hover) and (pointer:fine){.journey-step:hover{transform:translateY(-3px);border-color:#cbdcf5;box-shadow:0 14px 28px rgba(26,48,81,.095)}}
+@media(min-width:768px) and (max-width:949px){.journey-list{grid-template-columns:repeat(2,minmax(0,1fr))}.journey-step{min-height:230px}}
+@media(max-width:767px){
+ .purchase-journey{padding:57px 17px 65px}
+ .journey-heading{margin-bottom:26px}
+ .journey-heading h2{font-size:clamp(26px,6.5vw,32px);line-height:1.3;letter-spacing:-1.25px}
+ .journey-intro{font-size:13.5px;margin-top:10px}
+ .journey-list{grid-template-columns:minmax(0,1fr);gap:11px}
+ .journey-step{display:grid;grid-template-columns:74px minmax(0,1fr);grid-template-rows:auto 1fr;column-gap:14px;align-items:center;min-height:122px;padding:19px 17px;border-radius:18px;text-align:left}
+ .journey-step-label{grid-column:2;grid-row:1;align-self:end;margin:0 0 3px;font-size:10.5px}
+ .journey-icon{grid-column:1;grid-row:1 / span 2;width:72px;height:74px;margin:0}
+ .journey-icon svg{width:62px;height:62px}
+ .journey-step-copy{grid-column:2;grid-row:2;align-self:start;text-align:left}
+ .journey-step-copy h3{font-size:18px;line-height:1.36;letter-spacing:-.5px}
+ .journey-step-copy p{max-width:none;margin:4px 0 0;font-size:13px;line-height:1.58}
 }
+@media(max-width:359px){.purchase-journey{padding-left:13px;padding-right:13px}.journey-step{grid-template-columns:64px minmax(0,1fr);column-gap:10px;padding:15px 12px}.journey-icon{width:64px;height:68px}.journey-icon svg{width:57px;height:57px}.journey-step-copy h3{font-size:17px}.journey-step-copy p{font-size:12.5px}}
+@media(prefers-reduced-motion:reduce){.journey-step{transition:none}}
 
 /* Phone number: compact 3-part field, one line even on 320px screens */
 .phone-parts{display:grid;grid-template-columns:minmax(72px,.92fr) 10px minmax(0,1fr) 10px minmax(0,1fr);align-items:center;gap:7px;width:100%;min-width:0}
@@ -339,15 +343,44 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 </section>
 <div class="divider"></div>
 <section class="purchase-journey" id="steps" aria-labelledby="journey-title">
-<div class="journey-heading"><h2 id="journey-title"><strong>폰다이렉트</strong> 구매절차 가이드</h2></div>
-<ol class="journey-list">
-<li class="journey-step"><span class="journey-step-label">STEP1</span><span class="journey-icon journey-icon-1" aria-hidden="true"></span><div class="journey-step-copy"><h3>상담후 신청</h3><p>온라인 또는 전화상담을 통해 상담해 보고 나서 신청하기</p></div></li>
-<li class="journey-step"><span class="journey-step-label">STEP2</span><span class="journey-icon journey-icon-2" aria-hidden="true"></span><div class="journey-step-copy"><h3>신청서 작성</h3><p>1차상담원이 안내 및 공식 신청서 URL 발송</p></div></li>
-<li class="journey-step"><span class="journey-step-label">STEP3</span><span class="journey-icon journey-icon-3" aria-hidden="true"></span><div class="journey-step-copy"><h3>단말기 발송</h3><p>물류 창고에서 택배사를통해 기기를 발송</p></div></li>
-<li class="journey-step"><span class="journey-step-label">STEP4</span><span class="journey-icon journey-icon-4" aria-hidden="true"></span><div class="journey-step-copy"><h3>단말기 개통</h3><p>단말기 수령 후에 지정 상담사에게 연락하기</p></div></li>
-<li class="journey-step"><span class="journey-step-label">STEP5</span><span class="journey-icon journey-icon-5" aria-hidden="true"></span><div class="journey-step-copy"><h3>정보백업하기</h3><p>개통 완료 후 기존 핸드폰 정보 이동 완료하기</p></div></li>
-<li class="journey-step"><span class="journey-step-label">STEP6</span><span class="journey-icon journey-icon-6" aria-hidden="true"></span><div class="journey-step-copy"><h3>선물받기</h3><p>구매후기 작성 후 푸짐한 사은품 받기</p></div></li>
-</ol></section><div class="divider"></div>
+  <div class="journey-heading">
+    <p class="journey-eyebrow">PURCHASE PROCESS</p>
+    <h2 id="journey-title"><strong>폰다이렉트</strong> 구매절차 가이드</h2>
+    <p class="journey-intro">상담 신청부터 사은품 수령까지, 6단계로 확인하세요.</p>
+  </div>
+  <ol class="journey-list">
+    <li class="journey-step">
+      <span class="journey-step-label">STEP 01</span>
+      <span class="journey-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M17 28v-6a15 15 0 0 1 30 0v6"/><rect x="13" y="26" width="7" height="14" rx="3"/><rect x="44" y="26" width="7" height="14" rx="3"/><path d="M22 25c0-8 4-12 10-12s10 4 10 12v8c0 8-5 13-10 13s-10-5-10-13z"/><path d="M25 28c3 2 5 2 7 0 3-2 6-2 9-1"/><path d="M44 39c-2 4-6 6-12 6"/><path d="M17 56v-3c0-5 6-8 15-8s15 3 15 8v3"/><path d="M28 48l4 5 4-5"/></svg></span>
+      <div class="journey-step-copy"><h3>상담후 신청</h3><p>온라인 또는 전화상담을 통해 상담해 보고 나서 신청하기</p></div>
+    </li>
+    <li class="journey-step">
+      <span class="journey-step-label">STEP 02</span>
+      <span class="journey-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="15" y="12" width="34" height="45" rx="5"/><path d="M26 12V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/><path d="m23 25 3 3 5-6M35 25h7M23 37l3 3 5-6M35 37h7M23 49l3 3 5-6M35 49h7"/></svg></span>
+      <div class="journey-step-copy"><h3>신청서 작성</h3><p>1차상담원이 안내 및 공식 신청서 URL 발송</p></div>
+    </li>
+    <li class="journey-step">
+      <span class="journey-step-label">STEP 03</span>
+      <span class="journey-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="m10 19 22-11 22 11v28L32 58 10 47z"/><path d="m10 19 22 11 22-11M32 30v28M22 13l22 11v12M40 15 18 26"/></svg></span>
+      <div class="journey-step-copy"><h3>단말기 발송</h3><p>물류 창고에서 택배사를통해 기기를 발송</p></div>
+    </li>
+    <li class="journey-step">
+      <span class="journey-step-label">STEP 04</span>
+      <span class="journey-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="14" y="5" width="32" height="48" rx="6"/><path d="M24 11h12M27 47h6"/><path d="m35 30 7 6 4-2 7 8-1 6-7 5-11-11-4-5c-2-3-2-7 1-8 2-1 3 0 4 1z" fill="#fff"/><path d="m47 18 3-3M50 24h5M40 16v-5"/></svg></span>
+      <div class="journey-step-copy"><h3>단말기 개통</h3><p>단말기 수령 후에 지정 상담사에게 연락하기</p></div>
+    </li>
+    <li class="journey-step">
+      <span class="journey-step-label">STEP 05</span>
+      <span class="journey-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="7" y="24" width="14" height="26" rx="3"/><path d="M13 45h2M17 19c7-10 22-13 32-3l4 4M46 10l7 10-11 2"/><rect x="43" y="14" width="14" height="26" rx="3"/><path d="M49 35h2M47 45c-8 10-23 12-33 3l-4-4M18 55l-8-11 11-2"/></svg></span>
+      <div class="journey-step-copy"><h3>정보백업하기</h3><p>개통 완료 후 기존 핸드폰 정보 이동 완료하기</p></div>
+    </li>
+    <li class="journey-step">
+      <span class="journey-step-label">STEP 06</span>
+      <span class="journey-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M8 27h48v12H8zM13 39h38v18H13zM32 27v30"/><path d="M32 27c-3-8-16-12-17-5-1 5 8 7 17 5zM32 27c3-8 16-12 17-5 1 5-8 7-17 5z"/></svg></span>
+      <div class="journey-step-copy"><h3>선물받기</h3><p>구매후기 작성 후 푸짐한 사은품 받기</p></div>
+    </li>
+  </ol>
+</section><div class="divider"></div>
 <section class="section form-section" id="consult"><div class="form-header"><p class="sec-eyebrow">FREE CONSULTATION</p><h2 class="sec-title">원하는 갤럭시,<br>구매 조건 상담받기.</h2><p class="sec-desc">아래 4개 항목만 입력하면 됩니다.</p></div><form class="form-panel" id="leadForm" novalidate>
 <div class="field"><label class="field-label" for="name"><span class="field-icon"><svg aria-hidden="true" focusable="false" class="ui-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>고객 성함 <span class="required">*</span></label><input id="name" name="name" autocomplete="name" placeholder="성함을 입력해 주세요" maxlength="30" required></div>
 <div class="field"><label class="field-label" for="phonePrefix"><span class="field-icon"><svg aria-hidden="true" focusable="false" class="ui-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.5 19.5 0 0 1-8.6-3 19 19 0 0 1-5.8-5.8 19.5 19.5 0 0 1-3-8.6A2 2 0 0 1 4.4 2h3a2 2 0 0 1 2 1.7l.4 2.6a2 2 0 0 1-.6 1.7L7.5 9.7a16 16 0 0 0 6.8 6.8l1.7-1.7a2 2 0 0 1 1.7-.6l2.6.4A2 2 0 0 1 22 16.9Z"/></svg></span>전화번호 <span class="required">*</span></label><div class="phone-parts" role="group" aria-label="전화번호 입력">
