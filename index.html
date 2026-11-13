@@ -132,8 +132,8 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 }
 
 /* Contract awareness campaign — source-owned */
-.contract-alert{padding:0 16px 72px;background:#f2f6fd;color:#142741;overflow:hidden;scroll-margin-top:20px}
-.contract-head{position:relative;isolation:isolate;margin:0 -16px;padding:65px 16px 38px;background:#0b1e3d;color:#fff;text-align:center;overflow:hidden}
+.contract-alert{padding:0 18px 76px;background:#0b1e3d;color:#fff;overflow:hidden;scroll-margin-top:20px}
+.contract-head{position:relative;isolation:isolate;max-width:var(--content-width);margin:0 auto;padding:65px 0 0;background:transparent;color:#fff;text-align:center;overflow:hidden}
 .contract-head::before{content:"";position:absolute;z-index:-1;inset:-110px -120px auto;height:440px;background:radial-gradient(ellipse at center,rgba(38,110,241,.37),transparent 69%);pointer-events:none}
 
 .contract-head h2{max-width:750px;margin:0 auto;line-height:1.18;letter-spacing:-1.5px;word-break:keep-all}
@@ -141,17 +141,17 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .contract-head h2 strong{display:block;color:#fff;font-size:var(--type-section);font-weight:950;line-height:1.2;letter-spacing:-2px}
 .contract-head h2 em{color:#85b9ff;font-weight:950;font-style:normal}
 
-.contract-art{width:min(100%,880px);max-width:880px;margin:26px auto 0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;line-height:0;overflow:visible}
+.contract-art{width:min(100%,880px);max-width:880px;margin:25px auto 0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;line-height:0;overflow:visible}
 .contract-art img{display:block;width:100%;height:auto;margin:0 auto;object-fit:contain;animation:pdPosterEnter .82s both}
-.contract-banner{display:flex;align-items:center;justify-content:center;gap:10px;max-width:580px;margin:22px auto 0;padding:15px 13px;border:1px solid rgba(255,173,191,.4);border-radius:13px;background:rgba(229,56,85,.17);text-align:center;color:#fff}
+.contract-banner{display:flex;align-items:center;justify-content:center;gap:10px;max-width:760px;margin:6px auto 0;padding:17px 15px;border:1px solid rgba(255,173,191,.4);border-radius:13px;background:rgba(229,56,85,.17);text-align:center;color:#fff}
 .contract-banner-icon{display:grid;place-items:center;flex:none;width:28px;height:28px;border-radius:9px;background:#f14157;color:#fff;font-size:20px;font-weight:950;line-height:1}
 .contract-banner strong{font-size:clamp(13px,3.5vw,17px);font-weight:890;line-height:1.52;color:#fff}
 .contract-banner em{color:#ffb5bf;font-style:normal;font-weight:950}
 
-.contract-list{display:grid;grid-template-columns:minmax(0,1fr);gap:13px;max-width:var(--content-width);margin:0 auto;padding:0;list-style:none;border:0;border-radius:0;background:none;overflow:visible;box-shadow:none}
-.contract-item{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;margin:0;padding:23px 17px 27px;border:1px solid #dfe9f7;border-radius:var(--radius-card);background:#fff;box-shadow:0 10px 24px rgba(22,57,108,.065);text-align:center;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s}
+.contract-list{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;max-width:var(--content-width);margin:19px auto 0;padding:0;list-style:none;border:0;border-radius:0;background:none;overflow:visible;box-shadow:none}
+.contract-item{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;margin:0;padding:25px 19px 29px;border:1px solid #dce8f7;border-radius:var(--radius-card);background:#fff;box-shadow:0 12px 27px rgba(0,7,29,.2);text-align:center;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s}
 .contract-item::before{content:"";position:absolute;top:0;left:23%;right:23%;height:3px;background:#6da8ff;border-radius:0 0 8px 8px}
-.contract-item:last-child{border-bottom:1px solid #dfe9f7}
+.contract-item:last-child{border-bottom:1px solid #dce8f7}
 .contract-index{display:block;order:0;width:auto;height:auto;margin:0 0 3px;padding:0;color:#1769f5;font-size:12px;line-height:1.3;font-weight:950;letter-spacing:.16em}
 .contract-illustration{display:block;order:1;flex:none;width:86px;height:86px;max-width:100%;margin:0 auto 10px;object-fit:contain;filter:drop-shadow(0 7px 10px rgba(15,57,130,.07))}
 .contract-copy{display:block;order:2;align-self:auto;width:100%;min-width:0;margin:0;padding:0;text-align:center}
@@ -159,18 +159,23 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .contract-copy h3 em{color:#1769f5;font-style:normal;font-weight:960}
 .contract-copy p{max-width:630px;margin:9px auto 0;color:#5f6f86;font-size:var(--type-body);line-height:1.72;letter-spacing:-.13px;word-break:keep-all}
 .contract-item-2 .contract-copy h3 em,.contract-item-3 .contract-copy h3 em,.contract-item-5 .contract-copy h3 em{color:#cb354b}
-.contract-item-4{border-color:#9fc4ff;background:#eef5ff}
-.contract-item-4::before{background:#1769f5}
-.contract-signature{max-width:var(--content-width);margin:22px auto 0;padding:29px 17px 32px;border-radius:18px;background:#112d50;color:#fff;text-align:center}
+.contract-item-4{border-color:#8eb8f6;background:#fff}
+.contract-item-4::before{height:4px;background:#1769f5}
+.contract-signature{max-width:var(--content-width);margin:19px auto 0;padding:29px 17px 32px;border-radius:var(--radius-card);border:1px solid rgba(141,190,255,.32);background:#16375f;color:#fff;text-align:center}
 .contract-signature::before{content:"";display:block;width:43px;height:3px;margin:0 auto 15px;border-radius:4px;background:#8abaff}
 .contract-signature strong{display:block;color:#fff;font-size:clamp(22px,5.8vw,27px);font-weight:950;letter-spacing:-.8px}
 .contract-signature>span{display:block;margin:5px 0 0;color:#9bc7ff;font-size:15px;font-weight:910}
 .contract-signature p{max-width:630px;margin:13px auto 0;color:#cadbf0;font-size:14px;line-height:1.72}
 .contract-signature p em{color:#fff;font-style:normal;font-weight:930}
 @media(hover:hover) and (pointer:fine){.contract-item:hover{transform:translateY(-3px);border-color:#9dbff5;box-shadow:0 15px 30px rgba(26,67,134,.12)}}
-@media(min-width:768px){.contract-head{padding:84px 20px 51px}.contract-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.contract-item{min-height:274px}.contract-item:last-child{grid-column:1/-1}.contract-alert{padding-bottom:86px}}
-@media(max-width:359px){.contract-alert{padding-left:12px;padding-right:12px;padding-bottom:55px}.contract-head{margin:0 -12px;padding:54px 12px 31px}.contract-item{padding:20px 12px 23px}.contract-illustration{width:75px;height:75px}.contract-copy h3{font-size:15.5px}.contract-copy p{font-size:12.5px}}
+@media(min-width:720px){.contract-head{padding:83px 0 0}.contract-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}.contract-item{min-height:295px;padding:28px 22px 30px}.contract-item-5{grid-column:1/-1;min-height:239px}.contract-item-5 .contract-copy{max-width:850px}.contract-item-5 .contract-copy h3{max-width:850px}.contract-alert{padding-bottom:88px}}
+@media(max-width:359px){.contract-alert{padding:0 12px 65px}.contract-head{padding:54px 0 0}.contract-item{padding:20px 12px 24px}.contract-illustration{width:75px;height:75px}.contract-copy h3{font-size:var(--type-card)}.contract-copy p{font-size:var(--type-body)}}
 @keyframes pdPosterEnter{from{opacity:.5;transform:translateY(20px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+.contract-item-5{background:#fff;border-color:#dce8f7}
+.contract-item-5::before{height:4px;background:#1769f5}
+.contract-apply{display:flex;align-items:center;justify-content:center;width:min(100%,380px);min-height:58px;margin:22px auto 0;padding:11px 18px;border:1px solid rgba(255,255,255,.35);border-radius:13px;background:#1769f5;box-shadow:0 12px 26px rgba(0,8,32,.24);color:#fff;font-size:19px;line-height:1.35;letter-spacing:-.3px;font-weight:950;text-align:center;transition:background-color .2s,transform .2s}
+.contract-apply:hover{background:#0755dc}.contract-apply:active{transform:scale(.985)}
+.fixed-cta.is-contract-action-visible{opacity:0;pointer-events:none}
 .section{padding:60px 22px 67px;scroll-margin-top:20px}.sec-eyebrow{margin:0 0 11px;color:var(--blue);letter-spacing:.35px;font-weight:800;font-size:13px}.sec-title{margin:0;color:#14233b;font-size:34px;line-height:1.26;letter-spacing:-1.25px;font-weight:900}.sec-desc{margin:14px 0 0;font-size:16px;color:#617083;line-height:1.65}
 
 /* Six-step visual journey — large PNG sprites, centered responsive cards */
@@ -400,6 +405,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 </li>
   </ol>
   <div class="contract-signature"><strong>폰다이렉트</strong><span>기기값은 직접 할인!</span><p>정확한 정보 확인이, 여러분의 <em>소중한 휴대폰</em>을 지키는 <em>첫걸음</em>입니다.</p></div>
+  <a class="contract-apply" href="#consult">신청하기</a>
 </section>
 <div class="divider"></div>
 <section class="purchase-journey" id="steps" aria-labelledby="journey-title">
@@ -603,6 +609,17 @@ if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-moti
     item.classList.add('ad-reveal');
     revealObserver.observe(item);
   });
+}
+
+
+// Hide the persistent CTA only while the dedicated contract CTA is visible.
+const contractApply=document.querySelector('.contract-apply');
+const fixedCTA=document.querySelector('.fixed-cta');
+if(contractApply && fixedCTA && 'IntersectionObserver' in window){
+  const actionObserver=new IntersectionObserver(entries=>{
+    fixedCTA.classList.toggle('is-contract-action-visible',entries.some(entry=>entry.isIntersecting));
+  },{threshold:.35});
+  actionObserver.observe(contractApply);
 }
 
 })();
