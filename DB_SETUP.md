@@ -20,4 +20,4 @@
 
 ## 민감정보 없는 환경변수 확인
 
-`curl -I https://phonedirect.pages.dev/api/lead` 실행 시 **204**이면 운영 Cloudflare의 두 환경변수가 설정된 상태입니다. **503**이면 비밀변수 누락(또는 잘못된 운영환경), **405**이면 새 HEAD 검사 라우트가 아직 배포되지 않은 상태입니다. 204만으로 Apps Script 배포·시트 쓰기까지 성공했다고 간주하지 않습니다. 실제 접수 확인은 본인 동의 번호 1건으로 별도 검증해야 합니다.
+`GET https://phonedirect.pages.dev/api/lead`은 항상 HTTP 405로 응답합니다. 응답 헤더 `X-Lead-Bridge-Configured: yes`는 Cloudflare 운영 환경에 두 비밀변수가 모두 설정됐음을 뜻합니다. `no`는 누락 상태입니다. 이 검사는 키 값이나 고객 정보를 노출하지 않습니다. `yes`만으로 Apps Script 실제 배포·시트 쓰기 성공이라고 간주하지 마세요. 신청 1건의 실제 저장 검증이 별도로 필요합니다.

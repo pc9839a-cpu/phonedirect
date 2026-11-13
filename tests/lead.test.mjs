@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { runInNewContext } from 'node:vm';
-import { onRequestGet, onRequestHead, onRequestPost } from '../functions/api/lead.js';
+import { onRequestGet, onRequestPost } from '../functions/api/lead.js';
 
 const receipt='test-receipt-1234567890';
 const lead={ name:'Test Customer',phone:'01012345678',carrier:'SK',model:'s26',consent:true,receipt,source:'/',referrer:'',utm_source:'',utm_campaign:'' };
@@ -13,13 +13,11 @@ const makeRequest=(body,headers={})=>new Request('https://phonedirect.pages.dev/
 });
 const call=(body,vars=env,headers={})=>onRequestPost({request:makeRequest(body,headers),env:vars});
 
-test('HEAD readiness checks secrets without sending lead information',()=>{
-  assert.equal(onRequestHead({env:{}}).status,503);
-  assert.equal(onRequestHead({env}).status,204);
-});
 test('GET does not submit a lead',async()=>{
-  const response=await onRequestGet();
+  const response=await onRequestGet({env});
   assert.equal(response.status,405);
+  assert.equal(response.headers.get('X-Lead-Bridge-Configured'),'yes');
+  assert.equal((await onRequestGet({env:{}})).headers.get('X-Lead-Bridge-Configured'),'no');
   assert.equal((await response.json()).ok,false);
 });
 test('rejects malformed records and missing consent',async()=>{

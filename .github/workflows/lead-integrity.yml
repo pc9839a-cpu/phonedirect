@@ -45,18 +45,20 @@ jobs:
               payload=json.load(f)
           assert payload.get('ok') is False, payload
           PY
-      - name: Verify production secret wiring without sending customer data
+      - name: Verify Cloudflare bridge secrets (no customer data submitted)
         shell: bash
         run: |
           set -euo pipefail
           status='000'
+          bridge=''
           for i in 1 2 3 4 5; do
-            status="$(curl --retry 1 --max-time 15 -sS -I -o /dev/null -w '%{http_code}' 'https://phonedirect.pages.dev/api/lead')"
-            if [[ "$status" != '405' ]]; then break; fi
+            status="$(curl --retry 1 --max-time 15 -sS -L -D headers.txt -o response.json -w '%{http_code}' 'https://phonedirect.pages.dev/api/lead')"
+            bridge="$(grep -i '^x-lead-bridge-configured:' headers.txt | tail -1 | tr -d '\\r' | awk '{print $2}' || true)"
+            if [[ -n "$bridge" ]]; then break; fi
             sleep 5
           done
-          echo "HEAD https://phonedirect.pages.dev/api/lead => HTTP ${status}"
-          if [[ "$status" != '204' ]]; then
-            echo '::error::Google Sheets bridge secrets are not configured (503) or the readiness route is not deployed. Configure SHEETS_WEB_APP_URL and SHEETS_INGEST_TOKEN on Cloudflare Pages.'
+          echo "DB bridge configured: ${bridge:-unknown} (GET HTTP ${status})"
+          if [[ "$bridge" != 'yes' ]]; then
+            echo '::error::Cloudflare Pages Sheets bridge secrets are missing (no) or the new backend is not deployed (unknown). Configure SHEETS_WEB_APP_URL and SHEETS_INGEST_TOKEN.'
             exit 1
           fi
