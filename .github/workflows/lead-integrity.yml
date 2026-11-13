@@ -45,3 +45,18 @@ jobs:
               payload=json.load(f)
           assert payload.get('ok') is False, payload
           PY
+      - name: Verify production secret wiring without sending customer data
+        shell: bash
+        run: |
+          set -euo pipefail
+          status='000'
+          for i in 1 2 3 4 5; do
+            status="$(curl --retry 1 --max-time 15 -sS -I -o /dev/null -w '%{http_code}' 'https://phonedirect.pages.dev/api/lead')"
+            if [[ "$status" != '405' ]]; then break; fi
+            sleep 5
+          done
+          echo "HEAD https://phonedirect.pages.dev/api/lead => HTTP ${status}"
+          if [[ "$status" != '204' ]]; then
+            echo '::error::Google Sheets bridge secrets are not configured (503) or the readiness route is not deployed. Configure SHEETS_WEB_APP_URL and SHEETS_INGEST_TOKEN on Cloudflare Pages.'
+            exit 1
+          fi

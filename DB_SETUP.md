@@ -17,3 +17,7 @@
    같은 접수ID는 중복 저장되지 않습니다. 오류/시간초과 때는 성공 안내를 표시하지 않습니다.
 
 저장소의 index.html, assets 폴더는 기존과 동일한 웹 루트에 배포해야 합니다. functions/api/lead.js 는 프로젝트 루트의 Functions 경로이고 public/functions 경로가 아닙니다.
+
+## 민감정보 없는 환경변수 확인
+
+`curl -I https://phonedirect.pages.dev/api/lead` 실행 시 **204**이면 운영 Cloudflare의 두 환경변수가 설정된 상태입니다. **503**이면 비밀변수 누락(또는 잘못된 운영환경), **405**이면 새 HEAD 검사 라우트가 아직 배포되지 않은 상태입니다. 204만으로 Apps Script 배포·시트 쓰기까지 성공했다고 간주하지 않습니다. 실제 접수 확인은 본인 동의 번호 1건으로 별도 검증해야 합니다.

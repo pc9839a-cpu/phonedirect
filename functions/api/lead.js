@@ -5,6 +5,12 @@ const str=(v,max=200)=>typeof v==='string'?v.trim().slice(0,max):'';
 const phones=/^01[016789]\d{8}$/;
 const carriers={SK:'SKT',KT:'KT',LG:'LG U+'};
 const models={s26:'S26',plus:'S26+',ultra:'S26 Ultra',flip:'Flip8',fold:'Fold8'};
+// Non-mutating readiness check: only signals whether the two required secrets exist.
+// No token, endpoint URL or customer data is returned.
+export function onRequestHead({env}){
+  const configured=Boolean(env?.SHEETS_WEB_APP_URL&&env?.SHEETS_INGEST_TOKEN);
+  return new Response(null,{status:configured?204:503,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
+}
 export async function onRequestGet(){return json(405,{ok:false,message:'POST 요청만 지원합니다.'})}
 export async function onRequestPost({request,env}){
   const host=new URL(request.url);
