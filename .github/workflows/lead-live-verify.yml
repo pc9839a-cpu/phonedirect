@@ -1,0 +1,31 @@
+name: PhoneDirect temporary live DB verification
+
+on:
+  push:
+    paths:
+      - '.github/workflows/lead-live-verify.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send synthetic record and check verified save response
+        shell: bash
+        run: |
+          set -euo pipefail
+          export RECEIPT="pd-live-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          payload="$(printf '{"name":"DB연동테스트_삭제가능","phone":"01000000000","carrier":"KT","model":"s26","consent":true,"receipt":"%s","source":"internal-verification","utm_source":"ci","utm_campaign":"db-integration-test"}' "$RECEIPT")"
+          status="$(curl --max-time 35 --silent --show-error --output result.json --write-out '%{http_code}' --request POST 'https://phonedirect.pages.dev/api/lead' --header 'Content-Type: application/json' --header 'Origin: https://phonedirect.pages.dev' --data "$payload")"
+          echo "Synthetic DB request HTTP: ${status}"
+          STATUS="$status" python3 - <<'PY'
+          import os,json
+          with open('result.json',encoding='utf-8') as f:
+              data=json.load(f)
+          print('DB response:', {k:data.get(k) for k in ['ok','receipt','error_code','message'] if k in data})
+          if os.environ['STATUS']!='200' or data.get('ok') is not True or data.get('receipt')!=os.environ['RECEIPT']:
+              raise SystemExit('End-to-end DB verification failed')
+          print('End-to-end saved receipt verified')
+          PY
