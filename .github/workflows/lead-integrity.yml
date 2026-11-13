@@ -70,7 +70,7 @@ jobs:
       - name: Verify Google Apps Script deployment (GET only)
         shell: bash
         env:
-          WEB_APP_URL: 'https://script.google.com/macros/s/AKfycbx67LTmh1wAejnGvmBA3m6i4Myrk2HuSJVJW8QYcC_VFEDBOW_AWix_iZ7z0Cz9L5pPqA/exec'
+          WEB_APP_URL: 'https://script.google.com/macros/s/AKfycbxazF_2GoLRzRt8ySITkcwS5ZFXXq-FpLYlkuZdvx68JpKoo4lLhHyw4QPvdkYxDK40sA/exec'
         run: |
           set -euo pipefail
           status="$(curl --retry 2 --max-time 25 --location --silent --show-error --output web-app.json --write-out '%{http_code}' "$WEB_APP_URL")"

@@ -61,7 +61,7 @@ test('uses the verified deployed Apps Script URL when the optional URL variable 
   });
   const response=await call(lead,{SHEETS_INGEST_TOKEN:'test-only-secret'});
   assert.equal(response.status,200);
-  assert.equal(target,'https://script.google.com/macros/s/AKfycbx67LTmh1wAejnGvmBA3m6i4Myrk2HuSJVJW8QYcC_VFEDBOW_AWix_iZ7z0Cz9L5pPqA/exec');
+  assert.equal(target,'https://script.google.com/macros/s/AKfycbxazF_2GoLRzRt8ySITkcwS5ZFXXq-FpLYlkuZdvx68JpKoo4lLhHyw4QPvdkYxDK40sA/exec');
 });
 test('does not show success if Google Apps Script cannot confirm receipt',async t=>{
   t.mock.method(globalThis,'fetch',async()=>new Response(JSON.stringify({ok:true,receipt:'mismatch'}),{status:200}));
