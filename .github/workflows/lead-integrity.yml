@@ -1,0 +1,47 @@
+name: PhoneDirect lead integration check
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'functions/api/lead.js'
+      - 'google-apps-script/Code.gs'
+      - 'tests/lead.test.mjs'
+      - '.github/workflows/lead-integrity.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Verify Cloudflare and Apps Script validation
+        run: node --test tests/lead.test.mjs
+
+  production-api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify deployed Cloudflare Function exists (does not send customer data)
+        shell: bash
+        run: |
+          set -euo pipefail
+          status="$(curl --retry 2 --max-time 20 -sS -L -o response.json -w '%{http_code}' 'https://phonedirect.pages.dev/api/lead')"
+          echo "GET https://phonedirect.pages.dev/api/lead => HTTP ${status}"
+          head -c 500 response.json
+          echo
+          if [[ "$status" != '405' ]]; then
+            echo '::error::Pages Function not reachable as expected. Check Pages deployment and function routes.'
+            exit 1
+          fi
+          python3 - <<'PY'
+          import json
+          with open('response.json',encoding='utf-8') as f:
+              payload=json.load(f)
+          assert payload.get('ok') is False, payload
+          PY
