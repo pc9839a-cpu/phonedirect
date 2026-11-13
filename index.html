@@ -243,12 +243,12 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .contract-item,
 .contract-item:last-child{
   display:grid;
-  grid-template-columns:76px minmax(0,1fr);
-  align-items:start;
-  gap:clamp(20px,3vw,42px);
+  grid-template-columns:96px minmax(0,1fr);
+  align-items:center;
+  gap:clamp(22px,3vw,38px);
   min-height:0;
   margin:0;
-  padding:clamp(34px,4.6vw,60px) 0;
+  padding:clamp(30px,4vw,48px) 0;
   border:0;
   border-bottom:1px solid rgba(210,228,255,.17);
   border-radius:0;
@@ -262,18 +262,17 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .contract-item::before,
 .contract-item-4::before,
 .contract-item-5::before{content:none}
-.contract-index{
+.contract-illustration{
   display:block;
   grid-column:1;
-  align-self:start;
+  align-self:center;
+  justify-self:center;
+  width:88px;
+  height:88px;
   margin:0;
-  padding:4px 0 0;
-  color:var(--contract-accent);
-  font-size:clamp(32px,4.3vw,53px);
-  line-height:1;
-  font-weight:800;
-  letter-spacing:-.055em;
-  font-variant-numeric:tabular-nums;
+  object-fit:contain;
+  /* Keep the original custom icons while enforcing a single blue accent. */
+  filter:grayscale(1) brightness(0) saturate(100%) invert(69%) sepia(44%) saturate(1023%) hue-rotate(183deg) brightness(104%) contrast(101%);
 }
 .contract-copy{
   display:block;
@@ -287,10 +286,10 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   max-width:760px;
   margin:0;
   color:#fff;
-  font-size:clamp(23px,2.7vw,31px);
+  font-size:clamp(21px,2.45vw,27px);
   line-height:1.46;
   letter-spacing:-.045em;
-  font-weight:830;
+  font-weight:800;
   word-break:keep-all;
 }
 .contract-copy h3 em,
@@ -322,57 +321,34 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   text-align:center;
 }
 .contract-signature::before{content:none}
-.contract-signature strong{
-  display:block;
-  margin:0;
+.contract-signature-heading{
+  display:flex;
+  align-items:baseline;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:4px 9px;
   color:#fff;
-  font-size:clamp(26px,3vw,37px);
-  font-weight:870;
-  line-height:1.3;
-  letter-spacing:-.045em;
-}
-.contract-signature>span{
-  display:block;
-  margin:8px 0 0;
-  color:var(--contract-accent);
-  font-size:clamp(20px,2.2vw,26px);
-  font-weight:830;
+  font-size:clamp(21px,2.5vw,27px);
+  font-weight:840;
   line-height:1.45;
+  letter-spacing:-.035em;
+  word-break:keep-all;
 }
+.contract-signature-heading strong{font:inherit;color:#fff}
+.contract-signature-heading span{font:inherit;color:var(--contract-accent)}
 .contract-signature p{
   max-width:640px;
-  margin:16px auto 0;
+  margin:11px auto 0;
   color:#bac9df;
-  font-size:clamp(15px,1.55vw,18px);
+  font-size:clamp(15px,1.55vw,17px);
   line-height:1.75;
+  word-break:keep-all;
 }
 .contract-signature p em{
   color:#f5f8ff;
   font-style:normal;
   font-weight:760;
 }
-.contract-apply{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:min(100%,380px);
-  min-height:58px;
-  margin:28px auto 0;
-  padding:12px 20px;
-  border:0;
-  border-radius:10px;
-  background:#1769f5;
-  box-shadow:none;
-  color:#fff;
-  font-size:18px;
-  font-weight:850;
-  letter-spacing:-.035em;
-  text-align:center;
-  transition:background-color .18s ease;
-}
-.contract-apply:hover{background:#0858d7}
-.contract-apply:focus-visible{outline:3px solid #fff;outline-offset:3px}
-.fixed-cta.is-contract-action-visible{opacity:0;pointer-events:none}
 @media(max-width:640px){
   .contract-head{padding-top:53px}
   .contract-head h2 strong{font-size:clamp(32px,8.4vw,43px)}
@@ -381,16 +357,17 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   .contract-banner strong{font-size:16px}
   .contract-item,
   .contract-item:last-child{
-    grid-template-columns:minmax(0,1fr);
-    gap:13px;
-    padding:32px 0 35px;
+    grid-template-columns:66px minmax(0,1fr);
+    align-items:center;
+    gap:14px;
+    padding:27px 0 30px;
   }
-  .contract-index{grid-column:1;font-size:35px;padding:0}
-  .contract-copy{grid-column:1}
-  .contract-copy h3{font-size:clamp(21px,5.7vw,26px);line-height:1.46}
-  .contract-copy p{margin-top:12px;font-size:15px;line-height:1.7}
-  .contract-signature{padding-top:45px}
-  .contract-apply{min-height:55px}
+  .contract-illustration{width:62px;height:62px}
+  .contract-copy{grid-column:2}
+  .contract-copy h3{font-size:clamp(18px,4.8vw,21px);line-height:1.47}
+  .contract-copy p{margin-top:11px;font-size:14px;line-height:1.7}
+  .contract-signature{padding-top:42px}
+  .contract-signature-heading{font-size:clamp(20px,5.4vw,24px)}
 }
 .section{padding:60px 22px 67px;scroll-margin-top:20px}.sec-eyebrow{margin:0 0 11px;color:var(--blue);letter-spacing:.35px;font-weight:800;font-size:13px}.sec-title{margin:0;color:#14233b;font-size:34px;line-height:1.26;letter-spacing:-1.25px;font-weight:900}.sec-desc{margin:14px 0 0;font-size:16px;color:#617083;line-height:1.65}
 
@@ -623,23 +600,22 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   
   <ol class="contract-list">
 <li class="contract-item contract-item-1">
-    <span class="contract-index">01</span><div class="contract-copy"><h3>선택약정은 고객님의 요금에서 <em>25%를 할인</em>해주는 <em>통신사 할인</em>입니다.</h3><p>즉, 기기값을 깎아주는 할인이 아니라 매달 내는 요금에서 25%를 할인해주는 제도입니다.</p></div>
+    <img class="contract-illustration" src="/assets/icons/phonedirect_contract_25pct.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="contract-copy"><h3>선택약정은 고객님의 요금에서 <em>25%를 할인</em>해주는 <em>통신사 할인</em>입니다.</h3><p>즉, 기기값을 깎아주는 할인이 아니라 매달 내는 요금에서 25%를 할인해주는 제도입니다.</p></div>
 </li>
 <li class="contract-item contract-item-2">
-    <span class="contract-index">02</span><div class="contract-copy"><h3>4개월 뒤 요금제를 하향하면 <em>할인율은 낮아집니다.</em></h3><p>선택약정은 요금제에 따라 할인율이 달라질 수 있으며, 4개월 후 요금제를 낮추면 25% 할인율도 줄어듭니다. 따라서 ‘처음엔 공짜처럼 보였던 혜택’이 사라질 수 있습니다.</p></div>
+    <img class="contract-illustration" src="/assets/icons/phonedirect_four_months.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="contract-copy"><h3>4개월 뒤 요금제를 하향하면 <em>할인율은 낮아집니다.</em></h3><p>선택약정은 요금제에 따라 할인율이 달라질 수 있으며, 4개월 후 요금제를 낮추면 25% 할인율도 줄어듭니다. 따라서 ‘처음엔 공짜처럼 보였던 혜택’이 사라질 수 있습니다.</p></div>
 </li>
 <li class="contract-item contract-item-3">
-    <span class="contract-index">03</span><div class="contract-copy"><h3>기기값 할인을 가장한 <em>영업행위는 불법</em>입니다.</h3><p>이러한 기기값을 할인해 주는 것처럼 속여 판매하는 행위는 방송통신위원회에서 지정한 불법·비정상 영업행위입니다.</p></div>
+    <img class="contract-illustration" src="/assets/icons/phonedirect_no_extra_cost.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="contract-copy"><h3>기기값 할인을 가장한 <em>영업행위는 불법</em>입니다.</h3><p>이러한 기기값을 할인해 주는 것처럼 속여 판매하는 행위는 방송통신위원회에서 지정한 불법·비정상 영업행위입니다.</p></div>
 </li>
 <li class="contract-item contract-item-4">
-    <span class="contract-index">04</span><div class="contract-copy"><h3>폰다이렉트는 <em>기기값을 직접 할인</em>해주는 업체로 개통 후 고객센터를 통해 <em>할부원금</em>을 확인해 보세요.</h3></div>
+    <img class="contract-illustration" src="/assets/icons/phonedirect_phone_contact.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="contract-copy"><h3>폰다이렉트는 <em>기기값을 직접 할인</em>해주는 업체로 개통 후 고객센터를 통해 <em>할부원금</em>을 확인해 보세요.</h3></div>
 </li>
 <li class="contract-item contract-item-5">
-    <span class="contract-index">05</span><div class="contract-copy"><h3>현 4개월 이후 요금제변경하는곳들은 <em>14일이후 개통취소가 불가능</em>해져 그에따른 부담은 고스란히 <em>고객님의 몫</em>이됩니다.</h3></div>
+    <img class="contract-illustration" src="/assets/icons/phonedirect_14day_cancel.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="contract-copy"><h3>현 4개월 이후 요금제변경하는곳들은 <em>14일이후 개통취소가 불가능</em>해져 그에따른 부담은 고스란히 <em>고객님의 몫</em>이됩니다.</h3></div>
 </li>
   </ol>
-  <div class="contract-signature"><strong>폰다이렉트</strong><span>기기값은 직접 할인!</span><p>정확한 정보 확인이, 여러분의 <em>소중한 휴대폰</em>을 지키는 <em>첫걸음</em>입니다.</p></div>
-  <a class="contract-apply" href="#consult">신청하기</a>
+  <div class="contract-signature"><div class="contract-signature-heading"><strong>폰다이렉트</strong><span>기기값은 직접 할인!</span></div><p>정확한 정보 확인이, 여러분의 <em>소중한 휴대폰</em>을 지키는 <em>첫걸음</em>입니다.</p></div>
 </section>
 <div class="divider"></div>
 <section class="purchase-journey" id="steps" aria-labelledby="journey-title">
@@ -847,15 +823,6 @@ if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-moti
 }
 
 
-// Hide the persistent CTA only while the dedicated contract CTA is visible.
-const contractApply=document.querySelector('.contract-apply');
-const fixedCTA=document.querySelector('.fixed-cta');
-if(contractApply && fixedCTA && 'IntersectionObserver' in window){
-  const actionObserver=new IntersectionObserver(entries=>{
-    fixedCTA.classList.toggle('is-contract-action-visible',entries.some(entry=>entry.isIntersecting));
-  },{threshold:.35});
-  actionObserver.observe(contractApply);
-}
 
 })();
 </script>
