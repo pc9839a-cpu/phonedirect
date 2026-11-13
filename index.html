@@ -108,65 +108,77 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
  .price-sheet .offer-result b{font-size:17px}
  .price-sheet .offer-warning{font-size:10px}
 }
-/* Contract disclosure: centered editorial typography and a single structured panel */
-.contract-alert{position:relative;padding:0 18px 58px;background:#f6f8fc;color:#13263e;text-align:center;scroll-margin-top:18px;overflow:hidden}
-.contract-head{position:relative;margin:0 -18px 25px;padding:58px 18px 30px;background:#101f35;text-align:center;color:#fff;overflow:hidden}
-.contract-head::before{content:"";position:absolute;width:280px;height:280px;right:-175px;top:-180px;border:1px solid rgba(157,191,243,.14);border-radius:50%;pointer-events:none}
-.contract-head::after{content:"";display:block;width:42px;height:3px;margin:25px auto 0;border-radius:99px;background:#6da8ff}
-.contract-head h2{position:relative;margin:0 auto;max-width:680px;color:#fff;line-height:1.18}
-.contract-head h2 span{display:block;margin:0 0 9px;color:#cbd8ed;font-size:clamp(17px,4.7vw,21px);line-height:1.5;letter-spacing:-.8px;font-weight:770}
-.contract-head h2 strong{display:block;color:#fff;font-size:clamp(36px,9vw,46px);font-weight:950;line-height:1.15;letter-spacing:-2.2px}
-.contract-head h2 em{font-style:normal;color:#80b5ff;font-weight:950}
-.contract-banner{position:relative;display:flex;align-items:center;justify-content:center;gap:10px;max-width:640px;margin:24px auto 0;padding:14px 12px;border:1px solid rgba(255,151,162,.4);border-radius:12px;background:rgba(227,66,83,.16);color:#fff;text-align:center}
-.contract-banner-icon{display:grid;place-items:center;flex:none;width:27px;height:27px;border-radius:8px;background:#df4357;color:#fff;font-size:20px;font-weight:950;line-height:1}
-.contract-banner strong{font-size:clamp(13px,3.7vw,17px);font-weight:870;line-height:1.48;letter-spacing:-.48px}
-.contract-banner em{color:#ffbec7;font-style:normal;font-weight:950}
-.contract-list{display:block;max-width:720px;margin:0 auto;padding:0;list-style:none;background:#fff;border:1px solid #dfe8f2;border-radius:18px;overflow:hidden;box-shadow:0 12px 30px rgba(20,51,97,.055)}
-.contract-item,.contract-item:nth-child(2),.contract-item:nth-child(3),.contract-item:nth-child(4),.contract-item:nth-child(5){display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;padding:29px 22px 30px;background:#fff;border:0;border-bottom:1px solid #e8eef6;border-radius:0;box-shadow:none;text-align:center}
-.contract-item:last-child{border-bottom:0}
-.contract-index{position:static;display:block;order:0;width:auto;height:auto;overflow:visible;clip:auto;margin:0 auto 11px;color:#1769f5;font-size:25px;line-height:1.12;font-weight:940;letter-spacing:-1px;font-variant-numeric:tabular-nums}
-.contract-icon{order:1;display:grid;place-items:center;width:47px;height:47px;margin:0 auto 14px;border:1px solid #dceafc;border-radius:14px;background:#edf4ff;color:#1769f5}
-.contract-icon .ui-icon{width:25px;height:25px;stroke-width:1.8}
-.contract-copy{order:2;width:100%;min-width:0;padding:0;text-align:center}
-.contract-copy h3{max-width:580px;margin:0 auto;color:#162c47;font-size:17px;font-weight:890;line-height:1.52;letter-spacing:-.48px;word-break:keep-all}
-.contract-copy h3 em{color:#1769f5;font-weight:950;font-style:normal}
-.contract-copy p{max-width:590px;margin:10px auto 0;color:#61718a;font-size:14px;line-height:1.68;letter-spacing:-.17px;word-break:keep-all}
-.contract-item-2 .contract-icon,.contract-item-3 .contract-icon,.contract-item-5 .contract-icon{color:#c73545;background:#fff1f1;border-color:#f9dce0}
-.contract-item-2 .contract-copy h3 em,.contract-item-3 .contract-copy h3 em,.contract-item-5 .contract-copy h3 em{color:#c73545}
-.contract-signature{max-width:650px;margin:29px auto 0;padding:0;text-align:center}
-.contract-signature strong{display:block;color:#142741;font-size:23px;font-weight:950;letter-spacing:-1px}
-.contract-signature>span{display:block;margin:4px auto 0;color:#1769f5;font-size:14px;font-weight:850}
-.contract-signature p{margin:13px auto 0;color:#62728a;font-size:14px;line-height:1.7;letter-spacing:-.15px}
-.contract-signature p em{color:#1157d5;font-style:normal;font-weight:900}
-@media(max-width:359px){.contract-alert{padding-left:14px;padding-right:14px}.contract-head{margin-left:-14px;margin-right:-14px;padding-left:13px;padding-right:13px}.contract-item,.contract-item:nth-child(2),.contract-item:nth-child(3),.contract-item:nth-child(4),.contract-item:nth-child(5){padding:26px 14px}.contract-copy h3{font-size:16px}.contract-copy p{font-size:13px}}
+
+/* PhoneDirect contract notice v2 — component-owned editorial layout */
+.contract-alert{position:relative;isolation:isolate;overflow:hidden;padding:0 18px 57px;background:#f5f7fb;color:#142741;text-align:center;scroll-margin-top:20px}
+.contract-head{position:relative;isolation:isolate;margin:0 -18px 20px;padding:58px 20px 30px;background:#101a2a;color:#fff;text-align:center;overflow:hidden}
+.contract-head::before{content:"";position:absolute;z-index:-1;width:310px;height:310px;top:-248px;left:50%;transform:translateX(-50%);border-radius:50%;border:1px solid rgba(130,176,255,.22);box-shadow:0 0 0 58px rgba(85,130,211,.045);pointer-events:none}
+.contract-head h2{position:relative;max-width:680px;margin:0 auto;text-align:center;letter-spacing:-1.3px;line-height:1.2}
+.contract-head h2 span{display:block;margin:0 0 12px;color:#c5d4ea;font-size:clamp(17px,4.6vw,22px);font-weight:780;line-height:1.45;letter-spacing:-.8px}
+.contract-head h2 strong{display:block;color:#fff;font-size:clamp(36px,10.4vw,50px);font-weight:950;line-height:1.12;letter-spacing:-2.2px;word-break:keep-all}
+.contract-head h2 em{color:#83b7ff;font-style:normal;font-weight:950}
+.contract-banner{display:flex;align-items:center;justify-content:center;gap:10px;max-width:680px;margin:27px auto 0;padding:15px 13px;border:1px solid rgba(255,120,139,.38);border-radius:12px;background:rgba(197,41,62,.21);color:#fff;text-align:center}
+.contract-banner-icon{display:grid;place-items:center;width:27px;height:27px;flex:none;border-radius:9px;background:#ed4157;color:#fff;font-size:20px;line-height:1;font-weight:950}
+.contract-banner strong{color:#fff;font-size:clamp(13px,3.6vw,16px);line-height:1.5;letter-spacing:-.6px;font-weight:850}
+.contract-banner em{color:#ffb3bd;font-style:normal;font-weight:950}
+.contract-list{display:grid;gap:12px;max-width:690px;margin:0 auto;padding:0;list-style:none}
+.contract-item{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;gap:0;padding:21px 19px 24px;border:1px solid #e2e8f1;border-radius:17px;background:#fff;box-shadow:0 9px 23px rgba(29,57,98,.045);text-align:center}
+.contract-index{position:static;display:block;order:0;width:auto;height:auto;margin:0 auto 2px;overflow:visible;clip:auto;color:#1968ed;font-size:12px;line-height:1.3;font-weight:950;letter-spacing:.16em;font-variant-numeric:tabular-nums}
+.contract-illustration{display:block;order:1;width:90px;height:90px;margin:0 auto 10px;object-fit:contain;max-width:100%;flex:none}
+.contract-copy{order:2;min-width:0;width:100%;margin:0 auto;padding:0;text-align:center}
+.contract-copy h3{max-width:565px;margin:0 auto;color:#16263e;font-size:18px;font-weight:900;line-height:1.5;letter-spacing:-.55px;word-break:keep-all}
+.contract-copy h3 em{font-style:normal;color:#1463e5;font-weight:950}
+.contract-copy p{max-width:565px;margin:9px auto 0;color:#5a6980;font-size:14px;line-height:1.74;letter-spacing:-.18px;word-break:keep-all}
+.contract-item-2 .contract-copy h3 em,.contract-item-3 .contract-copy h3 em,.contract-item-5 .contract-copy h3 em{color:#d12d42}
+.contract-item-4{border-color:#a8cafa;background:#f4f8ff;box-shadow:0 10px 27px rgba(23,105,245,.075)}
+.contract-item-4 .contract-index{color:#1259d8}
+.contract-signature{position:relative;max-width:690px;margin:20px auto 0;padding:27px 18px 29px;border-radius:16px;background:#152841;color:#fff;text-align:center}
+.contract-signature::before{content:"";display:block;width:36px;height:3px;margin:0 auto 13px;border-radius:10px;background:#67a1ff}
+.contract-signature strong{display:block;margin:0 auto;color:#fff;font-size:22px;line-height:1.3;letter-spacing:-.9px;font-weight:930}
+.contract-signature>span{display:block;margin:5px auto 0;color:#8dbaff;font-size:15px;line-height:1.5;font-weight:900}
+.contract-signature p{max-width:560px;margin:12px auto 0;color:#d2dfef;font-size:14px;line-height:1.7;letter-spacing:-.2px}
+.contract-signature p em{color:#fff;font-style:normal;font-weight:900}
+@media(max-width:359px){
+.contract-alert{padding-left:14px;padding-right:14px;padding-bottom:45px}
+.contract-head{margin-left:-14px;margin-right:-14px;padding-left:15px;padding-right:15px}
+.contract-item{padding:19px 13px 22px}
+.contract-copy h3{font-size:16px}
+.contract-copy p{font-size:13px}
+.contract-illustration{width:82px;height:82px}
+}
 
 .section{padding:60px 22px 67px;scroll-margin-top:20px}.sec-eyebrow{margin:0 0 11px;color:var(--blue);letter-spacing:.35px;font-weight:800;font-size:13px}.sec-title{margin:0;color:#14233b;font-size:34px;line-height:1.26;letter-spacing:-1.25px;font-weight:900}.sec-desc{margin:14px 0 0;font-size:16px;color:#617083;line-height:1.65}
 
-/* Purchase guide: centered steps, editorial whitespace, understated connector line */
-.purchase-journey{padding:61px 18px 69px;background:#fff;text-align:center;scroll-margin-top:18px}
-.journey-heading{max-width:700px;margin:0 auto 31px;text-align:center}
-.journey-heading h2{margin:0 auto;color:#132943;font-size:clamp(28px,7.6vw,36px);font-weight:940;line-height:1.32;letter-spacing:-1.45px;word-break:keep-all}
-.journey-heading h2 strong{color:#1769f5;font-weight:950}
-.journey-heading::after{content:"";display:block;width:44px;height:3px;margin:17px auto 0;background:#1769f5;border-radius:99px}
-.journey-list{position:relative;display:grid;gap:0;max-width:680px;margin:0 auto;padding:0;list-style:none}
-.journey-step{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;min-width:0;margin:0 0 13px;padding:25px 18px 27px;border:1px solid #e1e9f3;border-radius:16px;background:#f8fafd;box-shadow:none;text-align:center}
-.journey-step:last-child{margin-bottom:0;border-color:#bcd6ff;background:#eff5ff}
-.journey-step:not(:last-child)::after{content:"";position:absolute;left:calc(50% - 1px);top:100%;width:2px;height:14px;background:#cddcf0}
 
-.journey-icon{display:block;flex:none;width:92px;height:92px;margin:0 auto 11px;border:0;border-radius:0;background-image:url('/assets/phonedirect-steps-sprite-20261113.png');background-repeat:no-repeat;background-size:300% 200%;background-position:0 0;image-rendering:auto}
+/* PhoneDirect six-step purchase guide v2 — PNG sprite, centered 2×3 layout */
+.purchase-journey{padding:57px 18px 65px;background:#fff;color:#11243c;text-align:center;scroll-margin-top:20px}
+.journey-heading{max-width:680px;margin:0 auto 30px;text-align:center}
+.journey-heading h2{margin:0 auto;color:#142841;font-size:clamp(28px,7.7vw,36px);font-weight:950;line-height:1.3;letter-spacing:-1.45px;word-break:keep-all}
+.journey-heading h2 strong{color:#1769f5;font-weight:950}
+.journey-heading::after{content:"";display:block;width:50px;height:3px;margin:19px auto 0;border-radius:50px;background:#1769f5}
+.journey-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:690px;margin:0 auto;padding:0;list-style:none}
+.journey-step{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-width:0;min-height:249px;margin:0;padding:21px 11px 23px;border:1px solid #e4eaf3;border-radius:19px;background:#f8faff;box-shadow:0 7px 20px rgba(24,54,99,.055);text-align:center}
+.journey-step:last-child{background:#edf5ff;border-color:#bcd6ff}
+.journey-step-label{display:block;width:100%;margin:0 auto 2px;color:#1769f5;font-size:12px;line-height:1.3;letter-spacing:.04em;font-weight:950;text-align:center}
+.journey-icon{display:block;flex:none;width:112px;height:112px;max-width:100%;margin:1px auto 9px;border:0;background:transparent url('/assets/phonedirect-steps-sprite-20261113.png') no-repeat 0 0;background-size:300% 200%;image-rendering:auto}
 .journey-icon-1{background-position:0% 0%}
 .journey-icon-2{background-position:50% 0%}
 .journey-icon-3{background-position:100% 0%}
 .journey-icon-4{background-position:0% 100%}
 .journey-icon-5{background-position:50% 100%}
 .journey-icon-6{background-position:100% 100%}
-
-
-.journey-step-copy{width:100%;min-width:0;text-align:center}
-.journey-step-label{display:block;margin:0 auto 5px;color:#1769f5;font-size:11px;font-weight:930;line-height:1.3;letter-spacing:.09em}
-.journey-step-copy h3{margin:0 auto;color:#182d48;font-size:20px;line-height:1.42;font-weight:910;letter-spacing:-.55px}
-.journey-step-copy p{max-width:560px;margin:7px auto 0;color:#61738c;font-size:14px;line-height:1.7;letter-spacing:-.12px;word-break:keep-all}
-@media(max-width:359px){.purchase-journey{padding-left:14px;padding-right:14px}.journey-step{padding:24px 13px}.journey-step-copy h3{font-size:18px}.journey-step-copy p{font-size:13px}}
+.journey-step-copy{width:100%;min-width:0;margin:0;padding:0;text-align:center}
+.journey-step-copy h3{margin:0 auto;color:#14263e;font-size:18px;line-height:1.42;font-weight:950;letter-spacing:-.5px;word-break:keep-all}
+.journey-step-copy p{max-width:315px;margin:8px auto 0;color:#5c6b7f;font-size:13px;line-height:1.58;letter-spacing:-.15px;word-break:keep-all}
+@media(max-width:359px){
+.purchase-journey{padding:48px 13px 54px}
+.journey-list{gap:9px}
+.journey-step{padding:18px 8px 19px;min-height:241px;border-radius:15px}
+.journey-icon{width:94px;height:94px;margin-top:5px;margin-bottom:10px}
+.journey-step-copy h3{font-size:16px}
+.journey-step-copy p{font-size:12px}
+.journey-heading h2{font-size:27px}
+}
 
 /* Phone number: compact 3-part field, one line even on 320px screens */
 .phone-parts{display:grid;grid-template-columns:minmax(72px,.92fr) 10px minmax(0,1fr) 10px minmax(0,1fr);align-items:center;gap:7px;width:100%;min-width:0}
@@ -179,15 +191,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 @media(max-width:359px){.phone-parts{grid-template-columns:minmax(66px,.9fr) 8px minmax(0,1fr) 8px minmax(0,1fr);gap:5px}.phone-parts>select{padding-left:10px;padding-right:22px;background-position:right 7px center}.phone-parts>input:not([type="hidden"]){padding:0 2px;font-size:15px}.phone-parts>input::placeholder{font-size:11px}}
 
 
-/* One unified mobile purchase-card layout; original copy unchanged */
-.journey-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.journey-step{min-height:212px;margin:0;padding:19px 10px 20px;gap:0;border-radius:15px;justify-content:flex-start}
-.journey-step:not(:last-child)::after{content:none}
-.journey-step-copy h3{font-size:17px;line-height:1.4;letter-spacing:-.4px}
-.journey-step-copy p{font-size:12.5px;line-height:1.6;letter-spacing:-.15px}
-.journey-step-label{font-size:11px;margin-bottom:5px}
-@media(max-width:329px){.journey-list{grid-template-columns:1fr}.journey-step{min-height:0;padding:20px 15px}.journey-step-copy h3{font-size:18px}.journey-step-copy p{font-size:13px}}
-@media(min-width:430px){.journey-step{padding:23px 15px 25px;min-height:225px}.journey-icon{width:100px;height:100px}.journey-step-copy h3{font-size:19px}.journey-step-copy p{font-size:13px}}
+
 /* Four-field lead form: larger tap targets and labels */
 .form-section{background:#fff;padding:62px 22px 88px}.form-header{margin:0 0 32px;text-align:center}.form-panel{display:grid;gap:23px;margin:0;padding:0;border:0;background:transparent}.field{min-width:0;display:block}.field-label{display:flex;gap:7px;align-items:center;margin:0 0 11px;color:#26354a;font-size:17px;line-height:1.4;letter-spacing:-.25px;font-weight:820}.field-icon{display:inline-flex;align-items:center;justify-content:center;color:#2979ee}.field-icon .ui-icon{width:17px;height:17px}.required{color:#e34850}
 .field>input{appearance:none;display:block;width:100%;min-height:57px;border:1px solid #d8e2ee;border-radius:12px;outline:none;background:#f9fbff;color:#192a43;padding:0 17px;font-size:16px;box-shadow:none;transition:border-color .18s,box-shadow .18s}.field>input::placeholder{font-size:15px;color:#939fb0}.field>input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(23,105,245,.12);background:#fff}.options,.options.model-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.option{position:relative;display:block;min-width:0;cursor:pointer}.option input{position:absolute;opacity:0;width:1px;height:1px;inset:0;margin:0}.option span{display:flex;align-items:center;justify-content:center;width:100%;min-height:54px;padding:9px 4px;border:1px solid #d9e3ef;border-radius:11px;background:#f9fbff;color:#3f5067;font-size:15px;font-weight:790;letter-spacing:-.35px;text-align:center;transition:background-color .15s,color .15s,border-color .15s}.option input:checked+span{border-color:var(--blue);background:#1769f5;color:#fff;box-shadow:0 3px 10px rgba(23,105,245,.17)}.option input:focus-visible+span{outline:3px solid #9ac3ff;outline-offset:2px}
@@ -316,19 +320,19 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   </div>
   <ol class="contract-list">
 <li class="contract-item contract-item-1">
-    <span class="contract-icon"><svg aria-hidden="true" focusable="false" class="ui-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m19 5-14 14"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span><span class="contract-index">01</span><div class="contract-copy"><h3>선택약정은 고객님의 요금에서 <em>25%를 할인</em>해주는 <em>통신사 할인</em>입니다.</h3><p>즉, 기기값을 깎아주는 할인이 아니라 매달 내는 요금에서 25%를 할인해주는 제도입니다.</p></div>
+    <img class="contract-illustration" src="/assets/icons/phonedirect_contract_25pct.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><span class="contract-index">01</span><div class="contract-copy"><h3>선택약정은 고객님의 요금에서 <em>25%를 할인</em>해주는 <em>통신사 할인</em>입니다.</h3><p>즉, 기기값을 깎아주는 할인이 아니라 매달 내는 요금에서 25%를 할인해주는 제도입니다.</p></div>
 </li>
 <li class="contract-item contract-item-2">
-    <span class="contract-icon"><svg aria-hidden="true" focusable="false" class="ui-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg></span><span class="contract-index">02</span><div class="contract-copy"><h3>4개월 뒤 요금제를 하향하면 <em>할인율은 낮아집니다.</em></h3><p>선택약정은 요금제에 따라 할인율이 달라질 수 있으며, 4개월 후 요금제를 낮추면 25% 할인율도 줄어듭니다. 따라서 ‘처음엔 공짜처럼 보였던 혜택’이 사라질 수 있습니다.</p></div>
+    <img class="contract-illustration" src="/assets/icons/phonedirect_four_months.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><span class="contract-index">02</span><div class="contract-copy"><h3>4개월 뒤 요금제를 하향하면 <em>할인율은 낮아집니다.</em></h3><p>선택약정은 요금제에 따라 할인율이 달라질 수 있으며, 4개월 후 요금제를 낮추면 25% 할인율도 줄어듭니다. 따라서 ‘처음엔 공짜처럼 보였던 혜택’이 사라질 수 있습니다.</p></div>
 </li>
 <li class="contract-item contract-item-3">
-    <span class="contract-icon"><svg aria-hidden="true" focusable="false" class="ui-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m10.3 3.9-8.2 14A2 2 0 0 0 3.8 21h16.4a2 2 0 0 0 1.7-3.1l-8.2-14a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg></span><span class="contract-index">03</span><div class="contract-copy"><h3>기기값 할인을 가장한 <em>영업행위는 불법</em>입니다.</h3><p>이러한 기기값을 할인해 주는 것처럼 속여 판매하는 행위는 방송통신위원회에서 지정한 불법·비정상 영업행위입니다.</p></div>
+    <img class="contract-illustration" src="/assets/icons/phonedirect_no_extra_cost.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><span class="contract-index">03</span><div class="contract-copy"><h3>기기값 할인을 가장한 <em>영업행위는 불법</em>입니다.</h3><p>이러한 기기값을 할인해 주는 것처럼 속여 판매하는 행위는 방송통신위원회에서 지정한 불법·비정상 영업행위입니다.</p></div>
 </li>
 <li class="contract-item contract-item-4">
-    <span class="contract-icon"><svg aria-hidden="true" focusable="false" class="ui-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="contract-index">04</span><div class="contract-copy"><h3>폰다이렉트는 <em>기기값을 직접 할인</em>해주는 업체로 개통 후 고객센터를 통해 <em>할부원금</em>을 확인해 보세요.</h3></div>
+    <img class="contract-illustration" src="/assets/icons/phonedirect_phone_contact.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><span class="contract-index">04</span><div class="contract-copy"><h3>폰다이렉트는 <em>기기값을 직접 할인</em>해주는 업체로 개통 후 고객센터를 통해 <em>할부원금</em>을 확인해 보세요.</h3></div>
 </li>
 <li class="contract-item contract-item-5">
-    <span class="contract-icon"><svg aria-hidden="true" focusable="false" class="ui-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18m6 5 4 4m0-4-4 4"/></svg></span><span class="contract-index">05</span><div class="contract-copy"><h3>현 4개월 이후 요금제변경하는곳들은 <em>14일이후 개통취소가 불가능</em>해져 그에따른 부담은 고스란히 <em>고객님의 몫</em>이됩니다.</h3></div>
+    <img class="contract-illustration" src="/assets/icons/phonedirect_14day_cancel.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><span class="contract-index">05</span><div class="contract-copy"><h3>현 4개월 이후 요금제변경하는곳들은 <em>14일이후 개통취소가 불가능</em>해져 그에따른 부담은 고스란히 <em>고객님의 몫</em>이됩니다.</h3></div>
 </li>
   </ol>
   <div class="contract-signature"><strong>폰다이렉트</strong><span>기기값은 직접 할인!</span><p>정확한 정보 확인이, 여러분의 <em>소중한 휴대폰</em>을 지키는 <em>첫걸음</em>입니다.</p></div>
@@ -337,12 +341,12 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 <section class="purchase-journey" id="steps" aria-labelledby="journey-title">
 <div class="journey-heading"><h2 id="journey-title"><strong>폰다이렉트</strong> 구매절차 가이드</h2></div>
 <ol class="journey-list">
-<li class="journey-step"><span class="journey-icon journey-icon-1" aria-hidden="true"></span><div class="journey-step-copy"><span class="journey-step-label">STEP1</span><h3>상담후 신청</h3><p>온라인 또는 전화상담을 통해 상담해 보고 나서 신청하기</p></div></li>
-<li class="journey-step"><span class="journey-icon journey-icon-2" aria-hidden="true"></span><div class="journey-step-copy"><span class="journey-step-label">STEP2</span><h3>신청서 작성</h3><p>1차상담원이 안내 및 공식 신청서 URL 발송</p></div></li>
-<li class="journey-step"><span class="journey-icon journey-icon-3" aria-hidden="true"></span><div class="journey-step-copy"><span class="journey-step-label">STEP3</span><h3>단말기 발송</h3><p>물류 창고에서 택배사를통해 기기를 발송</p></div></li>
-<li class="journey-step"><span class="journey-icon journey-icon-4" aria-hidden="true"></span><div class="journey-step-copy"><span class="journey-step-label">STEP4</span><h3>단말기 개통</h3><p>단말기 수령 후에 지정 상담사에게 연락하기</p></div></li>
-<li class="journey-step"><span class="journey-icon journey-icon-5" aria-hidden="true"></span><div class="journey-step-copy"><span class="journey-step-label">STEP5</span><h3>정보백업하기</h3><p>개통 완료 후 기존 핸드폰 정보 이동 완료하기</p></div></li>
-<li class="journey-step"><span class="journey-icon journey-icon-6" aria-hidden="true"></span><div class="journey-step-copy"><span class="journey-step-label">STEP6</span><h3>선물받기</h3><p>구매후기 작성 후 푸짐한 사은품 받기</p></div></li>
+<li class="journey-step"><span class="journey-step-label">STEP1</span><span class="journey-icon journey-icon-1" aria-hidden="true"></span><div class="journey-step-copy"><h3>상담후 신청</h3><p>온라인 또는 전화상담을 통해 상담해 보고 나서 신청하기</p></div></li>
+<li class="journey-step"><span class="journey-step-label">STEP2</span><span class="journey-icon journey-icon-2" aria-hidden="true"></span><div class="journey-step-copy"><h3>신청서 작성</h3><p>1차상담원이 안내 및 공식 신청서 URL 발송</p></div></li>
+<li class="journey-step"><span class="journey-step-label">STEP3</span><span class="journey-icon journey-icon-3" aria-hidden="true"></span><div class="journey-step-copy"><h3>단말기 발송</h3><p>물류 창고에서 택배사를통해 기기를 발송</p></div></li>
+<li class="journey-step"><span class="journey-step-label">STEP4</span><span class="journey-icon journey-icon-4" aria-hidden="true"></span><div class="journey-step-copy"><h3>단말기 개통</h3><p>단말기 수령 후에 지정 상담사에게 연락하기</p></div></li>
+<li class="journey-step"><span class="journey-step-label">STEP5</span><span class="journey-icon journey-icon-5" aria-hidden="true"></span><div class="journey-step-copy"><h3>정보백업하기</h3><p>개통 완료 후 기존 핸드폰 정보 이동 완료하기</p></div></li>
+<li class="journey-step"><span class="journey-step-label">STEP6</span><span class="journey-icon journey-icon-6" aria-hidden="true"></span><div class="journey-step-copy"><h3>선물받기</h3><p>구매후기 작성 후 푸짐한 사은품 받기</p></div></li>
 </ol></section><div class="divider"></div>
 <section class="section form-section" id="consult"><div class="form-header"><p class="sec-eyebrow">FREE CONSULTATION</p><h2 class="sec-title">원하는 갤럭시,<br>구매 조건 상담받기.</h2><p class="sec-desc">아래 4개 항목만 입력하면 됩니다.</p></div><form class="form-panel" id="leadForm" novalidate>
 <div class="field"><label class="field-label" for="name"><span class="field-icon"><svg aria-hidden="true" focusable="false" class="ui-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>고객 성함 <span class="required">*</span></label><input id="name" name="name" autocomplete="name" placeholder="성함을 입력해 주세요" maxlength="30" required></div>
