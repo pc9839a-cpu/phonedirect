@@ -6,7 +6,7 @@ const phones=/^01[016789]\d{8}$/;
 const carriers={SK:'SKT',KT:'KT',LG:'LG U+'};
 const models={s26:'S26',plus:'S26+',ultra:'S26 Ultra',flip:'Flip8',fold:'Fold8'};
 // Public Apps Script deployment URL. Only the INGEST_TOKEN is confidential.
-const DEFAULT_SHEETS_WEB_APP_URL='https://script.google.com/macros/s/AKfycbxfyfm31B2XgMv5GywGbS4iFN3P8BGfAYbw-GRaBijL73pF_-tIBKMKXaPjYLx1XwDgHw/exec';
+const DEFAULT_SHEETS_WEB_APP_URL='https://script.google.com/macros/s/AKfycbx67LTmh1wAejnGvmBA3m6i4Myrk2HuSJVJW8QYcC_VFEDBOW_AWix_iZ7z0Cz9L5pPqA/exec';
 const resolveWebAppUrl=env=>typeof env?.SHEETS_WEB_APP_URL==='string'&&env.SHEETS_WEB_APP_URL.trim()?env.SHEETS_WEB_APP_URL.trim():DEFAULT_SHEETS_WEB_APP_URL;
 // GET is never allowed to submit data. A non-sensitive header indicates only
 // whether both Cloudflare Pages secrets are present; it does not check Sheet writes.
