@@ -62,3 +62,22 @@ jobs:
             echo '::error::Cloudflare Pages Sheets bridge secrets are missing (no) or the new backend is not deployed (unknown). Configure SHEETS_WEB_APP_URL and SHEETS_INGEST_TOKEN.'
             exit 1
           fi
+
+  script-webapp-probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify Google Apps Script deployment (GET only)
+        shell: bash
+        env:
+          WEB_APP_URL: 'https://script.google.com/macros/s/AKfycbxfyfm31B2XgMv5GywGbS4iFN3P8BGfAYbw-GRaBijL73pF_-tIBKMKXaPjYLx1XwDgHw/exec'
+        run: |
+          set -euo pipefail
+          status="$(curl --retry 2 --max-time 25 --location --silent --show-error --output web-app.json --write-out '%{http_code}' "$WEB_APP_URL")"
+          echo "Apps Script GET HTTP status: $status"
+          STATUS="$status" python3 - <<'PY'
+          import json, os
+          with open('web-app.json',encoding='utf-8') as f:
+              data=json.load(f)
+          assert os.environ['STATUS']=='200' and data.get('code')=='method_not_allowed' and data.get('ok') is False, data
+          print('Apps Script deployment and doGet verified')
+          PY
