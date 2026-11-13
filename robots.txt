@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://phonedirect.pages.dev/sitemap.xml

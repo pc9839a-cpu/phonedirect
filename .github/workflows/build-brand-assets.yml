@@ -1,0 +1,50 @@
+name: Build PhoneDirect favicon and OG assets
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/build_brand_assets.py'
+      - '.github/workflows/build-brand-assets.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Install Korean font and Pillow
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends fonts-noto-cjk
+          python3 -m pip install --break-system-packages Pillow
+      - name: Generate and inspect social images
+        run: |
+          python3 scripts/build_brand_assets.py
+          python3 - <<'PY'
+          from PIL import Image
+          assert Image.open('assets/phonedirect-og.jpg').size == (1200,630)
+          assert Image.open('favicon-48.png').size == (48,48)
+          assert Image.open('apple-touch-icon.png').size == (180,180)
+          PY
+      - name: Commit only generated brand images
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/phonedirect-og.jpg favicon.ico favicon-48.png favicon-192.png favicon-512.png apple-touch-icon.png
+          if git diff --cached --quiet; then
+            echo "No binary image updates needed"
+            exit 0
+          fi
+          git commit -m "Generate PhoneDirect OG preview and favicon binaries"
+          for attempt in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          echo "Could not push generated assets" >&2
+          exit 1
