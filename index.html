@@ -10,7 +10,7 @@
 
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 /* PhoneDirect v10 — mobile-first smartphone retail, single style owner */
-:root{color-scheme:light;--blue:#1769f5;--blue-deep:#0c4bd5;--navy:#102844;--ink:#172b46;--muted:#5b7089;--line:#e2eaf5;--surface:#f0f5ff;--width:100%;--content-width:1100px;--type-section:clamp(28px,5.25vw,40px);--type-card:clamp(17px,2vw,20px);--type-body:clamp(14px,1.65vw,16px);--type-label:12px;--radius-card:18px;--section-padding:clamp(58px,6.5vw,84px)}
+:root{color-scheme:light;--blue:#1769f5;--blue-deep:#0c4bd5;--navy:#102844;--ink:#172b46;--muted:#5b7089;--line:#e2eaf5;--surface:#f0f5ff;--width:100%;--content-width:1100px;--type-section:clamp(28px,5.25vw,40px);--type-card:clamp(17px,2vw,20px);--type-body:clamp(14px,1.65vw,16px);--type-price-num:clamp(16px,2vw,19px);--type-label:12px;--radius-card:18px;--section-padding:clamp(58px,6.5vw,84px)}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:20px;-webkit-text-size-adjust:100%}
 body{margin:0;padding:0 0 calc(104px + env(safe-area-inset-bottom,0px));background:#fff;color:var(--ink);font-family:Pretendard,-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',sans-serif;line-height:1.55;word-break:keep-all;-webkit-font-smoothing:antialiased}
@@ -36,7 +36,6 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .sale-device-composite{position:relative;display:block;width:100%;height:auto;max-width:100%;margin:0;object-fit:contain;filter:drop-shadow(0 12px 13px rgba(13,39,91,.12));animation:pdPhoneFloat 7s ease-in-out infinite;transform-origin:center}
 
 @media(min-width:768px){
-.shell{max-width:none}
 .sale-hero{padding-top:66px}
 .sale-head{padding:0 34px}
 .sale-title .line{font-size:var(--type-section)}
@@ -68,7 +67,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 
 /* Device offers — premium price comparison cards, unchanged numbers */
 .divider{height:0;background:none}
-.price-sheet{position:relative;overflow:hidden;padding:65px 0 69px;background:#f0f5ff;scroll-margin-top:16px}
+.price-sheet{position:relative;overflow:hidden;padding:var(--section-padding) 0;background:#f0f5ff;scroll-margin-top:16px}
 .price-sheet::before{content:"";position:absolute;top:-145px;right:-210px;width:370px;height:370px;border-radius:50%;background:radial-gradient(circle,rgba(79,154,255,.16),transparent 65%);pointer-events:none}
 .offer-heading{position:relative;z-index:1;text-align:center;margin:0;padding:0 16px 30px}
 .offer-heading h2{display:block;margin:0;font-size:var(--type-section);font-weight:940;letter-spacing:-1.6px;color:#102745;line-height:1.22}
@@ -76,7 +75,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .offer-heading .section-icon .ui-icon{width:21px;height:21px}
 .offer-heading>span{display:block;margin:17px auto 0;width:54px;height:4px;border-radius:99px;background:#1769f5}
 .price-sheet .offer-list{position:relative;display:grid;grid-template-columns:minmax(0,1fr);width:100%;max-width:var(--content-width);gap:15px;margin:0 auto;padding:0 14px}
- .price-sheet .offer-card{position:relative;isolation:isolate;display:grid;grid-template-columns:110px minmax(0,1fr);align-items:center;gap:13px;min-width:0;min-height:215px;margin:0;padding:17px 14px;border:1px solid #dce7f5;border-radius:var(--radius-card);background:#fff;box-shadow:0 10px 26px rgba(19,48,100,.065);cursor:pointer;overflow:hidden;transition:border-color .25s,box-shadow .25s,transform .25s}
+.price-sheet .offer-card{position:relative;isolation:isolate;display:grid;grid-template-columns:110px minmax(0,1fr);align-items:center;gap:13px;min-width:0;min-height:215px;margin:0;padding:17px 14px;border:1px solid #dce7f5;border-radius:var(--radius-card);background:#fff;box-shadow:0 10px 26px rgba(19,48,100,.065);cursor:pointer;overflow:hidden;transition:border-color .25s,box-shadow .25s,transform .25s}
 .price-sheet .offer-card::before{content:"";position:absolute;z-index:1;top:0;left:18px;right:18px;height:3px;border-radius:0 0 8px 8px;background:#1769f5;transform:scaleX(0);transition:transform .28s;transform-origin:center}
 .price-sheet .offer-card.active{border-color:#5a9cff;box-shadow:0 0 0 1px rgba(35,109,245,.15),0 16px 32px rgba(28,85,193,.12)}
 .price-sheet .offer-card.active::before{transform:scaleX(1)}
@@ -87,8 +86,8 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .price-sheet .offer-product strong{display:block;max-width:100%;color:#192c47;font-size:var(--type-card);line-height:1.22;letter-spacing:-.6px;font-weight:920;text-align:center;word-break:keep-all}
 .price-sheet .offer-breakdown{min-width:0;display:flex;flex-direction:column;justify-content:center;font-variant-numeric:tabular-nums}
 .price-sheet .offer-line,.price-sheet .offer-result{display:flex;align-items:baseline;justify-content:space-between;gap:6px;min-width:0;margin:0;padding:9px 0;border:0;border-bottom:1px solid #e9eef7;background:transparent;border-radius:0}
-.price-sheet .offer-line span,.price-sheet .offer-result span{flex:none;color:#62728a;font-size:12.5px;font-weight:760;line-height:1.42;letter-spacing:-.25px;white-space:nowrap}
-.price-sheet .offer-line b,.price-sheet .offer-result b{flex:none;color:#1b2c46;font-size:15px;font-weight:870;line-height:1.4;letter-spacing:-.4px;white-space:nowrap}
+.price-sheet .offer-line span,.price-sheet .offer-result span{flex:none;color:#62728a;font-size:var(--type-body);font-weight:760;line-height:1.42;letter-spacing:-.25px;white-space:nowrap}
+.price-sheet .offer-line b,.price-sheet .offer-result b{flex:none;color:#1b2c46;font-size:var(--type-price-num);font-weight:870;line-height:1.4;letter-spacing:-.4px;white-space:nowrap}
 .price-sheet .offer-result{margin:8px -7px 0;padding:12px 7px;border:1px solid #cfdef9;border-radius:10px;background:#edf4ff}
 .price-sheet .offer-result span{color:#2c548b;font-weight:860}
 .price-sheet .offer-result b{color:#1064f0;font-size:21px;font-weight:950;letter-spacing:-.6px}
@@ -103,8 +102,8 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .price-sheet .offer-product img{height:217px;max-width:210px}
 .price-sheet .offer-product strong{font-size:var(--type-card)}
 .price-sheet .offer-line,.price-sheet .offer-result{padding:14px 0}
-.price-sheet .offer-line span,.price-sheet .offer-result span{font-size:17px}
-.price-sheet .offer-line b,.price-sheet .offer-result b{font-size:21px}
+.price-sheet .offer-line span,.price-sheet .offer-result span{font-size:var(--type-body)}
+.price-sheet .offer-line b,.price-sheet .offer-result b{font-size:var(--type-price-num)}
 .price-sheet .offer-result{padding:14px 13px;margin:12px -12px 0}
 .price-sheet .offer-result b{font-size:30px}
 .offer-review{font-size:13px}
@@ -113,8 +112,8 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .price-sheet .offer-card{grid-template-columns:150px minmax(0,1fr);gap:18px;padding:19px 21px}
 .price-sheet .offer-product img{height:175px;max-width:170px}
 .price-sheet .offer-product strong{font-size:var(--type-card)}
-.price-sheet .offer-line span,.price-sheet .offer-result span{font-size:14px}
-.price-sheet .offer-line b,.price-sheet .offer-result b{font-size:18px}
+.price-sheet .offer-line span,.price-sheet .offer-result span{font-size:var(--type-body)}
+.price-sheet .offer-line b,.price-sheet .offer-result b{font-size:var(--type-price-num)}
 .price-sheet .offer-result b{font-size:23px}
 }
 @media(max-width:359px){
@@ -126,8 +125,8 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .price-sheet .offer-product img{height:121px;max-width:97px}
 .price-sheet .offer-product strong{font-size:var(--type-card)}
 .price-sheet .offer-line,.price-sheet .offer-result{padding:8px 0}
-.price-sheet .offer-line span,.price-sheet .offer-result span{font-size:11.5px}
-.price-sheet .offer-line b,.price-sheet .offer-result b{font-size:13.5px}
+.price-sheet .offer-line span,.price-sheet .offer-result span{font-size:var(--type-body)}
+.price-sheet .offer-line b,.price-sheet .offer-result b{font-size:var(--type-price-num)}
 .price-sheet .offer-result{margin:6px -4px 0;padding:8px 4px}
 .price-sheet .offer-result b{font-size:17px}
 }
@@ -216,7 +215,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 
 .form-panel{display:grid;gap:20px;max-width:760px;margin:0 auto;padding:25px 20px 28px;border:1px solid rgba(255,255,255,.84);border-radius:var(--radius-card);background:#fff;box-shadow:0 25px 55px rgba(0,9,28,.29)}
 .field{min-width:0;display:block}
-.field-label{display:flex;align-items:center;gap:7px;margin:0 0 10px;color:#1d3351;font-size:16px;line-height:1.4;letter-spacing:-.25px;font-weight:870}
+.field-label{display:flex;align-items:center;gap:7px;margin:0 0 10px;color:#1d3351;font-size:var(--type-card);line-height:1.4;letter-spacing:-.25px;font-weight:870}
 .field-icon{display:inline-flex;align-items:center;justify-content:center;color:#1769f5}
 .field-icon .ui-icon{width:17px;height:17px}
 .required{color:#db4057}
@@ -266,7 +265,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .activity-row:last-child{border-bottom:0}
 .activity-person,.activity-ident,.activity-choice{display:flex;align-items:center;min-width:0;white-space:nowrap}
 .activity-person,.activity-ident{gap:11px}
-.activity-ident strong{color:#102944;font-size:16px;line-height:1.3;font-weight:930;letter-spacing:-.25px}
+.activity-ident strong{color:#102944;font-size:var(--type-card);line-height:1.3;font-weight:930;letter-spacing:-.25px}
 .activity-ident span{color:#6d809b;font-size:13px;line-height:1.3;font-weight:680;font-variant-numeric:tabular-nums}
 .activity-choice{justify-content:flex-end;gap:10px;text-align:right}
 .activity-carrier{display:inline-flex;align-items:center;justify-content:center;min-width:33px;min-height:24px;padding:2px 7px;border-radius:7px;background:#e6f0ff;color:#1164e7;font-size:11px;line-height:1.3;font-weight:930}
@@ -592,7 +591,7 @@ if(activityList && !window.matchMedia('(prefers-reduced-motion: reduce)').matche
 
 // Reveal only when scrolled into view; remain visible in reduced-motion or older browsers.
 if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-  const animated=qsa('.price-sheet .offer-card, .contract-subhead, .contract-item, .purchase-journey .journey-step, .form-header, .form-panel, .application-activity .activity-board, .activity-limit');
+  const animated=qsa('.price-sheet .offer-card, .contract-item, .purchase-journey .journey-step, .form-header, .form-panel, .application-activity .activity-board, .activity-limit');
   const revealObserver=new IntersectionObserver((entries,observer)=>{
     entries.forEach(({target,isIntersecting})=>{
       if(isIntersecting){target.classList.add('is-seen');observer.unobserve(target);}
