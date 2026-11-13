@@ -445,26 +445,20 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .footer strong{font-size:13px;color:#203654;font-weight:850}
 @media(max-width:359px){.form-section{padding:58px 11px 78px;padding-left:var(--page-gutter);padding-right:var(--page-gutter);}.form-panel{padding:20px 13px}.field-label{font-size:17px}.options,.options.model-options{gap:6px}.option span{font-size:12.5px;min-height:47px}}
 
-/* Fixed consultation CTA — animated electric-blue focus, one clear action */
+/* Fixed consultation CTA — large readable text, restrained spotlight animation */
 .fixed-cta{position:fixed;z-index:1000;left:50%;bottom:calc(10px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:min(calc(100% - 24px),458px);padding:0;border:0;background:transparent}
-.fixed-cta::before{content:"";position:absolute;inset:-5px;border-radius:21px;background:linear-gradient(110deg,rgba(0,100,255,.48),rgba(87,203,255,.85),rgba(36,104,255,.44));filter:blur(13px);opacity:.6;pointer-events:none;animation:pdCTAHalo 3.3s ease-in-out infinite}
-.fixed-cta a{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;gap:11px;width:100%;min-height:65px;padding:11px 20px;border:1px solid rgba(190,228,255,.85);border-radius:16px;background:linear-gradient(115deg,#0752df 0%,#176bff 24%,#3b9dff 46%,#0c62ef 69%,#0752df 100%);background-size:235% 100%;color:#fff;box-shadow:0 12px 29px rgba(0,71,205,.33),inset 0 1px 0 rgba(255,255,255,.35);overflow:hidden;font-size:19px;font-weight:950;letter-spacing:-.45px;transition:transform .2s ease,box-shadow .2s ease;animation:pdCTAFlow 5.5s ease-in-out infinite,pdCTAShadow 3.3s ease-in-out infinite}
-.fixed-cta a::before{content:"";position:absolute;z-index:0;top:-55%;left:-70%;width:39%;height:210%;transform:rotate(24deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.09) 17%,rgba(255,255,255,.66) 50%,rgba(255,255,255,.12) 80%,transparent);pointer-events:none;animation:pdCTASheen 4.1s ease-in-out infinite}
-.fixed-cta a::after{content:"";position:absolute;inset:2px;border:1px solid rgba(255,255,255,.25);border-radius:13px;pointer-events:none}
-.fixed-cta .cta-flare,.fixed-cta .cta-label,.fixed-cta .cta-arrow{position:relative;z-index:1;flex:none}
-.fixed-cta .cta-flare{color:#d4f4ff;font-size:20px;text-shadow:0 0 12px rgba(255,255,255,.8);animation:pdCTASpark 3.2s ease-in-out infinite}
-.fixed-cta .cta-label{text-shadow:0 2px 9px rgba(0,39,126,.28)}
-.fixed-cta .cta-arrow{width:21px;height:21px;animation:pdCTAArrow 1.9s ease-in-out infinite}
-.fixed-cta a:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(0,74,204,.44),inset 0 1px 0 rgba(255,255,255,.4)}
-.fixed-cta a:active{transform:translateY(0) scale(.987)}
-@keyframes pdCTAFlow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-@keyframes pdCTAHalo{0%,100%{opacity:.38;transform:scale(.985)}50%{opacity:.93;transform:scale(1.018)}}
-@keyframes pdCTAShadow{0%,100%{box-shadow:0 11px 27px rgba(0,71,205,.28),inset 0 1px 0 rgba(255,255,255,.25)}50%{box-shadow:0 15px 35px rgba(0,84,222,.45),inset 0 1px 0 rgba(255,255,255,.4)}}
-@keyframes pdCTASheen{0%,21%{left:-70%}53%,100%{left:140%}}
-@keyframes pdCTASpark{0%,100%{opacity:.7;transform:scale(.88) rotate(-12deg)}48%{opacity:1;transform:scale(1.22) rotate(18deg)}}
-@keyframes pdCTAArrow{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
-@media(max-width:359px){.header{padding:0 13px}.fixed-cta{bottom:calc(8px + env(safe-area-inset-bottom,0px))}.fixed-cta a{min-height:60px;gap:9px;font-size:18px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:0s!important;animation-duration:0s!important}.fixed-cta::before,.fixed-cta a,.fixed-cta a::before,.fixed-cta .cta-flare,.fixed-cta .cta-arrow{animation:none!important}.fixed-cta a{background-position:40% 50%}}
+.fixed-cta a{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;gap:12px;width:100%;min-height:65px;padding:11px 24px;border:1px solid rgba(165,208,255,.75);border-radius:16px;background:linear-gradient(110deg,#0755df,#1769f5 53%,#0b56dd);color:#fff;box-shadow:0 12px 30px rgba(9,80,196,.3),inset 0 1px rgba(255,255,255,.25);overflow:hidden;font-size:28px;font-weight:900;letter-spacing:-.065em;line-height:1.25;transition:transform .2s ease,box-shadow .2s ease;animation:pdCTAEmphasis 3.8s ease-in-out infinite}
+.fixed-cta a::before{content:"";position:absolute;inset:0 auto 0 -55%;width:42%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transform:skewX(-25deg);pointer-events:none;animation:pdCTALightPass 4.5s ease-in-out infinite}
+.fixed-cta .cta-label,.fixed-cta .cta-arrow{position:relative;z-index:1;flex:none}
+.fixed-cta .cta-label{display:inline-block;white-space:nowrap}
+.fixed-cta .cta-arrow{width:23px;height:23px;opacity:.95;transition:transform .2s ease}
+.fixed-cta a:hover{transform:translateY(-2px);box-shadow:0 15px 35px rgba(9,80,196,.42)}
+.fixed-cta a:hover .cta-arrow{transform:translateX(4px)}
+.fixed-cta a:active{transform:scale(.986)}
+@keyframes pdCTAEmphasis{0%,100%{box-shadow:0 12px 28px rgba(9,80,196,.28),inset 0 1px rgba(255,255,255,.2)}50%{box-shadow:0 14px 35px rgba(9,80,196,.4),inset 0 1px rgba(255,255,255,.28)}}
+@keyframes pdCTALightPass{0%,46%{left:-55%}74%,100%{left:125%}}
+@media(max-width:359px){.header{padding:0 13px}.fixed-cta{bottom:calc(8px + env(safe-area-inset-bottom,0px))}.fixed-cta a{padding:10px 16px;gap:10px;font-size:26px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:0s!important;animation-duration:0s!important}.fixed-cta a,.fixed-cta a::before{animation:none!important}}
 
 /* Customer activity — five visible rows, elevated daily-limit sign */
 .application-activity{--activity-row-height:73px;position:relative;width:100%;margin:0 auto;padding:var(--section-padding) 18px;background:#f0f5ff;scroll-margin-top:18px;text-align:center;padding-left:var(--page-gutter);padding-right:var(--page-gutter);}
@@ -697,7 +691,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 <div class="company-card"><p class="company-card-title">수리</p><p class="company-card-number">사업자등록번호 <strong>601-20-69213</strong></p><a class="company-cert-link" href="https://ictmarket.or.kr:8443/precon/pop_CertIcon.do?PRECON_REQ_ID=PRE0000110311&amp;YN=1" target="_blank" rel="noopener noreferrer" aria-label="수리 판매점 사전승낙서 새 창에서 확인"><span class="company-cert-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4.5 5v6.2c0 5.1 3.1 8.7 7.5 10.8 4.4-2.1 7.5-5.7 7.5-10.8V5L12 2Z"/><path d="m8.5 12 2.4 2.4 4.8-4.8"/></svg>사전승낙서 확인</span><span aria-hidden="true">↗</span></a></div>
 <div class="company-card"><p class="company-card-title">지유니컴퍼니</p><p class="company-card-number">사업자등록번호 <strong>607-24-61842</strong></p><a class="company-cert-link" href="https://ictmarket.or.kr:8443/precon/pop_CertIcon.do?PRECON_REQ_ID=PRE0000164995&amp;YN=1" target="_blank" rel="noopener noreferrer" aria-label="지유니컴퍼니 판매점 사전승낙서 새 창에서 확인"><span class="company-cert-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4.5 5v6.2c0 5.1 3.1 8.7 7.5 10.8 4.4-2.1 7.5-5.7 7.5-10.8V5L12 2Z"/><path d="m8.5 12 2.4 2.4 4.8-4.8"/></svg>사전승낙서 확인</span><span aria-hidden="true">↗</span></a></div>
 </div><div class="company-footer-bottom"><p>© Copyright 2024. All Rights Reserved.</p></div></footer></div>
-<div class="fixed-cta"><a href="#consult" aria-label="신청하기"><span class="cta-flare" aria-hidden="true">✦</span><span class="cta-label">신청하기</span><svg class="cta-arrow" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div>
+<div class="fixed-cta"><a href="#consult" aria-label="신청하기"><span class="cta-label">신청하기</span><svg class="cta-arrow" viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div>
 <script>
 (()=>{'use strict';
 const models={s26:{label:'Galaxy S26'},plus:{label:'Galaxy S26+'},ultra:{label:'Galaxy S26 Ultra'},flip:{label:'Galaxy Z Flip8'},fold:{label:'Galaxy Z Fold8'}};
