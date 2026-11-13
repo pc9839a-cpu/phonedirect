@@ -10,58 +10,54 @@
 
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 /* PhoneDirect v10 — mobile-first smartphone retail, single style owner */
-:root{color-scheme:light;--blue:#1769f5;--blue-deep:#0c4bd5;--navy:#14233b;--ink:#172338;--muted:#596779;--line:#e4eaf1;--surface:#f4f7fc;--width:480px}
+:root{color-scheme:light;--blue:#1769f5;--blue-deep:#0c4bd5;--navy:#102844;--ink:#172b46;--muted:#5b7089;--line:#e2eaf5;--surface:#f0f5ff;--width:100%;--content-width:1100px;--type-section:clamp(28px,5.25vw,40px);--type-card:clamp(17px,2vw,20px);--type-body:clamp(14px,1.65vw,16px);--type-label:12px;--radius-card:18px;--section-padding:clamp(58px,6.5vw,84px)}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:20px;-webkit-text-size-adjust:100%}
-body{margin:0;padding:0 0 calc(104px + env(safe-area-inset-bottom,0px));background:#e8eff8;color:var(--ink);font-family:Pretendard,-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',sans-serif;line-height:1.55;word-break:keep-all;-webkit-font-smoothing:antialiased}
+body{margin:0;padding:0 0 calc(104px + env(safe-area-inset-bottom,0px));background:#fff;color:var(--ink);font-family:Pretendard,-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',sans-serif;line-height:1.55;word-break:keep-all;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='button']{cursor:pointer;-webkit-tap-highlight-color:transparent}button,a,input,[role='button']{touch-action:manipulation}img{display:block;max-width:100%}:focus-visible{outline:3px solid #6fa6ff;outline-offset:3px}
-.shell{width:100%;max-width:var(--width);margin:0 auto;background:#fff;min-height:100vh;overflow:clip}
+.shell{width:100%;max-width:none;margin:0;background:#fff;min-height:100vh;overflow:clip}
 .ui-icon{width:20px;height:20px;display:block;flex:none;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}.section-icon{width:25px;height:25px;display:inline-flex;align-items:center;justify-content:center;margin-right:9px;vertical-align:-4px;color:var(--blue)}.section-icon .ui-icon{width:25px;height:25px}
 .header{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px;height:auto;padding:10px 20px;background:#fff;color:#0b2445;border-bottom:1px solid #e8eef9}.brand{display:inline-flex;align-items:center;color:#102a4f;font-size:21px;letter-spacing:-1.15px;font-weight:950;white-space:nowrap}.brand::after{content:"";display:inline-block;flex:none;width:7px;height:7px;margin:12px 0 0 3px;border-radius:50%;background:#1769f5;box-shadow:0 0 0 3px #eaf3ff}.header-action{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:36px;padding:7px 13px;border-radius:999px;background:#eaf2ff;color:#125ad6;font-size:12px;line-height:1.3;font-weight:880;white-space:nowrap;transition:background-color .2s,transform .2s}.header-action span{font-size:15px}.header-action:hover{background:#d9e8ff}.header-action:active{transform:scale(.98)}
 /* Hero — premium, high-conversion mobile advertising treatment */
 .sale-hero{position:relative;isolation:isolate;overflow:hidden;padding:43px 0 0;background:#081932;color:#fff;border:0}
 .sale-hero::before{content:"";position:absolute;z-index:-1;inset:-160px -150px auto;height:570px;background:radial-gradient(ellipse at 50% 18%,rgba(35,104,246,.53),transparent 63%),radial-gradient(circle at 86% 24%,rgba(31,191,255,.2),transparent 38%);pointer-events:none;animation:pdAmbient 11s ease-in-out infinite alternate}
 .sale-hero::after{content:"";position:absolute;z-index:-1;inset:0 0 18%;background-image:linear-gradient(135deg,rgba(133,191,255,.065) 1px,transparent 1px);background-size:31px 31px;mask-image:linear-gradient(180deg,#000 0%,transparent 78%);pointer-events:none}
-.sale-head{position:relative;z-index:3;margin:0 auto;max-width:750px;padding:0 16px;text-align:center}
-.sale-eyebrow{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin:0 0 19px;padding:8px 16px;border:1px solid rgba(140,194,255,.48);border-radius:999px;background:rgba(47,109,212,.23);color:#c2e4ff;font-size:11px;font-weight:900;letter-spacing:.16em;line-height:1.35;backdrop-filter:blur(12px);animation:pdRise .65s both}
-.sale-eyebrow::before{content:"";width:6px;height:6px;flex:none;border-radius:50%;background:#6ef4f6;box-shadow:0 0 0 4px rgba(110,244,246,.11);animation:pdDot 2.6s ease-in-out infinite}
+.sale-head{position:relative;z-index:3;margin:0 auto;max-width:var(--content-width);padding:0 16px;text-align:center}
+
 .sale-title{position:relative;margin:0;line-height:1.1;text-align:center}
-.sale-title .line{display:block;color:#fff;font-size:clamp(27px,6.5vw,43px);line-height:1.22;letter-spacing:-1.6px;font-weight:870;animation:pdRise .73s .08s both}
+.sale-title .line{display:block;color:#fff;font-size:var(--type-section);line-height:1.22;letter-spacing:-1.6px;font-weight:870;animation:pdRise .73s .08s both}
 .sale-title .headline{display:flex;align-items:baseline;justify-content:center;gap:9px;margin:8px auto 0;white-space:nowrap;animation:pdRise .83s .16s both}
 .sale-title .prefix{color:#c7dcf8;font-size:clamp(30px,7.1vw,45px);letter-spacing:-1.7px;font-weight:880}
 .sale-title .value{position:relative;display:inline-block;color:#fff;font-size:clamp(80px,21.5vw,126px);line-height:1;letter-spacing:-.085em;font-weight:950;font-variant-numeric:tabular-nums;text-shadow:0 6px 38px rgba(42,139,255,.58)}
 .sale-title .value::after{content:"";position:absolute;left:8%;right:4%;bottom:-5px;height:5px;border-radius:50px;background:linear-gradient(90deg,#3a82ff,#80e9ff);box-shadow:0 0 19px rgba(75,159,255,.72);transform:scaleX(.76);transform-origin:center;animation:pdLineIn .8s .65s both}
-.sale-hero-cta{position:relative;display:flex;align-items:center;justify-content:center;gap:10px;width:min(280px,88%);min-height:52px;margin:24px auto 2px;padding:12px 18px;border:1px solid rgba(255,255,255,.55);border-radius:12px;background:#2975ff;box-shadow:0 13px 29px rgba(18,99,255,.32);color:#fff;font-size:15px;line-height:1.3;letter-spacing:-.3px;font-weight:900;overflow:hidden;transition:transform .22s,background-color .22s,box-shadow .22s;animation:pdRise .72s .3s both}
-.sale-hero-cta::after{content:"";position:absolute;top:-45%;left:-60%;width:35%;height:190%;transform:rotate(25deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.36),transparent);animation:pdSweep 4.7s 1.3s infinite}
-.sale-hero-cta span{display:inline-block;font-size:20px;line-height:1}
-.sale-hero-cta:active{transform:scale(.98)}
-.sale-art{position:relative;z-index:2;width:100%;max-width:1000px;margin:34px auto 0;padding:10px 0 0;border-radius:38px 38px 0 0;overflow:hidden;line-height:0;background:radial-gradient(ellipse at 50% 24%,#fff 0%,#f1f7ff 56%,#dae7ff 100%);box-shadow:0 -16px 52px rgba(82,151,255,.18);isolation:isolate}
+
+.sale-art{position:relative;z-index:2;width:100%;max-width:var(--content-width);margin:34px auto 0;padding:10px 0 0;border-radius:38px 38px 0 0;overflow:hidden;line-height:0;background:radial-gradient(ellipse at 50% 24%,#fff 0%,#f1f7ff 56%,#dae7ff 100%);box-shadow:0 -16px 52px rgba(82,151,255,.18);isolation:isolate}
 .sale-art::before{content:"";position:absolute;z-index:-1;left:50%;bottom:7%;width:80%;height:38%;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(53,130,255,.26),transparent 72%);filter:blur(14px);pointer-events:none}
 .sale-device-composite{position:relative;display:block;width:100%;height:auto;max-width:100%;margin:0;object-fit:contain;filter:drop-shadow(0 12px 13px rgba(13,39,91,.12));animation:pdPhoneFloat 7s ease-in-out infinite;transform-origin:center}
-.sale-hero-note{position:relative;z-index:3;margin:0;padding:14px 15px 20px;background:#deebff;text-align:center;color:#1c3a69;font-size:clamp(13px,3.45vw,16px);line-height:1.5;font-weight:820;letter-spacing:-.25px}
+
 @media(min-width:768px){
-.shell{max-width:1000px}
+.shell{max-width:none}
 .sale-hero{padding-top:66px}
 .sale-head{padding:0 34px}
-.sale-title .line{font-size:45px}
+.sale-title .line{font-size:var(--type-section)}
 .sale-title .headline{gap:17px;margin-top:5px}
 .sale-title .prefix{font-size:50px}
 .sale-title .value{font-size:135px}
-.sale-hero-cta{margin-top:27px}
+
 .sale-art{width:93%;margin-top:37px}
-.sale-hero-note{font-size:16px;padding:17px 20px 24px}
+
 }
 @media(max-width:359px){
 .sale-hero{padding-top:35px}
 .sale-head{padding:0 10px}
-.sale-eyebrow{margin-bottom:13px}
-.sale-title .line{font-size:26px}
+
+.sale-title .line{font-size:var(--type-section)}
 .sale-title .headline{gap:8px}
 .sale-title .prefix{font-size:29px}
 .sale-title .value{font-size:75px}
-.sale-hero-cta{margin-top:22px}
+
 .sale-art{margin-top:29px;border-radius:27px 27px 0 0}
-.sale-hero-note{font-size:12px}
+
 }
 @keyframes pdRise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pdLineIn{from{opacity:0;transform:scaleX(.1)}to{opacity:1;transform:scaleX(.76)}}
@@ -75,12 +71,12 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .price-sheet{position:relative;overflow:hidden;padding:65px 0 69px;background:#f0f5ff;scroll-margin-top:16px}
 .price-sheet::before{content:"";position:absolute;top:-145px;right:-210px;width:370px;height:370px;border-radius:50%;background:radial-gradient(circle,rgba(79,154,255,.16),transparent 65%);pointer-events:none}
 .offer-heading{position:relative;z-index:1;text-align:center;margin:0;padding:0 16px 30px}
-.offer-heading h2{display:block;margin:0;font-size:clamp(29px,7.5vw,39px);font-weight:940;letter-spacing:-1.6px;color:#102745;line-height:1.22}
+.offer-heading h2{display:block;margin:0;font-size:var(--type-section);font-weight:940;letter-spacing:-1.6px;color:#102745;line-height:1.22}
 .offer-heading .section-icon{display:inline-flex;align-items:center;justify-content:center;vertical-align:-5px;width:31px;height:31px;margin-right:7px;border-radius:10px;background:#e1edff;color:#186cf3}
 .offer-heading .section-icon .ui-icon{width:21px;height:21px}
 .offer-heading>span{display:block;margin:17px auto 0;width:54px;height:4px;border-radius:99px;background:#1769f5}
-.price-sheet .offer-list{position:relative;display:grid;grid-template-columns:minmax(0,1fr);width:100%;max-width:800px;gap:15px;margin:0 auto;padding:0 14px}
-.price-sheet .offer-card{position:relative;isolation:isolate;display:grid;grid-template-columns:110px minmax(0,1fr);align-items:center;gap:13px;min-width:0;min-height:215px;margin:0;padding:17px 14px;border:1px solid #dce7f5;border-radius:19px;background:#fff;box-shadow:0 10px 26px rgba(19,48,100,.065);cursor:pointer;overflow:hidden;transition:border-color .25s,box-shadow .25s,transform .25s}
+.price-sheet .offer-list{position:relative;display:grid;grid-template-columns:minmax(0,1fr);width:100%;max-width:var(--content-width);gap:15px;margin:0 auto;padding:0 14px}
+ .price-sheet .offer-card{position:relative;isolation:isolate;display:grid;grid-template-columns:110px minmax(0,1fr);align-items:center;gap:13px;min-width:0;min-height:215px;margin:0;padding:17px 14px;border:1px solid #dce7f5;border-radius:var(--radius-card);background:#fff;box-shadow:0 10px 26px rgba(19,48,100,.065);cursor:pointer;overflow:hidden;transition:border-color .25s,box-shadow .25s,transform .25s}
 .price-sheet .offer-card::before{content:"";position:absolute;z-index:1;top:0;left:18px;right:18px;height:3px;border-radius:0 0 8px 8px;background:#1769f5;transform:scaleX(0);transition:transform .28s;transform-origin:center}
 .price-sheet .offer-card.active{border-color:#5a9cff;box-shadow:0 0 0 1px rgba(35,109,245,.15),0 16px 32px rgba(28,85,193,.12)}
 .price-sheet .offer-card.active::before{transform:scaleX(1)}
@@ -88,7 +84,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .price-sheet .offer-product{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-width:0;padding:7px 3px 7px;border-radius:13px;background:#f5f8fe}
 .price-sheet .offer-product img{display:block;width:100%;height:145px;max-width:145px;object-fit:contain;transition:transform .36s ease}
 .price-sheet .offer-card.active .offer-product img{transform:scale(1.05)}
-.price-sheet .offer-product strong{display:block;max-width:100%;color:#192c47;font-size:19px;line-height:1.22;letter-spacing:-.6px;font-weight:920;text-align:center;word-break:keep-all}
+.price-sheet .offer-product strong{display:block;max-width:100%;color:#192c47;font-size:var(--type-card);line-height:1.22;letter-spacing:-.6px;font-weight:920;text-align:center;word-break:keep-all}
 .price-sheet .offer-breakdown{min-width:0;display:flex;flex-direction:column;justify-content:center;font-variant-numeric:tabular-nums}
 .price-sheet .offer-line,.price-sheet .offer-result{display:flex;align-items:baseline;justify-content:space-between;gap:6px;min-width:0;margin:0;padding:9px 0;border:0;border-bottom:1px solid #e9eef7;background:transparent;border-radius:0}
 .price-sheet .offer-line span,.price-sheet .offer-result span{flex:none;color:#62728a;font-size:12.5px;font-weight:760;line-height:1.42;letter-spacing:-.25px;white-space:nowrap}
@@ -101,11 +97,11 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 @media(hover:hover) and (pointer:fine){.price-sheet .offer-card:hover{transform:translateY(-3px);border-color:#95baff;box-shadow:0 16px 32px rgba(22,65,125,.1)}}
 @media(min-width:768px){
 .price-sheet{padding:76px 0 82px}
-.price-sheet .offer-list{max-width:820px;gap:20px;padding:0 24px}
+.price-sheet .offer-list{max-width:var(--content-width);gap:20px;padding:0 24px}
 .price-sheet .offer-card{grid-template-columns:225px minmax(0,1fr);gap:26px;min-height:315px;padding:23px 30px;border-radius:24px}
 .price-sheet .offer-product{padding:10px;border-radius:18px}
 .price-sheet .offer-product img{height:217px;max-width:210px}
-.price-sheet .offer-product strong{font-size:26px}
+.price-sheet .offer-product strong{font-size:var(--type-card)}
 .price-sheet .offer-line,.price-sheet .offer-result{padding:14px 0}
 .price-sheet .offer-line span,.price-sheet .offer-result span{font-size:17px}
 .price-sheet .offer-line b,.price-sheet .offer-result b{font-size:21px}
@@ -116,7 +112,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 @media(min-width:480px) and (max-width:767px){
 .price-sheet .offer-card{grid-template-columns:150px minmax(0,1fr);gap:18px;padding:19px 21px}
 .price-sheet .offer-product img{height:175px;max-width:170px}
-.price-sheet .offer-product strong{font-size:22px}
+.price-sheet .offer-product strong{font-size:var(--type-card)}
 .price-sheet .offer-line span,.price-sheet .offer-result span{font-size:14px}
 .price-sheet .offer-line b,.price-sheet .offer-result b{font-size:18px}
 .price-sheet .offer-result b{font-size:23px}
@@ -124,11 +120,11 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 @media(max-width:359px){
 .price-sheet{padding:51px 0 60px}
 .offer-heading{padding:0 12px 23px}
-.offer-heading h2{font-size:28px}
+.offer-heading h2{font-size:var(--type-section)}
 .price-sheet .offer-list{padding:0 9px;gap:12px}
 .price-sheet .offer-card{grid-template-columns:94px minmax(0,1fr);gap:9px;min-height:185px;padding:14px 10px;border-radius:15px}
 .price-sheet .offer-product img{height:121px;max-width:97px}
-.price-sheet .offer-product strong{font-size:16px}
+.price-sheet .offer-product strong{font-size:var(--type-card)}
 .price-sheet .offer-line,.price-sheet .offer-result{padding:8px 0}
 .price-sheet .offer-line span,.price-sheet .offer-result span{font-size:11.5px}
 .price-sheet .offer-line b,.price-sheet .offer-result b{font-size:13.5px}
@@ -140,35 +136,33 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .contract-alert{padding:0 16px 72px;background:#f2f6fd;color:#142741;overflow:hidden;scroll-margin-top:20px}
 .contract-head{position:relative;isolation:isolate;margin:0 -16px;padding:65px 16px 38px;background:#0b1e3d;color:#fff;text-align:center;overflow:hidden}
 .contract-head::before{content:"";position:absolute;z-index:-1;inset:-110px -120px auto;height:440px;background:radial-gradient(ellipse at center,rgba(38,110,241,.37),transparent 69%);pointer-events:none}
-.contract-eyebrow{display:inline-flex;align-items:center;justify-content:center;margin:0 0 17px;padding:7px 14px;border:1px solid rgba(144,196,255,.4);border-radius:99px;background:rgba(55,124,219,.2);color:#bddbff;font-size:11px;font-weight:900;letter-spacing:.14em}
+
 .contract-head h2{max-width:750px;margin:0 auto;line-height:1.18;letter-spacing:-1.5px;word-break:keep-all}
-.contract-head h2 span{display:block;margin:0 0 10px;color:#d7e5fa;font-size:clamp(18px,4.75vw,24px);font-weight:770;line-height:1.4;letter-spacing:-.7px}
-.contract-head h2 strong{display:block;color:#fff;font-size:clamp(35px,9.7vw,52px);font-weight:950;line-height:1.2;letter-spacing:-2px}
+.contract-head h2 span{display:block;margin:0 0 10px;color:#d7e5fa;font-size:clamp(20px,3.2vw,25px);font-weight:770;line-height:1.4;letter-spacing:-.7px}
+.contract-head h2 strong{display:block;color:#fff;font-size:var(--type-section);font-weight:950;line-height:1.2;letter-spacing:-2px}
 .contract-head h2 em{color:#85b9ff;font-weight:950;font-style:normal}
-.contract-lead{max-width:570px;margin:17px auto 0;color:#c6d6ed;font-size:clamp(13px,3.65vw,16px);line-height:1.7;word-break:keep-all}
-.contract-art{width:min(100%,530px);margin:29px auto 0;padding:8px 9px 1px;border:1px solid rgba(255,255,255,.52);border-radius:23px;background:radial-gradient(circle at 50% 12%,#fff 0%,#f1f6ff 68%,#e1ecff 100%);box-shadow:0 16px 38px rgba(0,4,25,.23);line-height:0;overflow:hidden}
+
+.contract-art{width:min(100%,880px);max-width:880px;margin:26px auto 0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;line-height:0;overflow:visible}
 .contract-art img{display:block;width:100%;height:auto;margin:0 auto;object-fit:contain;animation:pdPosterEnter .82s both}
 .contract-banner{display:flex;align-items:center;justify-content:center;gap:10px;max-width:580px;margin:22px auto 0;padding:15px 13px;border:1px solid rgba(255,173,191,.4);border-radius:13px;background:rgba(229,56,85,.17);text-align:center;color:#fff}
 .contract-banner-icon{display:grid;place-items:center;flex:none;width:28px;height:28px;border-radius:9px;background:#f14157;color:#fff;font-size:20px;font-weight:950;line-height:1}
 .contract-banner strong{font-size:clamp(13px,3.5vw,17px);font-weight:890;line-height:1.52;color:#fff}
 .contract-banner em{color:#ffb5bf;font-style:normal;font-weight:950}
-.contract-subhead{max-width:730px;margin:52px auto 27px;text-align:center}
-.contract-subhead p{margin:0 0 9px;color:#1769f5;font-size:11px;letter-spacing:.14em;font-weight:900}
-.contract-subhead h3{margin:0;color:#152c49;font-size:clamp(26px,7vw,36px);line-height:1.3;letter-spacing:-1.35px;font-weight:950}
-.contract-list{display:grid;grid-template-columns:minmax(0,1fr);gap:13px;max-width:790px;margin:0 auto;padding:0;list-style:none;border:0;border-radius:0;background:none;overflow:visible;box-shadow:none}
-.contract-item{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;margin:0;padding:23px 17px 27px;border:1px solid #dfe9f7;border-radius:19px;background:#fff;box-shadow:0 10px 24px rgba(22,57,108,.065);text-align:center;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s}
+
+.contract-list{display:grid;grid-template-columns:minmax(0,1fr);gap:13px;max-width:var(--content-width);margin:0 auto;padding:0;list-style:none;border:0;border-radius:0;background:none;overflow:visible;box-shadow:none}
+.contract-item{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;margin:0;padding:23px 17px 27px;border:1px solid #dfe9f7;border-radius:var(--radius-card);background:#fff;box-shadow:0 10px 24px rgba(22,57,108,.065);text-align:center;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s}
 .contract-item::before{content:"";position:absolute;top:0;left:23%;right:23%;height:3px;background:#6da8ff;border-radius:0 0 8px 8px}
 .contract-item:last-child{border-bottom:1px solid #dfe9f7}
 .contract-index{display:block;order:0;width:auto;height:auto;margin:0 0 3px;padding:0;color:#1769f5;font-size:12px;line-height:1.3;font-weight:950;letter-spacing:.16em}
 .contract-illustration{display:block;order:1;flex:none;width:86px;height:86px;max-width:100%;margin:0 auto 10px;object-fit:contain;filter:drop-shadow(0 7px 10px rgba(15,57,130,.07))}
 .contract-copy{display:block;order:2;align-self:auto;width:100%;min-width:0;margin:0;padding:0;text-align:center}
-.contract-copy h3{max-width:640px;margin:0 auto;color:#142b49;font-size:clamp(16px,4.15vw,20px);font-weight:910;line-height:1.5;letter-spacing:-.5px;word-break:keep-all}
+.contract-copy h3{max-width:640px;margin:0 auto;color:#142b49;font-size:var(--type-card);font-weight:910;line-height:1.5;letter-spacing:-.5px;word-break:keep-all}
 .contract-copy h3 em{color:#1769f5;font-style:normal;font-weight:960}
-.contract-copy p{max-width:630px;margin:9px auto 0;color:#5f6f86;font-size:clamp(13px,3.45vw,15px);line-height:1.72;letter-spacing:-.13px;word-break:keep-all}
+.contract-copy p{max-width:630px;margin:9px auto 0;color:#5f6f86;font-size:var(--type-body);line-height:1.72;letter-spacing:-.13px;word-break:keep-all}
 .contract-item-2 .contract-copy h3 em,.contract-item-3 .contract-copy h3 em,.contract-item-5 .contract-copy h3 em{color:#cb354b}
 .contract-item-4{border-color:#9fc4ff;background:#eef5ff}
 .contract-item-4::before{background:#1769f5}
-.contract-signature{max-width:790px;margin:22px auto 0;padding:29px 17px 32px;border-radius:18px;background:#112d50;color:#fff;text-align:center}
+.contract-signature{max-width:var(--content-width);margin:22px auto 0;padding:29px 17px 32px;border-radius:18px;background:#112d50;color:#fff;text-align:center}
 .contract-signature::before{content:"";display:block;width:43px;height:3px;margin:0 auto 15px;border-radius:4px;background:#8abaff}
 .contract-signature strong{display:block;color:#fff;font-size:clamp(22px,5.8vw,27px);font-weight:950;letter-spacing:-.8px}
 .contract-signature>span{display:block;margin:5px 0 0;color:#9bc7ff;font-size:15px;font-weight:910}
@@ -181,22 +175,22 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .section{padding:60px 22px 67px;scroll-margin-top:20px}.sec-eyebrow{margin:0 0 11px;color:var(--blue);letter-spacing:.35px;font-weight:800;font-size:13px}.sec-title{margin:0;color:#14233b;font-size:34px;line-height:1.26;letter-spacing:-1.25px;font-weight:900}.sec-desc{margin:14px 0 0;font-size:16px;color:#617083;line-height:1.65}
 
 /* Six-step visual journey — large PNG sprites, centered responsive cards */
-.purchase-journey{position:relative;overflow:hidden;padding:70px 16px 80px;background:#fff;text-align:center;scroll-margin-top:18px}
+.purchase-journey{position:relative;overflow:hidden;padding:var(--section-padding) 18px;background:#fff;text-align:center;scroll-margin-top:18px}
 .purchase-journey::before{content:"";position:absolute;top:3%;left:50%;width:330px;height:330px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(89,148,255,.09),transparent 68%);pointer-events:none}
 .journey-heading{position:relative;max-width:780px;margin:0 auto 34px;text-align:center}
-.journey-eyebrow{margin:0 0 12px;color:#1769f5;font-size:11px;line-height:1.4;font-weight:900;letter-spacing:.15em}
-.journey-heading h2{margin:0;color:#132841;font-size:clamp(28px,7.4vw,40px);line-height:1.27;letter-spacing:-1.5px;font-weight:950;word-break:keep-all}
+
+.journey-heading h2{margin:0;color:#132841;font-size:var(--type-section);line-height:1.27;letter-spacing:-1.5px;font-weight:950;word-break:keep-all}
 .journey-heading h2 strong{color:#1769f5;font-weight:950}
-.journey-intro{max-width:590px;margin:12px auto 0;color:#5a6c84;font-size:14px;line-height:1.64}
-.journey-list{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:1000px;width:100%;margin:0 auto;padding:0;list-style:none}
-.journey-step{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:0;min-width:0;min-height:264px;margin:0;padding:22px 9px 23px;border:1px solid #e2eaf6;border-radius:19px;background:#f8faff;box-shadow:0 11px 23px rgba(19,55,104,.075);text-align:center;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s}
+
+.journey-list{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:var(--content-width);width:100%;margin:0 auto;padding:0;list-style:none}
+.journey-step{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:0;min-width:0;min-height:264px;margin:0;padding:22px 9px 23px;border:1px solid #e2eaf6;border-radius:var(--radius-card);background:#f8faff;box-shadow:0 11px 23px rgba(19,55,104,.075);text-align:center;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s}
 .journey-step::before{content:"";position:absolute;top:0;left:19%;right:19%;height:3px;border-radius:0 0 7px 7px;background:#b8d2ff}
 .journey-step-label{display:block;margin:0;color:#1769f5;font-size:12px;line-height:1.35;font-weight:950;letter-spacing:.1em}
 .journey-icon{display:block;flex:none;width:110px;height:110px;max-width:100%;margin:5px auto 9px;background-image:url('/assets/phonedirect-steps-sprite-20261113.png');background-repeat:no-repeat;background-size:300% 200%;background-position:0 0;image-rendering:auto;filter:drop-shadow(0 9px 12px rgba(25,73,149,.08));transition:transform .3s}
 .journey-icon-1{background-position:0% 0%}.journey-icon-2{background-position:50% 0%}.journey-icon-3{background-position:100% 0%}.journey-icon-4{background-position:0% 100%}.journey-icon-5{background-position:50% 100%}.journey-icon-6{background-position:100% 100%}
 .journey-step-copy{width:100%;min-width:0;text-align:center}
-.journey-step-copy h3{margin:0;color:#152b49;font-size:19px;line-height:1.37;font-weight:930;letter-spacing:-.55px;word-break:keep-all}
-.journey-step-copy p{max-width:310px;margin:9px auto 0;color:#586a83;font-size:13px;line-height:1.62;letter-spacing:-.13px;word-break:keep-all}
+.journey-step-copy h3{margin:0;color:#152b49;font-size:var(--type-card);line-height:1.37;font-weight:930;letter-spacing:-.55px;word-break:keep-all}
+.journey-step-copy p{max-width:310px;margin:9px auto 0;color:#586a83;font-size:var(--type-body);line-height:1.62;letter-spacing:-.13px;word-break:keep-all}
 .journey-step:last-child{background:#ecf4ff;border-color:#a9c9fb}
 .journey-step:last-child::before{background:#1769f5}
 @media(hover:hover) and (pointer:fine){.journey-step:hover{transform:translateY(-4px);border-color:#a4c7ff;box-shadow:0 15px 29px rgba(20,64,132,.11)}.journey-step:hover .journey-icon{transform:translateY(-4px) scale(1.045)}}
@@ -213,16 +207,14 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .phone-parts>select:focus,.phone-parts>input:not([type="hidden"]):focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(23,105,245,.12);background-color:#fff}
 @media(max-width:359px){.phone-parts{grid-template-columns:minmax(66px,.9fr) 8px minmax(0,1fr) 8px minmax(0,1fr);gap:5px}.phone-parts>select{padding-left:10px;padding-right:22px;background-position:right 7px center}.phone-parts>input:not([type="hidden"]){padding:0 2px;font-size:15px}.phone-parts>input::placeholder{font-size:11px}}
 
-
-
 /* Consultation — dark conversion finish with high-contrast form */
-.form-section{position:relative;isolation:isolate;overflow:hidden;padding:70px 17px 90px;background:#0b1e3c;color:#fff}
+.form-section{position:relative;isolation:isolate;overflow:hidden;padding:var(--section-padding) 18px;background:#0b1e3c;color:#fff}
 .form-section::before{content:"";position:absolute;z-index:-1;inset:-130px -130px auto;height:450px;background:radial-gradient(ellipse at center,rgba(39,115,239,.32),transparent 69%);pointer-events:none}
 .form-header{max-width:660px;margin:0 auto 29px;text-align:center}
-.form-header .sec-eyebrow{display:inline-block;margin:0 0 13px;color:#9bc8ff;font-size:11px;line-height:1.4;letter-spacing:.14em;font-weight:900}
-.form-header .sec-title{color:#fff;font-size:clamp(30px,7.8vw,42px);font-weight:950;line-height:1.23;letter-spacing:-1.65px}
-.form-header .sec-desc{margin:12px auto 0;color:#c9d9f2;font-size:15px;line-height:1.62}
-.form-panel{display:grid;gap:20px;max-width:670px;margin:0 auto;padding:25px 20px 28px;border:1px solid rgba(255,255,255,.84);border-radius:21px;background:#fff;box-shadow:0 25px 55px rgba(0,9,28,.29)}
+
+.form-header .sec-title{color:#fff;font-size:var(--type-section);font-weight:950;line-height:1.23;letter-spacing:-1.65px}
+
+.form-panel{display:grid;gap:20px;max-width:760px;margin:0 auto;padding:25px 20px 28px;border:1px solid rgba(255,255,255,.84);border-radius:var(--radius-card);background:#fff;box-shadow:0 25px 55px rgba(0,9,28,.29)}
 .field{min-width:0;display:block}
 .field-label{display:flex;align-items:center;gap:7px;margin:0 0 10px;color:#1d3351;font-size:16px;line-height:1.4;letter-spacing:-.25px;font-weight:870}
 .field-icon{display:inline-flex;align-items:center;justify-content:center;color:#1769f5}
@@ -255,18 +247,18 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .fixed-cta{position:fixed;z-index:1000;left:50%;bottom:calc(10px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:min(calc(100% - 24px),458px);padding:0;border:0;background:transparent;box-shadow:none}
 .fixed-cta a{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;width:100%;height:63px;border:1px solid rgba(255,255,255,.46);border-radius:16px;background:#1269fb;box-shadow:0 13px 32px rgba(4,61,164,.3);overflow:hidden;color:#fff;font-size:19px;font-weight:950;letter-spacing:-.5px;transition:transform .2s,background-color .2s,box-shadow .2s;animation:pdCTABreath 4.2s ease-in-out infinite}
 .fixed-cta a::before{content:"";position:absolute;top:-65%;left:-65%;width:38%;height:225%;transform:rotate(26deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);pointer-events:none;animation:pdSweep 5.5s 2s infinite}
-.fixed-cta a:hover,.sale-hero-cta:hover{background:#0054e1;box-shadow:0 15px 34px rgba(4,61,164,.34)}
+
 .fixed-cta a:active{transform:scale(.985)}
 @keyframes pdCTABreath{0%,100%{box-shadow:0 13px 28px rgba(4,61,164,.26)}50%{box-shadow:0 13px 35px rgba(4,61,164,.4)}}
 @media(max-width:359px){.header{padding:0 13px}.fixed-cta{bottom:calc(8px + env(safe-area-inset-bottom,0px))}}
-@media(min-width:481px){.shell{box-shadow:0 8px 47px rgba(18,35,66,.12)}}
+
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:0s!important;animation-duration:0s!important}}
 
 /* Customer activity — five visible rows, elevated daily-limit sign */
-.application-activity{--activity-row-height:73px;position:relative;width:100%;margin:0 auto;padding:70px 17px 72px;background:#f0f5ff;scroll-margin-top:18px;text-align:center}
+.application-activity{--activity-row-height:73px;position:relative;width:100%;margin:0 auto;padding:var(--section-padding) 18px;background:#f0f5ff;scroll-margin-top:18px;text-align:center}
 .activity-topline{display:flex;align-items:center;justify-content:center;margin:0 auto 25px;text-align:center}
-.activity-topline h2{margin:0;color:#132b4b;font-size:clamp(26px,6.8vw,34px);line-height:1.28;letter-spacing:-1.15px;font-weight:950}
-.activity-board{width:100%;max-width:810px;margin:0 auto;overflow:hidden;border:1px solid #d3e2f6;border-radius:18px;background:#fff;box-shadow:0 17px 36px rgba(18,55,110,.11)}
+.activity-topline h2{margin:0;color:#132b4b;font-size:var(--type-section);line-height:1.28;letter-spacing:-1.15px;font-weight:950}
+.activity-board{width:100%;max-width:var(--content-width);margin:0 auto;overflow:hidden;border:1px solid #d3e2f6;border-radius:var(--radius-card);background:#fff;box-shadow:0 17px 36px rgba(18,55,110,.11)}
 .activity-viewport{position:relative;height:calc(var(--activity-row-height)*5);overflow:hidden}
 .activity-list{display:block;list-style:none;margin:0;padding:0;will-change:transform}
 .activity-row{display:flex;align-items:center;justify-content:space-between;gap:9px;min-width:0;height:var(--activity-row-height);padding:0 18px;border-bottom:1px solid #e8eff9;background:#fff}
@@ -279,7 +271,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .activity-choice{justify-content:flex-end;gap:10px;text-align:right}
 .activity-carrier{display:inline-flex;align-items:center;justify-content:center;min-width:33px;min-height:24px;padding:2px 7px;border-radius:7px;background:#e6f0ff;color:#1164e7;font-size:11px;line-height:1.3;font-weight:930}
 .activity-choice strong{color:#183354;font-size:15px;line-height:1.3;font-weight:930;letter-spacing:-.3px}
-.activity-limit{position:relative;isolation:isolate;display:flex;align-items:baseline;justify-content:center;gap:12px;max-width:810px;width:100%;margin:16px auto 0;padding:23px 13px 24px;border:1px solid rgba(112,174,252,.38);border-radius:17px;background:#112b4d;box-shadow:0 17px 34px rgba(17,45,89,.17);color:#fff;font-size:22px;line-height:1.13;font-weight:940;letter-spacing:-.5px;text-align:center;white-space:nowrap;overflow:hidden}
+.activity-limit{position:relative;isolation:isolate;display:flex;align-items:baseline;justify-content:center;gap:12px;max-width:var(--content-width);width:100%;margin:16px auto 0;padding:23px 13px 24px;border:1px solid rgba(112,174,252,.38);border-radius:17px;background:#112b4d;box-shadow:0 17px 34px rgba(17,45,89,.17);color:#fff;font-size:22px;line-height:1.13;font-weight:940;letter-spacing:-.5px;text-align:center;white-space:nowrap;overflow:hidden}
 .activity-limit::before{content:"";position:absolute;z-index:-1;inset:-50% 35% -50% -40%;transform:rotate(21deg);background:linear-gradient(90deg,transparent,rgba(72,152,255,.2),transparent);pointer-events:none;animation:pdQuotaShine 6s ease-in-out infinite}
 .activity-limit strong{color:#8cbcff;font-size:clamp(40px,9.5vw,57px);font-weight:960;line-height:1;letter-spacing:-1.2px;font-variant-numeric:tabular-nums}
 @media(min-width:768px){.application-activity{padding:86px 24px 93px}.activity-limit{padding:25px 17px}}
@@ -289,11 +281,11 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 
 /* Seller information — branded midnight footer */
 .company-footer{background:#0b1e37;padding:37px 19px 49px;text-align:left;color:#adbed8}
-.company-footer .company-footer-title{display:block;margin:0 0 7px;color:#fff;font-size:17px;line-height:1.4;font-weight:950}
-.company-footer-subtitle{margin:0 0 20px;color:#b2c4dd;font-size:12px;line-height:1.65}
+.company-footer .company-footer-title{display:block;margin:0 0 7px;color:#fff;font-size:var(--type-card);line-height:1.4;font-weight:950}
+
 .company-list{display:grid;gap:11px}
-.company-card{padding:18px 15px;border:1px solid rgba(158,190,230,.22);border-radius:14px;background:#172f50}
-.company-card-title{margin:0 0 4px;color:#fff;font-size:16px;font-weight:930;letter-spacing:-.35px}
+.company-card{padding:18px 15px;border:1px solid rgba(158,190,230,.22);border-radius:var(--radius-card);background:#172f50}
+.company-card-title{margin:0 0 4px;color:#fff;font-size:var(--type-card);font-weight:930;letter-spacing:-.35px}
 .company-card-number{margin:0;color:#bdd0e8;font-size:12px;line-height:1.65;font-variant-numeric:tabular-nums}
 .company-card-number strong{color:#fff;font-size:12px;font-weight:840}
 .company-cert-link{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:44px;margin-top:14px;padding:0 12px;border:1px solid rgba(110,174,255,.38);border-radius:9px;background:#23416b;color:#deedff;font-size:12px;font-weight:870;transition:background-color .2s,border-color .2s}
@@ -316,21 +308,21 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 </head>
 <body>
 <div class="shell" id="top">
-<header class="header"><a href="#top" class="brand" aria-label="폰다이렉트 메인">폰다이렉트</a><a class="header-action" href="#consult">상담 신청 <span aria-hidden="true">↗</span></a></header>
+<header class="header"><a href="#top" class="brand" aria-label="폰다이렉트 메인">폰다이렉트</a></header>
 <main id="top">
 <section class="sale-hero" aria-labelledby="hero-title">
   <div class="sale-head">
-    <p class="sale-eyebrow">GALAXY SPECIAL</p>
+    
     <h1 class="sale-title" id="hero-title">
       <span class="line">즉시 할인 혜택</span>
       <span class="headline"><span class="prefix">최대</span><strong class="value">90%</strong></span>
     </h1>
-    <a class="sale-hero-cta" href="#products">기종별 가격 보기 <span aria-hidden="true">↗</span></a>
+    
   </div>
   <div class="sale-art">
     <img class="sale-device-composite" src="/assets/phonedirect-hero-models-20261113.png" width="1400" height="788" alt="케이스·충전기·필름 사은품과 갤럭시 S26, S26 울트라, S26+, 플립8 제품 구성" fetchpriority="high" decoding="async" />
   </div>
-  <p class="sale-hero-note">통신사에 할부원금 확인해 보세요.</p>
+  
 </section>
 
 
@@ -384,13 +376,13 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 <div class="divider"></div>
 <section class="contract-alert" id="conditions" aria-labelledby="info-title">
   <div class="contract-head">
-    <p class="contract-eyebrow">SMART PHONE BUYING GUIDE</p>
+    
     <h2 id="info-title"><span>선택약정 4개월 유지하면</span><strong>기기값이 진짜 <em>공짜?</em></strong></h2>
-    <p class="contract-lead">통신 요금 할인과 실제 휴대폰 기기값 할인은 다릅니다. 구매 전 조건부터 확인하세요.</p>
+    
     <figure class="contract-art"><img src="/assets/galaxy-free-phone-transparent.png" width="1536" height="1024" alt="공짜폰? 그거 진짜 공짜일까? 라고 질문하는 인물과 스마트폰 경고 일러스트" loading="lazy" decoding="async"></figure>
     <div class="contract-banner"><span class="contract-banner-icon" aria-hidden="true">!</span><strong>이런 곳들은 <em>비정상 영업행위</em>입니다!</strong></div>
   </div>
-  <div class="contract-subhead"><p>BEFORE YOU BUY · 05 CHECK POINTS</p><h3>구매 전 꼭 확인할<br>다섯 가지 기준</h3></div>
+  
   <ol class="contract-list">
 <li class="contract-item contract-item-1">
     <img class="contract-illustration" src="/assets/icons/phonedirect_contract_25pct.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><span class="contract-index">01</span><div class="contract-copy"><h3>선택약정은 고객님의 요금에서 <em>25%를 할인</em>해주는 <em>통신사 할인</em>입니다.</h3><p>즉, 기기값을 깎아주는 할인이 아니라 매달 내는 요금에서 25%를 할인해주는 제도입니다.</p></div>
@@ -413,9 +405,9 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 <div class="divider"></div>
 <section class="purchase-journey" id="steps" aria-labelledby="journey-title">
   <div class="journey-heading">
-    <p class="journey-eyebrow">PURCHASE PROCESS</p>
+    
     <h2 id="journey-title"><strong>폰다이렉트</strong> 구매절차 가이드</h2>
-    <p class="journey-intro">상담 신청부터 사은품 수령까지, 6단계로 확인하세요.</p>
+    
   </div>
   <ol class="journey-list">
     <li class="journey-step">
@@ -450,7 +442,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
     </li>
   </ol>
 </section><div class="divider"></div>
-<section class="section form-section" id="consult"><div class="form-header"><p class="sec-eyebrow">FREE CONSULTATION</p><h2 class="sec-title">원하는 갤럭시,<br>구매 조건 상담받기.</h2><p class="sec-desc">아래 4개 항목만 입력하면 됩니다.</p></div><form class="form-panel" id="leadForm" novalidate>
+<section class="section form-section" id="consult"><div class="form-header"><h2 class="sec-title">상담 신청</h2></div><form class="form-panel" id="leadForm" novalidate>
 <div class="field"><label class="field-label" for="name"><span class="field-icon"><svg aria-hidden="true" focusable="false" class="ui-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>고객 성함 <span class="required">*</span></label><input id="name" name="name" autocomplete="name" placeholder="성함을 입력해 주세요" maxlength="30" required></div>
 <div class="field"><label class="field-label" for="phonePrefix"><span class="field-icon"><svg aria-hidden="true" focusable="false" class="ui-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.5 19.5 0 0 1-8.6-3 19 19 0 0 1-5.8-5.8 19.5 19.5 0 0 1-3-8.6A2 2 0 0 1 4.4 2h3a2 2 0 0 1 2 1.7l.4 2.6a2 2 0 0 1-.6 1.7L7.5 9.7a16 16 0 0 0 6.8 6.8l1.7-1.7a2 2 0 0 1 1.7-.6l2.6.4A2 2 0 0 1 22 16.9Z"/></svg></span>전화번호 <span class="required">*</span></label><div class="phone-parts" role="group" aria-label="전화번호 입력">
   <select id="phonePrefix" aria-label="전화번호 앞자리" autocomplete="tel-area-code">
@@ -464,7 +456,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 </div></div>
 <div class="field"><span class="field-label"><span class="field-icon"><svg aria-hidden="true" focusable="false" class="ui-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 20v-3M9 20v-7M14 20V9M19 20V4"/></svg></span>기존 통신사 <span class="required">*</span></span><div class="options" role="radiogroup" aria-label="기존 통신사"><label class="option"><input type="radio" name="carrier" value="SK" required><span>SK</span></label><label class="option"><input type="radio" name="carrier" value="KT"><span>KT</span></label><label class="option"><input type="radio" name="carrier" value="LG"><span>LG</span></label></div></div>
 <div class="field"><span class="field-label"><span class="field-icon"><svg aria-hidden="true" focusable="false" class="ui-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span>희망 기종 <span class="required">*</span></span><div class="options model-options" role="radiogroup" aria-label="희망 기종"><label class="option"><input type="radio" name="model" value="s26" checked><span>S26</span></label><label class="option"><input type="radio" name="model" value="plus"><span>S26+</span></label><label class="option"><input type="radio" name="model" value="ultra"><span>26울트라</span></label><label class="option"><input type="radio" name="model" value="flip"><span>플립8</span></label><label class="option"><input type="radio" name="model" value="fold"><span>폴드8</span></label></div></div>
-<label class="privacy"><input type="checkbox" id="privacy" required><span>개인정보 수집 및 이용 동의 (필수)</span></label><p class="privacy-info">수집 항목: 성함·전화번호·통신사·희망기종 · 목적: 구매 조건 상담. 실제 수집 주체·보유 기간 등은 서비스 연결 전에 별도 확정해야 합니다.</p>
+<label class="privacy"><input type="checkbox" id="privacy" required><span>개인정보 수집 및 이용 동의 (필수)</span></label><p class="privacy-info">수집 항목: 성함·전화번호·통신사·희망기종 · 목적: 구매 조건 상담.</p>
 <button type="submit" class="submit">구매 조건 상담 신청하기 ↗</button><div id="formMessage" class="message" role="status" aria-live="polite"></div></form></section>
 
 <section class="application-activity" aria-labelledby="activity-title">
@@ -480,7 +472,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   </div>
   <p class="activity-limit">일 <strong>50대</strong> 한정</p>
 </section>
-</main><footer class="footer company-footer" aria-label="사업자 및 사전승낙서 정보"><strong class="company-footer-title">사업자 정보 및 사전승낙서</strong><p class="company-footer-subtitle">각 판매점의 사업자등록정보와 사전승낙서를 확인하실 수 있습니다.</p><div class="company-list">
+</main><footer class="footer company-footer" aria-label="사업자 및 사전승낙서 정보"><strong class="company-footer-title">사업자 정보 및 사전승낙서</strong><div class="company-list">
 <div class="company-card"><p class="company-card-title">수리</p><p class="company-card-number">사업자등록번호 <strong>601-20-69213</strong></p><a class="company-cert-link" href="https://ictmarket.or.kr:8443/precon/pop_CertIcon.do?PRECON_REQ_ID=PRE0000110311&amp;YN=1" target="_blank" rel="noopener noreferrer" aria-label="수리 판매점 사전승낙서 새 창에서 확인"><span class="company-cert-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4.5 5v6.2c0 5.1 3.1 8.7 7.5 10.8 4.4-2.1 7.5-5.7 7.5-10.8V5L12 2Z"/><path d="m8.5 12 2.4 2.4 4.8-4.8"/></svg>사전승낙서 확인</span><span aria-hidden="true">↗</span></a></div>
 <div class="company-card"><p class="company-card-title">지유니컴퍼니</p><p class="company-card-number">사업자등록번호 <strong>607-24-61842</strong></p><a class="company-cert-link" href="https://ictmarket.or.kr:8443/precon/pop_CertIcon.do?PRECON_REQ_ID=PRE0000164995&amp;YN=1" target="_blank" rel="noopener noreferrer" aria-label="지유니컴퍼니 판매점 사전승낙서 새 창에서 확인"><span class="company-cert-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4.5 5v6.2c0 5.1 3.1 8.7 7.5 10.8 4.4-2.1 7.5-5.7 7.5-10.8V5L12 2Z"/><path d="m8.5 12 2.4 2.4 4.8-4.8"/></svg>사전승낙서 확인</span><span aria-hidden="true">↗</span></a></div>
 </div><div class="company-footer-bottom"><p>© Copyright 2024. All Rights Reserved.</p></div></footer></div>
