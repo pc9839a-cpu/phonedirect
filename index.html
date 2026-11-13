@@ -371,7 +371,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 }
 .section{padding:60px 22px 67px;scroll-margin-top:20px}.sec-eyebrow{margin:0 0 11px;color:var(--blue);letter-spacing:.35px;font-weight:800;font-size:13px}.sec-title{margin:0;color:#14233b;font-size:34px;line-height:1.26;letter-spacing:-1.25px;font-weight:900}.sec-desc{margin:14px 0 0;font-size:16px;color:#617083;line-height:1.65}
 
-/* Six-step visual journey — large PNG sprites, centered responsive cards */
+/* Six-step visual journey — lossless, resolution-independent SVG icons */
 .purchase-journey{position:relative;overflow:hidden;padding:var(--section-padding) 18px;background:#fff;text-align:center;scroll-margin-top:18px;padding-left:var(--page-gutter);padding-right:var(--page-gutter);}
 .purchase-journey::before{content:"";position:absolute;top:3%;left:50%;width:330px;height:330px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(89,148,255,.09),transparent 68%);pointer-events:none}
 .journey-heading{position:relative;max-width:780px;margin:0 auto 34px;text-align:center}
@@ -383,8 +383,13 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .journey-step{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:0;min-width:0;min-height:264px;margin:0;padding:22px 9px 23px;border:1px solid #e2eaf6;border-radius:var(--radius-card);background:#f8faff;box-shadow:0 11px 23px rgba(19,55,104,.075);text-align:center;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s}
 .journey-step::before{content:"";position:absolute;top:0;left:19%;right:19%;height:3px;border-radius:0 0 7px 7px;background:#b8d2ff}
 .journey-step-label{display:block;margin:0;color:#1769f5;font-size:var(--type-label);line-height:1.35;font-weight:950;letter-spacing:.1em}
-.journey-icon{display:block;flex:none;width:118px;height:118px;max-width:100%;margin:5px auto 9px;background-image:url('/assets/phonedirect-steps-sprite-20261113.png');background-repeat:no-repeat;background-size:300% 200%;background-position:0 0;image-rendering:auto;filter:drop-shadow(0 9px 12px rgba(25,73,149,.08));transition:transform .3s}
-.journey-icon-1{background-position:0% 0%}.journey-icon-2{background-position:50% 0%}.journey-icon-3{background-position:100% 0%}.journey-icon-4{background-position:0% 100%}.journey-icon-5{background-position:50% 100%}.journey-icon-6{background-position:100% 100%}
+.journey-icon{display:block;flex:none;width:118px;height:118px;max-width:100%;margin:5px auto 9px;background-repeat:no-repeat;background-size:contain;background-position:center;image-rendering:auto;filter:drop-shadow(0 7px 10px rgba(25,73,149,.12));transition:transform .3s}
+.journey-icon-1{background-image:url('/assets/icons/step-consultation.svg')}
+.journey-icon-2{background-image:url('/assets/icons/step-application.svg')}
+.journey-icon-3{background-image:url('/assets/icons/step-shipping.svg')}
+.journey-icon-4{background-image:url('/assets/icons/step-activation.svg')}
+.journey-icon-5{background-image:url('/assets/icons/step-transfer.svg')}
+.journey-icon-6{background-image:url('/assets/icons/step-gift.svg')}
 .journey-step-copy{width:100%;min-width:0;text-align:center}
 .journey-step-copy h3{margin:0;color:#152b49;font-size:clamp(20px,2.3vw,28px);line-height:1.31;font-weight:930;letter-spacing:-.55px;word-break:keep-all}
 .journey-step-copy p{max-width:310px;margin:9px auto 0;color:#586a83;font-size:clamp(15px,1.65vw,19px);line-height:1.58;letter-spacing:-.13px;word-break:keep-all}
