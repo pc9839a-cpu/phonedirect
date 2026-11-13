@@ -51,8 +51,12 @@ export async function onRequestPost({request,env}){
       body:JSON.stringify({token:env.SHEETS_INGEST_TOKEN,lead}),redirect:'follow',signal:controller.signal});
     if(!upstream.ok)return json(502,{ok:false,message:'접수 서버 연결에 실패했습니다. 다시 시도해 주세요.'});
     const result=await upstream.json().catch(()=>null);
-    if(!result||result.ok!==true||result.receipt!==receipt)
-      return json(502,{ok:false,message:'접수 저장이 확인되지 않았습니다. 같은 내용으로 다시 시도해 주세요.'});
+    if(!result||result.ok!==true||result.receipt!==receipt){
+      // Safe diagnostic only: no customer data, URLs or tokens.
+      const allowed=new Set(['unauthorized','invalid_lead','missing_sheet','busy','server_error','bad_request']);
+      const errorCode=allowed.has(result?.code)?result.code:'unconfirmed_write';
+      return json(502,{ok:false,message:'접수 저장이 확인되지 않았습니다. 같은 내용으로 다시 시도해 주세요.',error_code:errorCode});
+    }
     return json(200,{ok:true,receipt,duplicate:result.duplicate===true});
   }catch(_){return json(502,{ok:false,message:'접수 서버에 연결하지 못했습니다. 같은 내용으로 다시 시도해 주세요.'});}
   finally{clearTimeout(timer);}
