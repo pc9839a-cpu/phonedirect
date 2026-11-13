@@ -463,16 +463,26 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .footer strong{font-size:13px;color:#203654;font-weight:850}
 @media(max-width:359px){.form-section{padding:58px 11px 78px;padding-left:var(--page-gutter);padding-right:var(--page-gutter);}.form-panel{padding:20px 13px}.field-label{font-size:17px}.options,.options.model-options{gap:6px}.option span{font-size:12.5px;min-height:47px}}
 
-/* Fixed apply CTA — one visible action, highly legible */
-.fixed-cta{position:fixed;z-index:1000;left:50%;bottom:calc(10px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:min(calc(100% - 24px),458px);padding:0;border:0;background:transparent;box-shadow:none}
-.fixed-cta a{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;width:100%;height:63px;border:1px solid rgba(255,255,255,.46);border-radius:16px;background:#1269fb;box-shadow:0 13px 32px rgba(4,61,164,.3);overflow:hidden;color:#fff;font-size:19px;font-weight:950;letter-spacing:-.5px;transition:transform .2s,background-color .2s,box-shadow .2s;animation:pdCTABreath 4.2s ease-in-out infinite}
-.fixed-cta a::before{content:"";position:absolute;top:-65%;left:-65%;width:38%;height:225%;transform:rotate(26deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);pointer-events:none;animation:pdSweep 5.5s 2s infinite}
-
-.fixed-cta a:active{transform:scale(.985)}
-@keyframes pdCTABreath{0%,100%{box-shadow:0 13px 28px rgba(4,61,164,.26)}50%{box-shadow:0 13px 35px rgba(4,61,164,.4)}}
-@media(max-width:359px){.header{padding:0 13px}.fixed-cta{bottom:calc(8px + env(safe-area-inset-bottom,0px))}}
-
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:0s!important;animation-duration:0s!important}}
+/* Fixed consultation CTA — animated electric-blue focus, one clear action */
+.fixed-cta{position:fixed;z-index:1000;left:50%;bottom:calc(10px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:min(calc(100% - 24px),458px);padding:0;border:0;background:transparent}
+.fixed-cta::before{content:"";position:absolute;inset:-5px;border-radius:21px;background:linear-gradient(110deg,rgba(0,100,255,.48),rgba(87,203,255,.85),rgba(36,104,255,.44));filter:blur(13px);opacity:.6;pointer-events:none;animation:pdCTAHalo 3.3s ease-in-out infinite}
+.fixed-cta a{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;gap:11px;width:100%;min-height:65px;padding:11px 20px;border:1px solid rgba(190,228,255,.85);border-radius:16px;background:linear-gradient(115deg,#0752df 0%,#176bff 24%,#3b9dff 46%,#0c62ef 69%,#0752df 100%);background-size:235% 100%;color:#fff;box-shadow:0 12px 29px rgba(0,71,205,.33),inset 0 1px 0 rgba(255,255,255,.35);overflow:hidden;font-size:19px;font-weight:950;letter-spacing:-.45px;transition:transform .2s ease,box-shadow .2s ease;animation:pdCTAFlow 5.5s ease-in-out infinite,pdCTAShadow 3.3s ease-in-out infinite}
+.fixed-cta a::before{content:"";position:absolute;z-index:0;top:-55%;left:-70%;width:39%;height:210%;transform:rotate(24deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.09) 17%,rgba(255,255,255,.66) 50%,rgba(255,255,255,.12) 80%,transparent);pointer-events:none;animation:pdCTASheen 4.1s ease-in-out infinite}
+.fixed-cta a::after{content:"";position:absolute;inset:2px;border:1px solid rgba(255,255,255,.25);border-radius:13px;pointer-events:none}
+.fixed-cta .cta-flare,.fixed-cta .cta-label,.fixed-cta .cta-arrow{position:relative;z-index:1;flex:none}
+.fixed-cta .cta-flare{color:#d4f4ff;font-size:20px;text-shadow:0 0 12px rgba(255,255,255,.8);animation:pdCTASpark 3.2s ease-in-out infinite}
+.fixed-cta .cta-label{text-shadow:0 2px 9px rgba(0,39,126,.28)}
+.fixed-cta .cta-arrow{width:21px;height:21px;animation:pdCTAArrow 1.9s ease-in-out infinite}
+.fixed-cta a:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(0,74,204,.44),inset 0 1px 0 rgba(255,255,255,.4)}
+.fixed-cta a:active{transform:translateY(0) scale(.987)}
+@keyframes pdCTAFlow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes pdCTAHalo{0%,100%{opacity:.38;transform:scale(.985)}50%{opacity:.93;transform:scale(1.018)}}
+@keyframes pdCTAShadow{0%,100%{box-shadow:0 11px 27px rgba(0,71,205,.28),inset 0 1px 0 rgba(255,255,255,.25)}50%{box-shadow:0 15px 35px rgba(0,84,222,.45),inset 0 1px 0 rgba(255,255,255,.4)}}
+@keyframes pdCTASheen{0%,21%{left:-70%}53%,100%{left:140%}}
+@keyframes pdCTASpark{0%,100%{opacity:.7;transform:scale(.88) rotate(-12deg)}48%{opacity:1;transform:scale(1.22) rotate(18deg)}}
+@keyframes pdCTAArrow{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+@media(max-width:359px){.header{padding:0 13px}.fixed-cta{bottom:calc(8px + env(safe-area-inset-bottom,0px))}.fixed-cta a{min-height:60px;gap:9px;font-size:18px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:0s!important;animation-duration:0s!important}.fixed-cta::before,.fixed-cta a,.fixed-cta a::before,.fixed-cta .cta-flare,.fixed-cta .cta-arrow{animation:none!important}.fixed-cta a{background-position:40% 50%}}
 
 /* Customer activity — five visible rows, elevated daily-limit sign */
 .application-activity{--activity-row-height:73px;position:relative;width:100%;margin:0 auto;padding:var(--section-padding) 18px;background:#f0f5ff;scroll-margin-top:18px;text-align:center;padding-left:var(--page-gutter);padding-right:var(--page-gutter);}
@@ -491,13 +501,21 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .activity-choice{justify-content:flex-end;gap:10px;text-align:right}
 .activity-carrier{display:inline-flex;align-items:center;justify-content:center;min-width:33px;min-height:24px;padding:2px 7px;border-radius:7px;background:#e6f0ff;color:#1164e7;font-size:11px;line-height:1.3;font-weight:930}
 .activity-choice strong{color:#183354;font-size:15px;line-height:1.3;font-weight:930;letter-spacing:-.3px}
-.activity-limit{position:relative;isolation:isolate;display:flex;align-items:baseline;justify-content:center;gap:12px;max-width:var(--aligned-width);width:100%;margin:16px auto 0;padding:23px 13px 24px;border:1px solid rgba(112,174,252,.38);border-radius:17px;background:#112b4d;box-shadow:0 17px 34px rgba(17,45,89,.17);color:#fff;font-size:22px;line-height:1.13;font-weight:940;letter-spacing:-.5px;text-align:center;white-space:normal;overflow:hidden;flex-wrap:wrap;}
-.activity-limit::before{content:"";position:absolute;z-index:-1;inset:-50% 35% -50% -40%;transform:rotate(21deg);background:linear-gradient(90deg,transparent,rgba(72,152,255,.2),transparent);pointer-events:none;animation:pdQuotaShine 6s ease-in-out infinite}
-.activity-limit strong{color:#8cbcff;font-size:clamp(40px,9.5vw,57px);font-weight:960;line-height:1;letter-spacing:-1.2px;font-variant-numeric:tabular-nums}
+.activity-limit{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;gap:12px;max-width:var(--aligned-width);width:100%;margin:16px auto 0;padding:25px 15px 26px;border:1px solid rgba(139,201,255,.6);border-radius:17px;background:linear-gradient(118deg,#092348 0%,#17467f 48%,#092449 100%);box-shadow:0 13px 29px rgba(17,45,89,.16),inset 0 1px 0 rgba(255,255,255,.14);color:#fff;font-size:22px;line-height:1.13;font-weight:940;letter-spacing:-.5px;text-align:center;white-space:normal;overflow:hidden;flex-wrap:wrap;animation:pdQuotaPulse 3.7s ease-in-out infinite}
+.activity-limit::before{content:"";position:absolute;z-index:0;top:-60%;left:-80%;width:38%;height:220%;transform:rotate(23deg);background:linear-gradient(90deg,transparent,rgba(120,214,255,.06),rgba(163,229,255,.33),rgba(120,214,255,.08),transparent);pointer-events:none;animation:pdQuotaShine 4.7s ease-in-out infinite}
+.activity-limit::after{content:"";position:absolute;inset:4px;border:1px solid rgba(140,196,255,.25);border-radius:13px;pointer-events:none;animation:pdQuotaFrame 3.7s ease-in-out infinite}
+.activity-limit .activity-limit-label{position:relative;z-index:1;white-space:nowrap;color:#e0edff;font-weight:880}
+.activity-limit strong{position:relative;z-index:1;display:inline-block;color:#b9e9ff;font-size:clamp(40px,9.5vw,57px);font-weight:960;line-height:1;letter-spacing:-1.2px;font-variant-numeric:tabular-nums;text-shadow:0 0 26px rgba(64,197,255,.25);animation:pdQuotaNumber 3.7s ease-in-out infinite}
+
+
 @media(min-width:768px){.application-activity{padding:86px 24px 93px;padding-left:var(--page-gutter);padding-right:var(--page-gutter);}.activity-limit{padding:25px 17px}}
 @media(max-width:419px){.application-activity{--activity-row-height:69px;padding:55px 12px 64px;padding-left:var(--page-gutter);padding-right:var(--page-gutter);}.activity-topline{margin-bottom:20px}.activity-topline h2{font-size:var(--type-section)}.activity-board{border-radius:13px}.activity-row{gap:5px;padding:0 10px}.activity-person,.activity-ident,.activity-choice{gap:6px}.activity-ident strong{font-size:15px}.activity-ident span{font-size:11px;letter-spacing:-.2px}.activity-carrier{min-width:26px;min-height:22px;padding:2px 5px;font-size:10px}.activity-choice strong{font-size:12px}.activity-limit{padding:19px 10px;gap:9px;font-size:20px}.activity-limit strong{font-size:42px}}
 @media(max-width:339px){.application-activity{--activity-row-height:65px;padding-left:var(--page-gutter);padding-right:var(--page-gutter)}.activity-row{padding:0 7px;gap:3px}.activity-person,.activity-ident,.activity-choice{gap:4px}.activity-ident strong{font-size:14px}.activity-ident span{font-size:10px}.activity-choice strong{font-size:11px}.activity-carrier{min-width:24px;padding:2px 3px;font-size:9px}.activity-limit{font-size:17px;gap:7px}.activity-limit strong{font-size:37px}}
-@keyframes pdQuotaShine{0%,28%{transform:translateX(-45%) rotate(21deg)}55%,100%{transform:translateX(125%) rotate(21deg)}}
+@keyframes pdQuotaShine{0%,26%{left:-80%}60%,100%{left:145%}}
+@keyframes pdQuotaPulse{0%,100%{box-shadow:0 13px 29px rgba(17,45,89,.16),inset 0 1px 0 rgba(255,255,255,.14)}50%{box-shadow:0 15px 36px rgba(0,111,230,.29),0 0 0 2px rgba(62,150,255,.17),inset 0 1px 0 rgba(255,255,255,.2)}}
+@keyframes pdQuotaNumber{0%,100%{transform:scale(1);color:#a4d5ff;text-shadow:0 0 18px rgba(35,151,255,.23)}50%{transform:scale(1.075);color:#e4f9ff;text-shadow:0 0 27px rgba(94,212,255,.65)}}
+@keyframes pdQuotaFrame{0%,100%{border-color:rgba(140,196,255,.2)}50%{border-color:rgba(190,233,255,.65)}}
+@media(prefers-reduced-motion:reduce){.activity-limit,.activity-limit::before,.activity-limit::after,.activity-limit strong{animation:none!important}}
 
 /* Seller information — branded midnight footer */
 .company-footer{background:#0b1e37;padding:37px 19px 49px;text-align:left;color:#adbed8;padding-left:var(--page-gutter);padding-right:var(--page-gutter);}
@@ -662,7 +680,20 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
       <div class="journey-step-copy"><h3>선물받기</h3><p>구매후기 작성 후 푸짐한 사은품 받기</p></div>
     </li>
   </ol>
-</section><div class="divider"></div>
+</section><section class="application-activity" aria-labelledby="activity-title">
+  <div class="activity-topline"><h2 id="activity-title">현재 신청 중인 고객</h2></div>
+  <div class="activity-board">
+    <div class="activity-viewport"><div class="activity-list" id="activityList" role="list" aria-label="마스킹된 예시 신청 고객 목록">
+<div class="activity-row" role="listitem"><div class="activity-person"><div class="activity-ident"><strong>김*현</strong><span>010-4***-****</span></div></div><div class="activity-choice"><span class="activity-carrier">KT</span><strong>S26 울트라</strong></div></div>
+<div class="activity-row" role="listitem"><div class="activity-person"><div class="activity-ident"><strong>이*준</strong><span>010-7***-****</span></div></div><div class="activity-choice"><span class="activity-carrier">SK</span><strong>S26</strong></div></div>
+<div class="activity-row" role="listitem"><div class="activity-person"><div class="activity-ident"><strong>박*서</strong><span>010-3***-****</span></div></div><div class="activity-choice"><span class="activity-carrier">LG</span><strong>S26+</strong></div></div>
+<div class="activity-row" role="listitem"><div class="activity-person"><div class="activity-ident"><strong>정*민</strong><span>010-5***-****</span></div></div><div class="activity-choice"><span class="activity-carrier">KT</span><strong>Z 플립8</strong></div></div>
+<div class="activity-row" role="listitem"><div class="activity-person"><div class="activity-ident"><strong>최*우</strong><span>010-8***-****</span></div></div><div class="activity-choice"><span class="activity-carrier">SK</span><strong>Z 폴드8</strong></div></div>
+    </div></div>
+  </div>
+  <p class="activity-limit"><span class="activity-limit-label">일</span><strong>50대</strong><span class="activity-limit-label">한정</span></p>
+</section>
+<div class="divider"></div>
 <section class="section form-section" id="consult"><div class="form-header"><h2 class="sec-title">상담 신청</h2></div><form class="form-panel" id="leadForm" novalidate>
 <div class="field"><label class="field-label" for="name"><span class="field-icon"><svg aria-hidden="true" focusable="false" class="ui-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>고객 성함 <span class="required">*</span></label><input id="name" name="name" autocomplete="name" placeholder="성함을 입력해 주세요" maxlength="30" required></div>
 <div class="field"><label class="field-label" for="phonePrefix"><span class="field-icon"><svg aria-hidden="true" focusable="false" class="ui-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.5 19.5 0 0 1-8.6-3 19 19 0 0 1-5.8-5.8 19.5 19.5 0 0 1-3-8.6A2 2 0 0 1 4.4 2h3a2 2 0 0 1 2 1.7l.4 2.6a2 2 0 0 1-.6 1.7L7.5 9.7a16 16 0 0 0 6.8 6.8l1.7-1.7a2 2 0 0 1 1.7-.6l2.6.4A2 2 0 0 1 22 16.9Z"/></svg></span>전화번호 <span class="required">*</span></label><div class="phone-parts" role="group" aria-label="전화번호 입력">
@@ -680,24 +711,12 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 <label class="privacy"><input type="checkbox" id="privacy" required><span>개인정보 수집 및 이용 동의 (필수)</span></label><p class="privacy-info">수집 항목: 성함·전화번호·통신사·희망기종 · 목적: 구매 조건 상담.</p>
 <button type="submit" class="submit">구매 조건 상담 신청하기 ↗</button><div id="formMessage" class="message" role="status" aria-live="polite"></div></form></section>
 
-<section class="application-activity" aria-labelledby="activity-title">
-  <div class="activity-topline"><h2 id="activity-title">현재 신청 중인 고객</h2></div>
-  <div class="activity-board">
-    <div class="activity-viewport"><div class="activity-list" id="activityList" role="list" aria-label="마스킹된 예시 신청 고객 목록">
-<div class="activity-row" role="listitem"><div class="activity-person"><div class="activity-ident"><strong>김*현</strong><span>010-4***-****</span></div></div><div class="activity-choice"><span class="activity-carrier">KT</span><strong>S26 울트라</strong></div></div>
-<div class="activity-row" role="listitem"><div class="activity-person"><div class="activity-ident"><strong>이*준</strong><span>010-7***-****</span></div></div><div class="activity-choice"><span class="activity-carrier">SK</span><strong>S26</strong></div></div>
-<div class="activity-row" role="listitem"><div class="activity-person"><div class="activity-ident"><strong>박*서</strong><span>010-3***-****</span></div></div><div class="activity-choice"><span class="activity-carrier">LG</span><strong>S26+</strong></div></div>
-<div class="activity-row" role="listitem"><div class="activity-person"><div class="activity-ident"><strong>정*민</strong><span>010-5***-****</span></div></div><div class="activity-choice"><span class="activity-carrier">KT</span><strong>Z 플립8</strong></div></div>
-<div class="activity-row" role="listitem"><div class="activity-person"><div class="activity-ident"><strong>최*우</strong><span>010-8***-****</span></div></div><div class="activity-choice"><span class="activity-carrier">SK</span><strong>Z 폴드8</strong></div></div>
-    </div></div>
-  </div>
-  <p class="activity-limit">일 <strong>50대</strong> 한정</p>
-</section>
+
 </main><footer class="footer company-footer" aria-label="사업자 및 사전승낙서 정보"><strong class="company-footer-title">사업자 정보 및 사전승낙서</strong><div class="company-list">
 <div class="company-card"><p class="company-card-title">수리</p><p class="company-card-number">사업자등록번호 <strong>601-20-69213</strong></p><a class="company-cert-link" href="https://ictmarket.or.kr:8443/precon/pop_CertIcon.do?PRECON_REQ_ID=PRE0000110311&amp;YN=1" target="_blank" rel="noopener noreferrer" aria-label="수리 판매점 사전승낙서 새 창에서 확인"><span class="company-cert-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4.5 5v6.2c0 5.1 3.1 8.7 7.5 10.8 4.4-2.1 7.5-5.7 7.5-10.8V5L12 2Z"/><path d="m8.5 12 2.4 2.4 4.8-4.8"/></svg>사전승낙서 확인</span><span aria-hidden="true">↗</span></a></div>
 <div class="company-card"><p class="company-card-title">지유니컴퍼니</p><p class="company-card-number">사업자등록번호 <strong>607-24-61842</strong></p><a class="company-cert-link" href="https://ictmarket.or.kr:8443/precon/pop_CertIcon.do?PRECON_REQ_ID=PRE0000164995&amp;YN=1" target="_blank" rel="noopener noreferrer" aria-label="지유니컴퍼니 판매점 사전승낙서 새 창에서 확인"><span class="company-cert-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4.5 5v6.2c0 5.1 3.1 8.7 7.5 10.8 4.4-2.1 7.5-5.7 7.5-10.8V5L12 2Z"/><path d="m8.5 12 2.4 2.4 4.8-4.8"/></svg>사전승낙서 확인</span><span aria-hidden="true">↗</span></a></div>
 </div><div class="company-footer-bottom"><p>© Copyright 2024. All Rights Reserved.</p></div></footer></div>
-<div class="fixed-cta"><a href="#consult" aria-label="신청하기">신청하기</a></div>
+<div class="fixed-cta"><a href="#consult" aria-label="신청하기"><span class="cta-flare" aria-hidden="true">✦</span><span class="cta-label">신청하기</span><svg class="cta-arrow" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div>
 <script>
 (()=>{'use strict';
 const models={s26:{label:'Galaxy S26'},plus:{label:'Galaxy S26+'},ultra:{label:'Galaxy S26 Ultra'},flip:{label:'Galaxy Z Flip8'},fold:{label:'Galaxy Z Fold8'}};
