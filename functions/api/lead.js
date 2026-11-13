@@ -9,7 +9,10 @@ const models={s26:'S26',plus:'S26+',ultra:'S26 Ultra',flip:'Flip8',fold:'Fold8'}
 // whether both Cloudflare Pages secrets are present; it does not check Sheet writes.
 export async function onRequestGet({env}){
   const response=json(405,{ok:false,message:'POST 요청만 지원합니다.'});
-  response.headers.set('X-Lead-Bridge-Configured',env?.SHEETS_WEB_APP_URL&&env?.SHEETS_INGEST_TOKEN?'yes':'no');
+  const hasUrl=typeof env?.SHEETS_WEB_APP_URL==='string'&&env.SHEETS_WEB_APP_URL.trim().length>0;
+  const hasToken=typeof env?.SHEETS_INGEST_TOKEN==='string'&&env.SHEETS_INGEST_TOKEN.trim().length>0;
+  response.headers.set('X-Lead-Bridge-Configured',hasUrl&&hasToken?'yes':'no');
+  response.headers.set('X-Lead-Bridge-Missing',hasUrl?(hasToken?'none':'token'):(hasToken?'url':'url,token'));
   return response;
 }
 export async function onRequestPost({request,env}){
