@@ -305,6 +305,13 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 @media(min-width:768px){.company-footer{padding:43px 34px 53px}.company-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}}
 @media(max-width:359px){.company-footer{padding-left:14px;padding-right:14px}}
 
+/* Scroll choreography — no visual changes when JS or motion is disabled */
+@media(prefers-reduced-motion:no-preference){
+.ad-reveal{opacity:0;transform:translate3d(0,24px,0);transition:opacity .7s ease,transform .78s cubic-bezier(.2,.7,.2,1)}
+.ad-reveal.is-seen{opacity:1;transform:translate3d(0,0,0)}
+.price-sheet .offer-card.ad-reveal:nth-child(2n),.contract-item.ad-reveal:nth-child(2n),.journey-step.ad-reveal:nth-child(2n){transition-delay:.09s}
+.price-sheet .offer-card.ad-reveal:nth-child(3n),.contract-item.ad-reveal:nth-child(3n),.journey-step.ad-reveal:nth-child(3n){transition-delay:.16s}
+}
 </style>
 </head>
 <body>
@@ -588,6 +595,23 @@ if(activityList && !window.matchMedia('(prefers-reduced-motion: reduce)').matche
     activityList.style.transition='transform 480ms cubic-bezier(.22,.74,.23,1)';
     activityList.style.transform='translateY(-'+distance+'px)';
   },3600);
+}
+
+
+// Reveal only when scrolled into view; remain visible in reduced-motion or older browsers.
+if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const animated=qsa('.price-sheet .offer-card, .contract-subhead, .contract-item, .purchase-journey .journey-step, .form-header, .form-panel, .application-activity .activity-board, .activity-limit');
+  const revealObserver=new IntersectionObserver((entries,observer)=>{
+    entries.forEach(({target,isIntersecting})=>{
+      if(isIntersecting){target.classList.add('is-seen');observer.unobserve(target);}
+    });
+  },{threshold:.06,rootMargin:'0px 0px -25px 0px'});
+  animated.forEach(item=>{
+    // Offscreen elements animate once; visible content stays usable without waiting.
+    if(item.getBoundingClientRect().top<window.innerHeight-20){return;}
+    item.classList.add('ad-reveal');
+    revealObserver.observe(item);
+  });
 }
 
 })();
