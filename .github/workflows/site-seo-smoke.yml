@@ -1,0 +1,40 @@
+name: PhoneDirect live SEO smoke check
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/site-seo-smoke.yml'
+      - 'index.html'
+      - 'favicon.ico'
+      - 'favicon-48.png'
+      - 'apple-touch-icon.png'
+      - 'assets/phonedirect-og.jpg'
+      - 'sitemap.xml'
+      - 'robots.txt'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify live SEO metadata and asset URLs
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="https://phonedirect.pages.dev"
+          for item in "/" "/favicon.ico" "/favicon-48.png" "/favicon.svg" "/apple-touch-icon.png" "/assets/phonedirect-og.jpg" "/robots.txt" "/sitemap.xml" "/site.webmanifest"; do
+            code="$(curl -sSL --retry 3 --max-time 20 -o /tmp/pd-response -w '%{http_code}' "$base$item")"
+            echo "$item => HTTP $code"
+            test "$code" = 200
+            if [[ "$item" = "/assets/phonedirect-og.jpg" ]]; then
+              test "$(wc -c </tmp/pd-response)" -gt 10000
+            fi
+          done
+          curl -fsSL --retry 3 --max-time 20 "$base/" -o /tmp/pd-page.html
+          grep -Fq '<link rel="canonical" href="https://phonedirect.pages.dev/"' /tmp/pd-page.html
+          grep -Fq '<meta property="og:site_name" content="폰다이렉트"' /tmp/pd-page.html
+          grep -Fq '<meta property="og:image" content="https://phonedirect.pages.dev/assets/phonedirect-og.jpg"' /tmp/pd-page.html
+          grep -Fq '"@type":"WebSite"' /tmp/pd-page.html
+          if grep -Eq 'name="robots" content="noindex' /tmp/pd-page.html; then exit 1; fi
+          echo 'Live PhoneDirect SEO asset check passed.'
