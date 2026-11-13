@@ -212,27 +212,45 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 
 
 
-/* Applicant status: mobile-width ticker without decorative label or promotional subtitle */
-.application-activity{max-width:760px;margin:0 auto;padding:42px 18px 55px;background:#fff;text-align:center;scroll-margin-top:18px}
-.activity-topline{display:flex;align-items:center;justify-content:center;margin:0 auto 18px;text-align:center}
-.activity-topline h2{margin:0;color:#152b47;font-size:clamp(23px,6.4vw,29px);font-weight:930;line-height:1.35;letter-spacing:-.8px}
-.activity-board{width:100%;max-width:485px;margin:0 auto;overflow:hidden;border:1px solid #dfe8f3;border-radius:14px;background:#fff;box-shadow:0 7px 20px rgba(20,55,92,.045)}
-.activity-board-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;background:#eef4fc;color:#51698c;border-bottom:1px solid #e2eaf3;font-size:11px;font-weight:790}
-.activity-viewport{height:198px;overflow:hidden;position:relative}
-.activity-viewport::after{content:"";position:absolute;inset:auto 0 0;height:7px;background:linear-gradient(0deg,rgba(255,255,255,.95),rgba(255,255,255,0));pointer-events:none}
-.activity-list{list-style:none;margin:0;padding:0}
-.activity-row{display:flex;align-items:center;justify-content:space-between;gap:10px;height:66px;padding:8px 12px;background:#fff;border-bottom:1px solid #eef2f8}
-.activity-person{display:flex;align-items:center;gap:8px;min-width:0}
-.activity-avatar{display:grid;place-items:center;flex:none;width:32px;height:32px;border-radius:10px;background:#eaf2ff;color:#1769f5;font-size:12px;font-weight:900}
-.activity-ident{display:flex;flex-direction:column;gap:1px;align-items:flex-start;min-width:0}
-.activity-ident strong{color:#20364f;font-size:13px;font-weight:880;line-height:1.3}
-.activity-ident span{color:#7a8ca7;font-size:11px;line-height:1.4;white-space:nowrap;font-variant-numeric:tabular-nums}
-.activity-choice{display:flex;flex-direction:column;align-items:flex-end;gap:3px;min-width:0;text-align:right}
-.activity-carrier{padding:2px 6px;border-radius:5px;background:#eaf2ff;color:#1769f5;font-size:10px;line-height:1.2;font-weight:880}
-.activity-choice strong{color:#213952;font-size:12px;font-weight:880;line-height:1.3;letter-spacing:-.25px;white-space:nowrap}
-@media(max-width:359px){.application-activity{padding-left:13px;padding-right:13px}.activity-row{padding-left:8px;padding-right:8px}.activity-board-heading{padding-left:8px;padding-right:8px}.activity-avatar{width:28px;height:28px}.activity-ident span{font-size:10px}.activity-choice strong{font-size:11px}}
 
-.activity-note{margin:9px auto 0;color:#8997ab;font-size:11px;line-height:1.5;text-align:center}
+/* Applicant ticker: wide single-line rolling rows, no redundant notices */
+.application-activity{width:100%;max-width:none;margin:0 auto;padding:42px 17px 49px;background:#fff;text-align:center;scroll-margin-top:18px}
+.activity-topline{display:flex;align-items:baseline;justify-content:center;gap:8px;margin:0 auto 19px;text-align:center}
+.activity-topline h2{margin:0;color:#172e4d;font-size:clamp(24px,6.6vw,31px);font-weight:930;letter-spacing:-1px;line-height:1.32}
+.activity-demo-tag{color:#94a0b2;font-size:11px;line-height:1.3;font-weight:650}
+.activity-board{width:100%;max-width:none;margin:0 auto;overflow:hidden;border:1px solid #dce5f1;border-radius:14px;background:#fff;box-shadow:0 9px 28px rgba(14,43,83,.065)}
+.activity-viewport{position:relative;height:80px;overflow:hidden}
+.activity-list{margin:0;padding:0;list-style:none}
+.activity-row{display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0;height:80px;padding:0 17px;border-bottom:1px solid #eaf0f7;background:#fff}
+.activity-person,.activity-ident,.activity-choice{display:flex;flex-direction:row;align-items:center;min-width:0;white-space:nowrap}
+.activity-person,.activity-ident{gap:11px}
+.activity-ident strong{color:#172a46;font-size:17px;line-height:1.3;font-weight:920;letter-spacing:-.4px}
+.activity-ident span{color:#71839c;font-size:14px;line-height:1.3;font-weight:620;font-variant-numeric:tabular-nums;letter-spacing:-.25px}
+.activity-choice{justify-content:flex-end;gap:10px;text-align:right}
+.activity-carrier{display:inline-flex;align-items:center;justify-content:center;min-width:32px;min-height:24px;padding:2px 7px;border-radius:7px;background:#eaf2ff;color:#1764dc;font-size:12px;font-weight:870;line-height:1.2}
+.activity-choice strong{color:#1c344f;font-size:16px;font-weight:900;line-height:1.3;letter-spacing:-.35px}
+@media(max-width:419px){
+.application-activity{padding:36px 12px 44px}
+.activity-topline h2{font-size:25px}
+.activity-topline{margin-bottom:17px}
+.activity-viewport,.activity-row{height:75px}
+.activity-row{gap:5px;padding:0 9px}
+.activity-person,.activity-ident,.activity-choice{gap:5px}
+.activity-ident strong{font-size:14px}
+.activity-ident span{font-size:11px}
+.activity-carrier{min-width:25px;min-height:21px;padding:2px 4px;font-size:10px}
+.activity-choice strong{font-size:12px}
+.activity-demo-tag{font-size:10px}
+}
+@media(max-width:339px){
+.activity-topline h2{font-size:22px}
+.activity-row{padding:0 7px}
+.activity-ident strong{font-size:13px}
+.activity-ident span{font-size:10px}
+.activity-choice strong{font-size:11px}
+.activity-carrier{font-size:9px}
+}
+
 /* Business certificate footer */
 .company-footer{background:#f1f5fb;padding:28px 19px 40px;text-align:left}
 .company-footer-title{display:block;margin:0 0 5px;color:#1b304d;font-size:15px;font-weight:900}
@@ -405,18 +423,16 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 <button type="submit" class="submit">구매 조건 상담 신청하기 ↗</button><div id="formMessage" class="message" role="status" aria-live="polite"></div></form></section>
 
 <section class="application-activity" aria-labelledby="activity-title">
-  <div class="activity-topline"><h2 id="activity-title">현재 신청 중인 고객</h2></div>
+  <div class="activity-topline"><h2 id="activity-title">현재 신청 중인 고객</h2><span class="activity-demo-tag">예시</span></div>
   <div class="activity-board">
-    <div class="activity-board-heading"><span>고객 · 연락처</span><span>통신사 · 희망 기종</span></div>
     <div class="activity-viewport"><div class="activity-list" id="activityList" role="list" aria-label="마스킹된 예시 신청 고객 목록">
-<div class="activity-row" role="listitem"><div class="activity-person"><span class="activity-avatar" aria-hidden="true">김</span><div class="activity-ident"><strong>김*현</strong><span>010-4***-****</span></div></div><div class="activity-choice"><span class="activity-carrier">KT</span><strong>S26 울트라</strong></div></div>
-<div class="activity-row" role="listitem"><div class="activity-person"><span class="activity-avatar" aria-hidden="true">이</span><div class="activity-ident"><strong>이*준</strong><span>010-7***-****</span></div></div><div class="activity-choice"><span class="activity-carrier">SK</span><strong>S26</strong></div></div>
-<div class="activity-row" role="listitem"><div class="activity-person"><span class="activity-avatar" aria-hidden="true">박</span><div class="activity-ident"><strong>박*서</strong><span>010-3***-****</span></div></div><div class="activity-choice"><span class="activity-carrier">LG</span><strong>S26+</strong></div></div>
-<div class="activity-row" role="listitem"><div class="activity-person"><span class="activity-avatar" aria-hidden="true">정</span><div class="activity-ident"><strong>정*민</strong><span>010-5***-****</span></div></div><div class="activity-choice"><span class="activity-carrier">KT</span><strong>Z 플립8</strong></div></div>
-<div class="activity-row" role="listitem"><div class="activity-person"><span class="activity-avatar" aria-hidden="true">최</span><div class="activity-ident"><strong>최*우</strong><span>010-8***-****</span></div></div><div class="activity-choice"><span class="activity-carrier">SK</span><strong>Z 폴드8</strong></div></div>
+<div class="activity-row" role="listitem"><div class="activity-person"><div class="activity-ident"><strong>김*현</strong><span>010-4***-****</span></div></div><div class="activity-choice"><span class="activity-carrier">KT</span><strong>S26 울트라</strong></div></div>
+<div class="activity-row" role="listitem"><div class="activity-person"><div class="activity-ident"><strong>이*준</strong><span>010-7***-****</span></div></div><div class="activity-choice"><span class="activity-carrier">SK</span><strong>S26</strong></div></div>
+<div class="activity-row" role="listitem"><div class="activity-person"><div class="activity-ident"><strong>박*서</strong><span>010-3***-****</span></div></div><div class="activity-choice"><span class="activity-carrier">LG</span><strong>S26+</strong></div></div>
+<div class="activity-row" role="listitem"><div class="activity-person"><div class="activity-ident"><strong>정*민</strong><span>010-5***-****</span></div></div><div class="activity-choice"><span class="activity-carrier">KT</span><strong>Z 플립8</strong></div></div>
+<div class="activity-row" role="listitem"><div class="activity-person"><div class="activity-ident"><strong>최*우</strong><span>010-8***-****</span></div></div><div class="activity-choice"><span class="activity-carrier">SK</span><strong>Z 폴드8</strong></div></div>
     </div></div>
   </div>
-  <p class="activity-note" aria-label="고객 예시 안내">표시된 이름과 신청 정보는 디자인 예시입니다.</p>
 </section>
 </main><footer class="footer company-footer" aria-label="사업자 및 사전승낙서 정보"><strong class="company-footer-title">사업자 정보 및 사전승낙서</strong><p class="company-footer-subtitle">각 판매점의 사업자등록정보와 사전승낙서를 확인하실 수 있습니다.</p><div class="company-list">
 <div class="company-card"><p class="company-card-title">수리</p><p class="company-card-number">사업자등록번호 <strong>601-20-69213</strong></p><a class="company-cert-link" href="https://ictmarket.or.kr:8443/precon/pop_CertIcon.do?PRECON_REQ_ID=PRE0000110311&amp;YN=1" target="_blank" rel="noopener noreferrer" aria-label="수리 판매점 사전승낙서 새 창에서 확인"><span class="company-cert-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4.5 5v6.2c0 5.1 3.1 8.7 7.5 10.8 4.4-2.1 7.5-5.7 7.5-10.8V5L12 2Z"/><path d="m8.5 12 2.4 2.4 4.8-4.8"/></svg>사전승낙서 확인</span><span aria-hidden="true">↗</span></a></div>
