@@ -57,7 +57,8 @@ jobs:
             if [[ -n "$bridge" ]]; then break; fi
             sleep 5
           done
-          echo "DB bridge configured: ${bridge:-unknown} (GET HTTP ${status})"
+          missing="$(grep -i '^x-lead-bridge-missing:' headers.txt | tail -1 | awk -F: '{print $2}' | tr -d ' \\r' || true)"
+          echo "DB bridge configured: ${bridge:-unknown}; missing: ${missing:-unknown} (GET HTTP ${status})"
           if [[ "$bridge" != 'yes' ]]; then
             echo '::error::Cloudflare Pages Sheets bridge secrets are missing (no) or the new backend is not deployed (unknown). Configure SHEETS_WEB_APP_URL and SHEETS_INGEST_TOKEN.'
             exit 1
