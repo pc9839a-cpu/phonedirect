@@ -17,96 +17,123 @@ body{margin:0;padding:0 0 calc(104px + env(safe-area-inset-bottom,0px));backgrou
 a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='button']{cursor:pointer;-webkit-tap-highlight-color:transparent}button,a,input,[role='button']{touch-action:manipulation}img{display:block;max-width:100%}:focus-visible{outline:3px solid #6fa6ff;outline-offset:3px}
 .shell{width:100%;max-width:var(--width);margin:0 auto;background:#fff;min-height:100vh;overflow:clip}
 .ui-icon{width:20px;height:20px;display:block;flex:none;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}.section-icon{width:25px;height:25px;display:inline-flex;align-items:center;justify-content:center;margin-right:9px;vertical-align:-4px;color:var(--blue)}.section-icon .ui-icon{width:25px;height:25px}
-.header{height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 23px;background:#fff;color:var(--navy);border-bottom:1px solid #ebeff5}.brand{font-size:20px;letter-spacing:-1px;font-weight:900}.header::after{content:'';width:32px;height:4px;border-radius:99px;background:var(--blue)}
-/* PhoneDirect hero — single responsive owner, product artwork preserved */
-.sale-hero{position:relative;isolation:isolate;overflow:hidden;padding:39px 0 0;background:#f4f6fd;color:#17243d;border-bottom:1px solid #e8edf7}
-.sale-head{position:relative;z-index:2;text-align:center;padding:0 20px}
-.sale-eyebrow{display:inline-flex;align-items:center;justify-content:center;min-height:27px;margin:0 0 18px;padding:5px 13px;border:1px solid #d2dff8;border-radius:999px;background:#eaf1ff;color:#1557d6;font-size:11px;line-height:1.3;font-weight:850;letter-spacing:.10em}
-.sale-title{margin:0;font-weight:900;line-height:1.12;letter-spacing:-.055em}
-.sale-title .line{display:block;font-size:clamp(29px,6.8vw,43px);line-height:1.23;letter-spacing:-1.5px;font-weight:880}
-.sale-title .headline{display:flex;align-items:baseline;justify-content:center;gap:12px;margin-top:4px;white-space:nowrap}
-.sale-title .prefix{font-size:clamp(30px,7.7vw,46px);font-weight:880;letter-spacing:-1.7px}
-.sale-title .value{display:inline-block;color:#155de8;font-size:clamp(78px,20vw,102px);line-height:1.02;letter-spacing:-.075em;font-weight:900;font-variant-numeric:tabular-nums}
-.sale-art{position:relative;z-index:1;width:100%;max-width:850px;margin:10px auto 0;line-height:0;overflow:hidden}
-.sale-device-composite{position:static;display:block;width:100%;height:auto;max-width:100%;margin:0;object-fit:contain;transform:none;filter:none}
-.sale-hero-note{position:relative;z-index:2;margin:0;padding:7px 18px 34px;text-align:center;color:#53627b;font-size:clamp(13px,3.5vw,16px);line-height:1.55;font-weight:670;letter-spacing:-.28px}
+.header{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px;height:auto;padding:10px 20px;background:#fff;color:#0b2445;border-bottom:1px solid #e8eef9}.brand{display:inline-flex;align-items:center;color:#102a4f;font-size:21px;letter-spacing:-1.15px;font-weight:950;white-space:nowrap}.brand::after{content:"";display:inline-block;flex:none;width:7px;height:7px;margin:12px 0 0 3px;border-radius:50%;background:#1769f5;box-shadow:0 0 0 3px #eaf3ff}.header-action{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:36px;padding:7px 13px;border-radius:999px;background:#eaf2ff;color:#125ad6;font-size:12px;line-height:1.3;font-weight:880;white-space:nowrap;transition:background-color .2s,transform .2s}.header-action span{font-size:15px}.header-action:hover{background:#d9e8ff}.header-action:active{transform:scale(.98)}
+/* Hero — premium, high-conversion mobile advertising treatment */
+.sale-hero{position:relative;isolation:isolate;overflow:hidden;padding:43px 0 0;background:#081932;color:#fff;border:0}
+.sale-hero::before{content:"";position:absolute;z-index:-1;inset:-160px -150px auto;height:570px;background:radial-gradient(ellipse at 50% 18%,rgba(35,104,246,.53),transparent 63%),radial-gradient(circle at 86% 24%,rgba(31,191,255,.2),transparent 38%);pointer-events:none;animation:pdAmbient 11s ease-in-out infinite alternate}
+.sale-hero::after{content:"";position:absolute;z-index:-1;inset:0 0 18%;background-image:linear-gradient(135deg,rgba(133,191,255,.065) 1px,transparent 1px);background-size:31px 31px;mask-image:linear-gradient(180deg,#000 0%,transparent 78%);pointer-events:none}
+.sale-head{position:relative;z-index:3;margin:0 auto;max-width:750px;padding:0 16px;text-align:center}
+.sale-eyebrow{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin:0 0 19px;padding:8px 16px;border:1px solid rgba(140,194,255,.48);border-radius:999px;background:rgba(47,109,212,.23);color:#c2e4ff;font-size:11px;font-weight:900;letter-spacing:.16em;line-height:1.35;backdrop-filter:blur(12px);animation:pdRise .65s both}
+.sale-eyebrow::before{content:"";width:6px;height:6px;flex:none;border-radius:50%;background:#6ef4f6;box-shadow:0 0 0 4px rgba(110,244,246,.11);animation:pdDot 2.6s ease-in-out infinite}
+.sale-title{position:relative;margin:0;line-height:1.1;text-align:center}
+.sale-title .line{display:block;color:#fff;font-size:clamp(27px,6.5vw,43px);line-height:1.22;letter-spacing:-1.6px;font-weight:870;animation:pdRise .73s .08s both}
+.sale-title .headline{display:flex;align-items:baseline;justify-content:center;gap:9px;margin:8px auto 0;white-space:nowrap;animation:pdRise .83s .16s both}
+.sale-title .prefix{color:#c7dcf8;font-size:clamp(30px,7.1vw,45px);letter-spacing:-1.7px;font-weight:880}
+.sale-title .value{position:relative;display:inline-block;color:#fff;font-size:clamp(80px,21.5vw,126px);line-height:1;letter-spacing:-.085em;font-weight:950;font-variant-numeric:tabular-nums;text-shadow:0 6px 38px rgba(42,139,255,.58)}
+.sale-title .value::after{content:"";position:absolute;left:8%;right:4%;bottom:-5px;height:5px;border-radius:50px;background:linear-gradient(90deg,#3a82ff,#80e9ff);box-shadow:0 0 19px rgba(75,159,255,.72);transform:scaleX(.76);transform-origin:center;animation:pdLineIn .8s .65s both}
+.sale-hero-cta{position:relative;display:flex;align-items:center;justify-content:center;gap:10px;width:min(280px,88%);min-height:52px;margin:24px auto 2px;padding:12px 18px;border:1px solid rgba(255,255,255,.55);border-radius:12px;background:#2975ff;box-shadow:0 13px 29px rgba(18,99,255,.32);color:#fff;font-size:15px;line-height:1.3;letter-spacing:-.3px;font-weight:900;overflow:hidden;transition:transform .22s,background-color .22s,box-shadow .22s;animation:pdRise .72s .3s both}
+.sale-hero-cta::after{content:"";position:absolute;top:-45%;left:-60%;width:35%;height:190%;transform:rotate(25deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.36),transparent);animation:pdSweep 4.7s 1.3s infinite}
+.sale-hero-cta span{display:inline-block;font-size:20px;line-height:1}
+.sale-hero-cta:active{transform:scale(.98)}
+.sale-art{position:relative;z-index:2;width:100%;max-width:1000px;margin:34px auto 0;padding:10px 0 0;border-radius:38px 38px 0 0;overflow:hidden;line-height:0;background:radial-gradient(ellipse at 50% 24%,#fff 0%,#f1f7ff 56%,#dae7ff 100%);box-shadow:0 -16px 52px rgba(82,151,255,.18);isolation:isolate}
+.sale-art::before{content:"";position:absolute;z-index:-1;left:50%;bottom:7%;width:80%;height:38%;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(53,130,255,.26),transparent 72%);filter:blur(14px);pointer-events:none}
+.sale-device-composite{position:relative;display:block;width:100%;height:auto;max-width:100%;margin:0;object-fit:contain;filter:drop-shadow(0 12px 13px rgba(13,39,91,.12));animation:pdPhoneFloat 7s ease-in-out infinite;transform-origin:center}
+.sale-hero-note{position:relative;z-index:3;margin:0;padding:14px 15px 20px;background:#deebff;text-align:center;color:#1c3a69;font-size:clamp(13px,3.45vw,16px);line-height:1.5;font-weight:820;letter-spacing:-.25px}
 @media(min-width:768px){
- .shell{max-width:1000px}
- .sale-hero{padding-top:53px}
- .sale-eyebrow{margin-bottom:19px}
- .sale-title .line{font-size:43px}
- .sale-title .headline{margin-top:0;gap:16px}
- .sale-title .prefix{font-size:44px}
- .sale-title .value{font-size:98px}
- .sale-art{width:92%;margin-top:2px}
- .sale-hero-note{padding:0 22px 40px;font-size:16px}
+.shell{max-width:1000px}
+.sale-hero{padding-top:66px}
+.sale-head{padding:0 34px}
+.sale-title .line{font-size:45px}
+.sale-title .headline{gap:17px;margin-top:5px}
+.sale-title .prefix{font-size:50px}
+.sale-title .value{font-size:135px}
+.sale-hero-cta{margin-top:27px}
+.sale-art{width:93%;margin-top:37px}
+.sale-hero-note{font-size:16px;padding:17px 20px 24px}
 }
 @media(max-width:359px){
- .sale-hero{padding-top:30px}
- .sale-head{padding:0 10px}
- .sale-eyebrow{margin-bottom:14px}
- .sale-title .line{font-size:27px}
- .sale-title .headline{gap:9px}
- .sale-title .prefix{font-size:29px}
- .sale-title .value{font-size:76px}
- .sale-art{margin-top:5px}
- .sale-hero-note{padding:4px 12px 27px}
+.sale-hero{padding-top:35px}
+.sale-head{padding:0 10px}
+.sale-eyebrow{margin-bottom:13px}
+.sale-title .line{font-size:26px}
+.sale-title .headline{gap:8px}
+.sale-title .prefix{font-size:29px}
+.sale-title .value{font-size:75px}
+.sale-hero-cta{margin-top:22px}
+.sale-art{margin-top:29px;border-radius:27px 27px 0 0}
+.sale-hero-note{font-size:12px}
 }
+@keyframes pdRise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pdLineIn{from{opacity:0;transform:scaleX(.1)}to{opacity:1;transform:scaleX(.76)}}
+@keyframes pdDot{50%{box-shadow:0 0 0 7px rgba(110,244,246,0)}}
+@keyframes pdAmbient{to{transform:translate(4%,2%) scale(1.08)}}
+@keyframes pdPhoneFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes pdSweep{0%,53%{left:-60%}75%,100%{left:135%}}
 
-/* Price section — large product photos, readable full-width one-per-row pricing */
+/* Device offers — premium price comparison cards, unchanged numbers */
 .divider{height:0;background:none}
-.price-sheet{padding:56px 0 65px;background:var(--surface);scroll-margin-top:16px}
-.offer-heading{text-align:center;margin:0;padding:0 20px 30px}
-.offer-heading h2{margin:0;font-size:clamp(29px,7.5vw,36px);font-weight:900;letter-spacing:-1.4px;color:#13223c;line-height:1.25}
-.offer-heading>span{display:block;margin:16px auto 0;width:50px;height:4px;border-radius:99px;background:var(--blue)}
-.price-sheet .offer-list{display:grid;grid-template-columns:minmax(0,1fr);width:100%;max-width:810px;gap:18px;margin:0 auto;padding:0 15px}
-.price-sheet .offer-card{display:grid;position:relative;grid-template-columns:116px minmax(0,1fr);gap:16px;align-items:center;min-width:0;min-height:215px;padding:19px 16px;background:#fff;border:1px solid #dce5f1;border-radius:16px;box-shadow:0 4px 16px rgba(20,54,100,.035);transition:border-color .18s,box-shadow .18s;cursor:pointer}
-.price-sheet .offer-card.active{border-color:#5b9aff;box-shadow:0 0 0 1px rgba(23,105,245,.13)}
-.price-sheet .offer-card:hover{border-color:#9fc4ff}
-.price-sheet .offer-product{min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:0;border:0}
-.price-sheet .offer-product img{display:block;width:100%;max-width:160px;height:155px;object-fit:contain}
-.price-sheet .offer-product strong{display:block;font-size:20px;line-height:1.25;letter-spacing:-.5px;font-weight:900;color:#172941;text-align:center;word-break:keep-all}
+.price-sheet{position:relative;overflow:hidden;padding:65px 0 69px;background:#f0f5ff;scroll-margin-top:16px}
+.price-sheet::before{content:"";position:absolute;top:-145px;right:-210px;width:370px;height:370px;border-radius:50%;background:radial-gradient(circle,rgba(79,154,255,.16),transparent 65%);pointer-events:none}
+.offer-heading{position:relative;z-index:1;text-align:center;margin:0;padding:0 16px 30px}
+.offer-heading h2{display:block;margin:0;font-size:clamp(29px,7.5vw,39px);font-weight:940;letter-spacing:-1.6px;color:#102745;line-height:1.22}
+.offer-heading .section-icon{display:inline-flex;align-items:center;justify-content:center;vertical-align:-5px;width:31px;height:31px;margin-right:7px;border-radius:10px;background:#e1edff;color:#186cf3}
+.offer-heading .section-icon .ui-icon{width:21px;height:21px}
+.offer-heading>span{display:block;margin:17px auto 0;width:54px;height:4px;border-radius:99px;background:#1769f5}
+.price-sheet .offer-list{position:relative;display:grid;grid-template-columns:minmax(0,1fr);width:100%;max-width:800px;gap:15px;margin:0 auto;padding:0 14px}
+.price-sheet .offer-card{position:relative;isolation:isolate;display:grid;grid-template-columns:110px minmax(0,1fr);align-items:center;gap:13px;min-width:0;min-height:215px;margin:0;padding:17px 14px;border:1px solid #dce7f5;border-radius:19px;background:#fff;box-shadow:0 10px 26px rgba(19,48,100,.065);cursor:pointer;overflow:hidden;transition:border-color .25s,box-shadow .25s,transform .25s}
+.price-sheet .offer-card::before{content:"";position:absolute;z-index:1;top:0;left:18px;right:18px;height:3px;border-radius:0 0 8px 8px;background:#1769f5;transform:scaleX(0);transition:transform .28s;transform-origin:center}
+.price-sheet .offer-card.active{border-color:#5a9cff;box-shadow:0 0 0 1px rgba(35,109,245,.15),0 16px 32px rgba(28,85,193,.12)}
+.price-sheet .offer-card.active::before{transform:scaleX(1)}
+.price-sheet .offer-card:focus-visible{outline:3px solid #83b5ff;outline-offset:3px}
+.price-sheet .offer-product{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-width:0;padding:7px 3px 7px;border-radius:13px;background:#f5f8fe}
+.price-sheet .offer-product img{display:block;width:100%;height:145px;max-width:145px;object-fit:contain;transition:transform .36s ease}
+.price-sheet .offer-card.active .offer-product img{transform:scale(1.05)}
+.price-sheet .offer-product strong{display:block;max-width:100%;color:#192c47;font-size:19px;line-height:1.22;letter-spacing:-.6px;font-weight:920;text-align:center;word-break:keep-all}
 .price-sheet .offer-breakdown{min-width:0;display:flex;flex-direction:column;justify-content:center;font-variant-numeric:tabular-nums}
-.price-sheet .offer-line,.price-sheet .offer-result{display:flex;align-items:baseline;justify-content:space-between;gap:6px;margin:0;min-width:0;padding:11px 0;border:0;border-bottom:1px solid #e6ebf3;background:none;border-radius:0}
-.price-sheet .offer-line span,.price-sheet .offer-result span{flex:none;font-size:14px;line-height:1.4;color:#5b6c84;font-weight:730;letter-spacing:-.35px;white-space:nowrap}
-.price-sheet .offer-line b,.price-sheet .offer-result b{flex:none;font-size:17px;line-height:1.35;color:#172940;font-weight:880;letter-spacing:-.4px;white-space:nowrap}
-.price-sheet .offer-result{border-bottom:0;padding-bottom:2px}
-.price-sheet .offer-result span{color:#263b55;font-weight:900}
-.price-sheet .offer-result b{font-size:22px;color:#1769f5;font-weight:950}
-.price-sheet .offer-warning{align-self:flex-end;margin-top:3px;color:#b43a47;font-size:11px;font-weight:750;line-height:1.3}
-.offer-review{margin:23px 19px 0;font-size:13px;color:#64758b;line-height:1.72}
+.price-sheet .offer-line,.price-sheet .offer-result{display:flex;align-items:baseline;justify-content:space-between;gap:6px;min-width:0;margin:0;padding:9px 0;border:0;border-bottom:1px solid #e9eef7;background:transparent;border-radius:0}
+.price-sheet .offer-line span,.price-sheet .offer-result span{flex:none;color:#62728a;font-size:12.5px;font-weight:760;line-height:1.42;letter-spacing:-.25px;white-space:nowrap}
+.price-sheet .offer-line b,.price-sheet .offer-result b{flex:none;color:#1b2c46;font-size:15px;font-weight:870;line-height:1.4;letter-spacing:-.4px;white-space:nowrap}
+.price-sheet .offer-result{margin:8px -7px 0;padding:12px 7px;border:1px solid #cfdef9;border-radius:10px;background:#edf4ff}
+.price-sheet .offer-result span{color:#2c548b;font-weight:860}
+.price-sheet .offer-result b{color:#1064f0;font-size:21px;font-weight:950;letter-spacing:-.6px}
+.price-sheet .offer-warning{display:block;color:#9d3c4c;font-size:11px}
+.offer-review{max-width:790px;margin:22px auto 0;padding:0 21px;color:#6a7990;font-size:12px;line-height:1.72}
+@media(hover:hover) and (pointer:fine){.price-sheet .offer-card:hover{transform:translateY(-3px);border-color:#95baff;box-shadow:0 16px 32px rgba(22,65,125,.1)}}
 @media(min-width:768px){
- .price-sheet .offer-list{max-width:810px;padding:0 19px;gap:19px}
- .price-sheet .offer-card{grid-template-columns:238px minmax(0,1fr);gap:23px;min-height:312px;padding:27px 30px}
- .price-sheet .offer-product{gap:11px}
- .price-sheet .offer-product img{height:230px;max-width:222px}
- .price-sheet .offer-product strong{font-size:27px}
- .price-sheet .offer-line,.price-sheet .offer-result{padding:14px 0;gap:15px}
- .price-sheet .offer-line span,.price-sheet .offer-result span{font-size:19px;letter-spacing:-.25px}
- .price-sheet .offer-line b,.price-sheet .offer-result b{font-size:23px}
- .price-sheet .offer-result b{font-size:29px}
- .price-sheet .offer-warning{font-size:12.5px;margin-top:6px}
+.price-sheet{padding:76px 0 82px}
+.price-sheet .offer-list{max-width:820px;gap:20px;padding:0 24px}
+.price-sheet .offer-card{grid-template-columns:225px minmax(0,1fr);gap:26px;min-height:315px;padding:23px 30px;border-radius:24px}
+.price-sheet .offer-product{padding:10px;border-radius:18px}
+.price-sheet .offer-product img{height:217px;max-width:210px}
+.price-sheet .offer-product strong{font-size:26px}
+.price-sheet .offer-line,.price-sheet .offer-result{padding:14px 0}
+.price-sheet .offer-line span,.price-sheet .offer-result span{font-size:17px}
+.price-sheet .offer-line b,.price-sheet .offer-result b{font-size:21px}
+.price-sheet .offer-result{padding:14px 13px;margin:12px -12px 0}
+.price-sheet .offer-result b{font-size:30px}
+.offer-review{font-size:13px}
 }
 @media(min-width:480px) and (max-width:767px){
- .price-sheet .offer-list{max-width:680px;padding:0 20px}
- .price-sheet .offer-card{grid-template-columns:clamp(150px,35%,208px) minmax(0,1fr);gap:18px;min-height:264px;padding:23px 24px}
- .price-sheet .offer-product img{height:190px;max-width:180px}
- .price-sheet .offer-product strong{font-size:23px}
- .price-sheet .offer-line,.price-sheet .offer-result{padding:12px 0}
- .price-sheet .offer-line span,.price-sheet .offer-result span{font-size:16px}
- .price-sheet .offer-line b,.price-sheet .offer-result b{font-size:19px}
- .price-sheet .offer-result b{font-size:24px}
+.price-sheet .offer-card{grid-template-columns:150px minmax(0,1fr);gap:18px;padding:19px 21px}
+.price-sheet .offer-product img{height:175px;max-width:170px}
+.price-sheet .offer-product strong{font-size:22px}
+.price-sheet .offer-line span,.price-sheet .offer-result span{font-size:14px}
+.price-sheet .offer-line b,.price-sheet .offer-result b{font-size:18px}
+.price-sheet .offer-result b{font-size:23px}
 }
 @media(max-width:359px){
- .price-sheet .offer-list{gap:12px;padding:0 9px}
- .price-sheet .offer-card{grid-template-columns:94px minmax(0,1fr);gap:10px;min-height:182px;padding:14px 10px}
- .price-sheet .offer-product img{height:126px;max-width:95px}
- .price-sheet .offer-product strong{font-size:17px}
- .price-sheet .offer-line,.price-sheet .offer-result{padding:8px 0;gap:5px}
- .price-sheet .offer-line span,.price-sheet .offer-result span{font-size:12px}
- .price-sheet .offer-line b,.price-sheet .offer-result b{font-size:14px}
- .price-sheet .offer-result b{font-size:17px}
- .price-sheet .offer-warning{font-size:10px}
+.price-sheet{padding:51px 0 60px}
+.offer-heading{padding:0 12px 23px}
+.offer-heading h2{font-size:28px}
+.price-sheet .offer-list{padding:0 9px;gap:12px}
+.price-sheet .offer-card{grid-template-columns:94px minmax(0,1fr);gap:9px;min-height:185px;padding:14px 10px;border-radius:15px}
+.price-sheet .offer-product img{height:121px;max-width:97px}
+.price-sheet .offer-product strong{font-size:16px}
+.price-sheet .offer-line,.price-sheet .offer-result{padding:8px 0}
+.price-sheet .offer-line span,.price-sheet .offer-result span{font-size:11.5px}
+.price-sheet .offer-line b,.price-sheet .offer-result b{font-size:13.5px}
+.price-sheet .offer-result{margin:6px -4px 0;padding:8px 4px}
+.price-sheet .offer-result b{font-size:17px}
 }
 
 /* PhoneDirect contract notice v3 — source-owned component, no CSS overlays */
@@ -208,15 +235,16 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .field>input{appearance:none;display:block;width:100%;min-height:57px;border:1px solid #d8e2ee;border-radius:12px;outline:none;background:#f9fbff;color:#192a43;padding:0 17px;font-size:16px;box-shadow:none;transition:border-color .18s,box-shadow .18s}.field>input::placeholder{font-size:15px;color:#939fb0}.field>input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(23,105,245,.12);background:#fff}.options,.options.model-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.option{position:relative;display:block;min-width:0;cursor:pointer}.option input{position:absolute;opacity:0;width:1px;height:1px;inset:0;margin:0}.option span{display:flex;align-items:center;justify-content:center;width:100%;min-height:54px;padding:9px 4px;border:1px solid #d9e3ef;border-radius:11px;background:#f9fbff;color:#3f5067;font-size:15px;font-weight:790;letter-spacing:-.35px;text-align:center;transition:background-color .15s,color .15s,border-color .15s}.option input:checked+span{border-color:var(--blue);background:#1769f5;color:#fff;box-shadow:0 3px 10px rgba(23,105,245,.17)}.option input:focus-visible+span{outline:3px solid #9ac3ff;outline-offset:2px}
 .privacy{display:flex;align-items:flex-start;gap:10px;color:#435167;font-size:13px;line-height:1.58;font-weight:700;cursor:pointer}.privacy input{flex:none;width:21px;height:21px;margin:0;accent-color:var(--blue);cursor:pointer}.privacy-info{margin:-11px 0 0 30px;color:#68798d;font-size:12px;line-height:1.65}.submit{display:flex;align-items:center;justify-content:center;width:100%;min-height:60px;border:0;border-radius:13px;background:var(--blue);color:#fff;font-size:17px;font-weight:850;letter-spacing:-.45px;box-shadow:0 7px 16px rgba(23,105,245,.18);transition:background-color .15s,transform .15s}.submit:hover{background:#0755d9}.submit:active{transform:translateY(1px)}.message{min-height:0;margin:-9px 0 0;font-size:13px;line-height:1.6;color:#1769f5;text-align:center}.message.error{color:#d7334e}
 .footer{background:#f3f7fc;border:0;padding:31px 22px 40px;color:#67798e;font-size:12px;line-height:1.7;text-align:center}.footer strong{font-size:13px;color:#203654;font-weight:850}
-/* User-required fixed CTA: the only visible text is 신청하기 */
-.fixed-cta{position:fixed;z-index:1000;left:50%;bottom:calc(10px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:min(calc(100% - 24px),456px);padding:0;background:none;border:0;box-shadow:none}.fixed-cta a{display:flex;align-items:center;justify-content:center;width:100%;height:62px;border:1px solid rgba(255,255,255,.32);border-radius:14px;background:var(--blue);color:#fff;box-shadow:0 12px 26px rgba(4,58,156,.27);font-size:19px;font-weight:900;letter-spacing:-.4px;transition:background-color .15s,transform .15s}.fixed-cta a:hover{background:var(--blue-deep)}.fixed-cta a:active{transform:translateY(1px)}
-@media(max-width:359px){.header{padding:0 18px}.offer-heading{padding:0 17px 23px}.offer-heading h2{font-size:31px}.offer-list{padding:0 10px;gap:10px}.section,.form-section{padding-left:17px;padding-right:17px}.fixed-cta{bottom:calc(8px + env(safe-area-inset-bottom,0px))}}
-
-@media(min-width:481px){.shell{box-shadow:0 10px 40px rgba(18,32,60,.11)}}
+/* Fixed apply CTA — one visible action, highly legible */
+.fixed-cta{position:fixed;z-index:1000;left:50%;bottom:calc(10px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:min(calc(100% - 24px),458px);padding:0;border:0;background:transparent;box-shadow:none}
+.fixed-cta a{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;width:100%;height:63px;border:1px solid rgba(255,255,255,.46);border-radius:16px;background:#1269fb;box-shadow:0 13px 32px rgba(4,61,164,.3);overflow:hidden;color:#fff;font-size:19px;font-weight:950;letter-spacing:-.5px;transition:transform .2s,background-color .2s,box-shadow .2s;animation:pdCTABreath 4.2s ease-in-out infinite}
+.fixed-cta a::before{content:"";position:absolute;top:-65%;left:-65%;width:38%;height:225%;transform:rotate(26deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);pointer-events:none;animation:pdSweep 5.5s 2s infinite}
+.fixed-cta a:hover,.sale-hero-cta:hover{background:#0054e1;box-shadow:0 15px 34px rgba(4,61,164,.34)}
+.fixed-cta a:active{transform:scale(.985)}
+@keyframes pdCTABreath{0%,100%{box-shadow:0 13px 28px rgba(4,61,164,.26)}50%{box-shadow:0 13px 35px rgba(4,61,164,.4)}}
+@media(max-width:359px){.header{padding:0 13px}.fixed-cta{bottom:calc(8px + env(safe-area-inset-bottom,0px))}}
+@media(min-width:481px){.shell{box-shadow:0 8px 47px rgba(18,35,66,.12)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:0s!important;animation-duration:0s!important}}
-
-
-
 
 /* Applicant activity — five visible rows, seamless rotation, single responsive owner */
 .application-activity{--activity-row-height:72px;width:100%;max-width:none;margin:0 auto;padding:44px 18px 53px;background:#fff;scroll-margin-top:18px;text-align:center}
@@ -285,7 +313,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 </head>
 <body>
 <div class="shell" id="top">
-<header class="header"><a href="#top" class="brand" aria-label="폰다이렉트 메인">폰다이렉트</a></header>
+<header class="header"><a href="#top" class="brand" aria-label="폰다이렉트 메인">폰다이렉트</a><a class="header-action" href="#consult">상담 신청 <span aria-hidden="true">↗</span></a></header>
 <main id="top">
 <section class="sale-hero" aria-labelledby="hero-title">
   <div class="sale-head">
@@ -294,6 +322,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
       <span class="line">즉시 할인 혜택</span>
       <span class="headline"><span class="prefix">최대</span><strong class="value">90%</strong></span>
     </h1>
+    <a class="sale-hero-cta" href="#products">기종별 가격 보기 <span aria-hidden="true">↗</span></a>
   </div>
   <div class="sale-art">
     <img class="sale-device-composite" src="/assets/phonedirect-hero-models-20261113.png" width="1400" height="788" alt="케이스·충전기·필름 사은품과 갤럭시 S26, S26 울트라, S26+, 플립8 제품 구성" fetchpriority="high" decoding="async" />
