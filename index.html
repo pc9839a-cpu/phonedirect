@@ -217,7 +217,6 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .application-activity{width:100%;max-width:none;margin:0 auto;padding:42px 17px 49px;background:#fff;text-align:center;scroll-margin-top:18px}
 .activity-topline{display:flex;align-items:baseline;justify-content:center;gap:8px;margin:0 auto 19px;text-align:center}
 .activity-topline h2{margin:0;color:#172e4d;font-size:clamp(24px,6.6vw,31px);font-weight:930;letter-spacing:-1px;line-height:1.32}
-.activity-demo-tag{color:#94a0b2;font-size:11px;line-height:1.3;font-weight:650}
 .activity-board{width:100%;max-width:none;margin:0 auto;overflow:hidden;border:1px solid #dce5f1;border-radius:14px;background:#fff;box-shadow:0 9px 28px rgba(14,43,83,.065)}
 .activity-viewport{position:relative;height:80px;overflow:hidden}
 .activity-list{margin:0;padding:0;list-style:none}
@@ -240,7 +239,6 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .activity-ident span{font-size:11px}
 .activity-carrier{min-width:25px;min-height:21px;padding:2px 4px;font-size:10px}
 .activity-choice strong{font-size:12px}
-.activity-demo-tag{font-size:10px}
 }
 @media(max-width:339px){
 .activity-topline h2{font-size:22px}
@@ -250,6 +248,10 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .activity-choice strong{font-size:11px}
 .activity-carrier{font-size:9px}
 }
+
+.activity-limit{display:flex;align-items:baseline;justify-content:center;gap:5px;max-width:100%;margin:17px auto 0;color:#1a3556;font-size:18px;line-height:1.4;letter-spacing:-.5px;font-weight:850;text-align:center;white-space:nowrap}
+.activity-limit strong{color:#1769f5;font-size:24px;line-height:1.1;letter-spacing:-.7px;font-weight:950}
+@media(max-width:419px){.activity-limit{margin-top:14px;font-size:16px}.activity-limit strong{font-size:21px}}
 
 /* Business certificate footer */
 .company-footer{background:#f1f5fb;padding:28px 19px 40px;text-align:left}
@@ -423,7 +425,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 <button type="submit" class="submit">구매 조건 상담 신청하기 ↗</button><div id="formMessage" class="message" role="status" aria-live="polite"></div></form></section>
 
 <section class="application-activity" aria-labelledby="activity-title">
-  <div class="activity-topline"><h2 id="activity-title">현재 신청 중인 고객</h2><span class="activity-demo-tag">예시</span></div>
+  <div class="activity-topline"><h2 id="activity-title">현재 신청 중인 고객</h2></div>
   <div class="activity-board">
     <div class="activity-viewport"><div class="activity-list" id="activityList" role="list" aria-label="마스킹된 예시 신청 고객 목록">
 <div class="activity-row" role="listitem"><div class="activity-person"><div class="activity-ident"><strong>김*현</strong><span>010-4***-****</span></div></div><div class="activity-choice"><span class="activity-carrier">KT</span><strong>S26 울트라</strong></div></div>
@@ -433,6 +435,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 <div class="activity-row" role="listitem"><div class="activity-person"><div class="activity-ident"><strong>최*우</strong><span>010-8***-****</span></div></div><div class="activity-choice"><span class="activity-carrier">SK</span><strong>Z 폴드8</strong></div></div>
     </div></div>
   </div>
+  <p class="activity-limit">일 <strong>50대</strong> 한정</p>
 </section>
 </main><footer class="footer company-footer" aria-label="사업자 및 사전승낙서 정보"><strong class="company-footer-title">사업자 정보 및 사전승낙서</strong><p class="company-footer-subtitle">각 판매점의 사업자등록정보와 사전승낙서를 확인하실 수 있습니다.</p><div class="company-list">
 <div class="company-card"><p class="company-card-title">수리</p><p class="company-card-number">사업자등록번호 <strong>601-20-69213</strong></p><a class="company-cert-link" href="https://ictmarket.or.kr:8443/precon/pop_CertIcon.do?PRECON_REQ_ID=PRE0000110311&amp;YN=1" target="_blank" rel="noopener noreferrer" aria-label="수리 판매점 사전승낙서 새 창에서 확인"><span class="company-cert-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4.5 5v6.2c0 5.1 3.1 8.7 7.5 10.8 4.4-2.1 7.5-5.7 7.5-10.8V5L12 2Z"/><path d="m8.5 12 2.4 2.4 4.8-4.8"/></svg>사전승낙서 확인</span><span aria-hidden="true">↗</span></a></div>
