@@ -1,0 +1,31 @@
+name: PhoneDirect one-time synthetic lead integration test
+
+on:
+  push:
+    paths:
+      - '.github/workflows/lead-once-integration.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  post-synthetic:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit non-personal synthetic record and verify saved receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          export RECEIPT="pd-qa-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          body="$(printf '{"name":"연동테스트_삭제가능","phone":"01000000000","carrier":"KT","model":"s26","consent":true,"receipt":"%s","source":"qa","utm_source":"ci","utm_campaign":"one-time-db-verification"}' "$RECEIPT")"
+          status="$(curl --max-time 35 --silent --show-error --output result.json --write-out '%{http_code}' --request POST 'https://phonedirect.pages.dev/api/lead' --header 'Content-Type: application/json' --header 'Origin: https://phonedirect.pages.dev' --data "$body")"
+          echo "Synthetic intake HTTP: ${status}"
+          STATUS="$status" python3 - <<'PY'
+          import os,json
+          with open('result.json', encoding='utf-8') as f:
+              data=json.load(f)
+          if os.environ['STATUS'] != '200' or data.get('ok') is not True or data.get('receipt') != os.environ['RECEIPT']:
+              print('Server did not confirm write: ',{k:v for k,v in data.items() if k not in ('phone','name','token')})
+              raise SystemExit(1)
+          print('Confirmed end-to-end receipt:',data['receipt'])
+          PY
