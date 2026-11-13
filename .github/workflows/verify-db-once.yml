@@ -1,0 +1,27 @@
+name: PhoneDirect DB live verification (temporary)
+on:
+  push:
+    paths: ['.github/workflows/verify-db-once.yml']
+permissions:
+  contents: read
+jobs:
+  live-db-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit synthetic intake and require saved receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          export RECEIPT="pd-qa-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          payload="$(printf '{"name":"DB연동테스트_삭제가능","phone":"01000000000","carrier":"KT","model":"s26","consent":true,"receipt":"%s","source":"internal-test","utm_source":"qa","utm_campaign":"one-time-db-verification"}' "$RECEIPT")"
+          status="$(curl --max-time 35 --silent --show-error --output result.json --write-out '%{http_code}' --request POST 'https://phonedirect.pages.dev/api/lead' --header 'Content-Type: application/json' --header 'Origin: https://phonedirect.pages.dev' --data "$payload")"
+          echo "POST HTTP: ${status}"
+          STATUS="$status" python3 - <<'PY'
+          import json,os
+          with open('result.json',encoding='utf-8') as f:
+              d=json.load(f)
+          print('Result:',{k:d.get(k) for k in ('ok','receipt','error_code','message') if k in d})
+          if os.environ['STATUS']!='200' or d.get('ok') is not True or d.get('receipt') != os.environ['RECEIPT']:
+              raise SystemExit('DB write not confirmed')
+          print('SHEETS_WRITE_CONFIRMED')
+          PY
