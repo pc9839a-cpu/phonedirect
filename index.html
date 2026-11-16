@@ -358,61 +358,41 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   .contract-trigger span{font-size:16px}
   .contract-trigger img{width:45px;height:45px}
 }
-/* Standalone watch disclosure; editable HTML and original image only */
-.watch-info{
-  padding:clamp(56px,6vw,86px) var(--page-gutter) clamp(59px,7vw,92px);
-  background:#fff;color:var(--ink);border-bottom:1px solid #e8eef7
-}
+/* Contract-watch information: high-res original art + editable HTML text */
+.watch-info{overflow:hidden;background:#fff;color:#102844;padding:clamp(60px,7vw,96px) var(--page-gutter) clamp(62px,7vw,92px);scroll-margin-top:22px}
 .watch-info-inner{max-width:var(--aligned-width);margin:0 auto}
-.watch-info-layout{
-  display:grid;grid-template-columns:minmax(0,.43fr) minmax(0,.57fr);
-  align-items:center;gap:clamp(25px,4.5vw,62px)
-}
-.watch-info-visual{width:100%;max-width:350px;margin:0 auto;line-height:0}
-.watch-info-visual img{display:block;width:100%;height:auto;object-fit:contain}
+.watch-info-layout{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,6fr);align-items:center;column-gap:clamp(10px,2vw,30px)}
+.watch-info-visual{position:relative;isolation:isolate;overflow:hidden;aspect-ratio:1;width:100%;max-width:430px;margin:0;line-height:0}
+.watch-info-visual::before{content:"";position:absolute;z-index:-1;top:20%;left:13%;width:73%;height:63%;background:#eaf3ff;border-radius:50%}
+.watch-info-visual picture{display:block;width:100%;height:100%}
+.watch-info-visual img{display:block;width:100%;height:100%;object-fit:contain;transform:scale(1.14)}
 .watch-info-content{min-width:0}
-.watch-info-heading{margin:0 0 25px}
-.watch-info-heading h2{
-  margin:0;color:#102844;font-size:clamp(32px,4.6vw,50px);
-  font-weight:900;line-height:1.27;letter-spacing:-.05em;word-break:keep-all
-}
-.watch-info-heading h2 em{font-style:normal;color:var(--blue)}
-.watch-info-rows{border-top:1px solid #d9e3ef}
-.watch-info-row{padding:15px 0 17px;border-bottom:1px solid #d9e3ef}
-.watch-info-row strong{
-  display:block;margin:0 0 4px;color:var(--blue);
-  font-size:clamp(19px,2.1vw,25px);font-weight:850;letter-spacing:-.035em
-}
-.watch-info-row p{
-  margin:0;color:#415671;font-size:var(--type-body);
-  line-height:1.62;word-break:keep-all
-}
-.watch-info-promo{
-  max-width:var(--aligned-width);margin:29px auto 0;padding:27px 0 0;
-  border-top:2px solid var(--blue);text-align:center
-}
-.watch-info-promo strong{
-  display:block;color:var(--blue);font-size:clamp(22px,2.9vw,32px);
-  line-height:1.42;letter-spacing:-.045em;font-weight:870;word-break:keep-all
-}
-.watch-info-promo p{margin:9px 0 0;color:#203954;font-size:var(--type-body)}
-.watch-info-note{
-  margin:15px auto 0;color:#74849b;font-size:13px;
-  text-align:center;line-height:1.6;word-break:keep-all
-}
+.watch-info-heading h2{margin:0 0 32px;color:#102844;font-size:clamp(38px,4.25vw,58px);font-weight:950;line-height:1.18;letter-spacing:-.06em;word-break:keep-all}
+.watch-info-heading h2 span{display:block;color:var(--blue)}
+.watch-info-rows{display:grid;gap:23px}
+.watch-info-row{display:grid;grid-template-columns:32px minmax(0,1fr);gap:14px;align-items:start}
+.watch-info-check{display:grid;place-items:center;width:28px;height:28px;margin-top:3px;border-radius:50%;background:var(--blue);color:#fff;font-size:20px;font-weight:900;line-height:1}
+.watch-info-row p{margin:0;color:#263952;font-size:var(--type-body);font-weight:550;line-height:1.64;word-break:keep-all}
+.watch-info-row strong{color:#075ce4;font-weight:870}
+.watch-info-promo{max-width:var(--aligned-width);margin:27px auto 0;padding:23px 28px;border:0;border-radius:13px;background:var(--blue);color:#fff;text-align:center}
+.watch-info-promo strong{display:block;color:#fff;font-size:clamp(21px,2.6vw,28px);font-weight:900;line-height:1.42;letter-spacing:-.045em;word-break:keep-all}
+.watch-info-promo p{margin:6px 0 0;color:#f4f8ff;font-size:var(--type-body);font-weight:650}
+.watch-info-note{margin:13px auto 0;color:#78879a;font-size:13px;line-height:1.6;text-align:center;word-break:keep-all}
 @media(max-width:640px){
-  .watch-info{padding:56px var(--page-gutter) 67px}
+  .watch-info{padding:56px var(--page-gutter) 64px}
   .watch-info-layout{grid-template-columns:1fr;gap:0}
   .watch-info-content{display:contents}
-  .watch-info-heading{grid-row:1;margin:0;text-align:center}
-  .watch-info-heading h2{font-size:var(--type-section)}
-  .watch-info-visual{grid-row:2;max-width:210px;width:56%;margin:15px auto 20px}
-  .watch-info-rows{grid-row:3}
-  .watch-info-row strong{font-size:23px}
-  .watch-info-row p{font-size:var(--type-body)}
-  .watch-info-promo{margin-top:26px;padding-top:23px}
-  .watch-info-promo strong{font-size:25px}
-  .watch-info-note{font-size:12px}
+  .watch-info-heading{grid-row:1;text-align:center}
+  .watch-info-heading h2{font-size:var(--type-section);margin:0;line-height:1.22}
+  .watch-info-visual{grid-row:2;width:min(80%,290px);max-width:290px;margin:10px auto 14px}
+  .watch-info-rows{grid-row:3;gap:20px}
+  .watch-info-row{grid-template-columns:29px minmax(0,1fr);gap:11px}
+  .watch-info-check{width:27px;height:27px;font-size:18px;margin-top:2px}
+  .watch-info-row p{font-size:var(--type-body);line-height:1.62}
+  .watch-info-promo{margin-top:27px;padding:20px 16px;border-radius:12px}
+  .watch-info-promo strong{font-size:clamp(21px,5.65vw,26px)}
+  .watch-info-promo p{font-size:16px}
+  .watch-info-note{font-size:12px;margin-top:13px}
 }
 .section{padding:60px 22px 67px;scroll-margin-top:20px}.sec-eyebrow{margin:0 0 11px;color:var(--blue);letter-spacing:.35px;font-weight:800;font-size:13px}.sec-title{margin:0;color:#14233b;font-size:34px;line-height:1.26;letter-spacing:-1.25px;font-weight:900}.sec-desc{margin:14px 0 0;font-size:16px;color:#617083;line-height:1.65}
 
@@ -658,24 +638,27 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   </div>
   <div class="contract-signature"><div class="contract-signature-heading"><strong>폰다이렉트</strong><span>기기값은 직접 할인!</span></div><p>정확한 정보 확인이, 여러분의 <em>소중한 휴대폰</em>을 지키는 <em>첫걸음</em>입니다.</p></div>
 </section>
-<section class="watch-info" aria-labelledby="watch-info-title">
+<section class="watch-info" id="watch-info" aria-labelledby="watch-info-title">
   <div class="watch-info-inner">
     <div class="watch-info-layout">
       <figure class="watch-info-visual">
-        <img src="/assets/phonedirect-contract-watch-illustration.webp" width="200" height="200" alt="스마트폰과 스마트워치, 약정 계약서 일러스트" loading="lazy" decoding="async">
+        <picture>
+          <source srcset="/assets/phonedirect-contract-watch-hires.avif" type="image/avif">
+          <img src="/assets/phonedirect-contract-watch-illustration.webp" width="1100" height="1100" alt="스마트폰, 스마트워치와 약정 계약서 일러스트" loading="lazy" decoding="async">
+        </picture>
       </figure>
       <div class="watch-info-content">
         <div class="watch-info-heading">
-          <h2 id="watch-info-title">무료라고 받았는데,<br><em>알고 보니 약정이었다?</em></h2>
+          <h2 id="watch-info-title">무료라고 받았는데,<span>알고 보니 약정이었다?</span></h2>
         </div>
         <div class="watch-info-rows">
           <div class="watch-info-row">
-            <strong>월 11,000원</strong>
-            <p>핸드폰 요금을 낮추면 웨어러블 요금제 월 11,000원을 부담해야 하는 조건인지 확인하세요.</p>
+            <span class="watch-info-check" aria-hidden="true">✓</span>
+            <p>핸드폰 요금을 낮추면 웨어러블 요금제 <strong>월 11,000원</strong>을 부담해야 하는 조건인지 확인하세요.</p>
           </div>
           <div class="watch-info-row">
-            <strong>위약금 부담</strong>
-            <p>중간에 해지할 때 위약금이 고객 부담인 계약인지 확인하세요.</p>
+            <span class="watch-info-check" aria-hidden="true">✓</span>
+            <p>중간에 해지할 때 <strong>위약금이 고객 부담</strong>인 계약인지 확인하세요.</p>
           </div>
         </div>
       </div>
