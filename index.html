@@ -315,28 +315,42 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   line-height:1.7;letter-spacing:-.018em;word-break:keep-all
 }
 .contract-watch{
-  max-width:920px;margin:32px auto 0;padding:28px 0 0;
+  max-width:920px;margin:36px auto 0;padding:32px 0 0;
   border-top:1px solid rgba(210,228,255,.22);
-  display:grid;grid-template-columns:1fr 1.6fr;
-  gap:16px 28px;align-items:start
+  display:grid;grid-template-columns:220px minmax(0,1fr);
+  column-gap:clamp(20px,3.5vw,40px);row-gap:12px;
+  align-items:center
 }
+.contract-watch-visual{
+  grid-column:1;grid-row:1 / 3;align-self:center;
+  width:100%;max-width:220px;margin:0;line-height:0
+}
+.contract-watch-visual img{
+  display:block;width:100%;height:auto;object-fit:contain
+}
+.contract-watch-content{grid-column:2;min-width:0;align-self:end}
 .contract-watch h3{
-  margin:0;color:#fff;font-size:var(--type-card);
-  font-weight:840;line-height:1.45;letter-spacing:-.04em
+  margin:0;color:#fff;font-size:clamp(24px,2.6vw,29px);
+  font-weight:860;line-height:1.37;letter-spacing:-.04em;word-break:keep-all
 }
+.contract-watch h3 span{display:block;color:var(--contract-accent)}
+.contract-watch-body{margin-top:19px}
 .contract-watch-body p{
   margin:0 0 12px;color:#d0dcef;font-size:var(--type-body);
-  line-height:1.65;word-break:keep-all
+  line-height:1.63;word-break:keep-all
 }
 .contract-watch-body strong{color:#fff;font-weight:850}
 .contract-watch-promo{
-  grid-column:1/-1;margin:4px 0 0;color:#d0dcef;
-  font-size:var(--type-body);line-height:1.55;text-align:center
+  grid-column:2;margin:0;color:#d0dcef;
+  font-size:var(--type-body);line-height:1.6;word-break:keep-all
 }
-.contract-watch-promo strong{color:var(--contract-accent);font-weight:850}
+.contract-watch-promo strong{
+  display:block;color:var(--contract-accent);font-weight:850
+}
 .contract-watch-notice{
-  grid-column:1/-1;margin:0;color:#aabbd3;
-  font-size:14px;line-height:1.6;text-align:center
+  grid-column:1/-1;margin:13px 0 0;padding-top:15px;
+  border-top:1px solid rgba(210,228,255,.14);
+  color:#aabbd3;font-size:14px;line-height:1.6;text-align:center
 }
 .contract-signature{
   max-width:920px;margin:0 auto;
@@ -374,13 +388,19 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   .contract-copy h3{font-size:var(--type-card)}
   .contract-copy p{font-size:var(--type-body);line-height:1.65}
   .contract-watch{
-    grid-template-columns:1fr;gap:14px;
-    margin-top:32px;padding-top:25px
+    grid-template-columns:minmax(0,1fr);gap:12px;
+    margin-top:32px;padding-top:27px
   }
-  .contract-watch h3{font-size:var(--type-card)}
-  .contract-watch-body p{font-size:var(--type-body)}
-  .contract-watch-promo{font-size:var(--type-body);text-align:left}
-  .contract-watch-notice{text-align:left}
+  .contract-watch-visual{
+    grid-column:1;grid-row:auto;
+    width:min(56%,195px);max-width:195px;margin:0 auto 5px
+  }
+  .contract-watch-content{grid-column:1}
+  .contract-watch h3{font-size:var(--type-card);text-align:center}
+  .contract-watch-body{margin-top:18px}
+  .contract-watch-body p{font-size:var(--type-body);margin-bottom:13px}
+  .contract-watch-promo{grid-column:1;font-size:var(--type-body);text-align:center}
+  .contract-watch-notice{text-align:center;margin-top:7px;padding-top:13px}
   .contract-signature{padding-top:40px}
   .contract-signature-heading{font-size:clamp(27px,6.5vw,31px)}
   .contract-signature p{font-size:clamp(19px,4.65vw,20px)}
@@ -631,13 +651,18 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
     <div class="contract-copy" data-contract-panel="3" hidden><h3>폰다이렉트는 <em>기기값을 직접 할인</em>해주는 업체로 개통 후 고객센터를 통해 <em>할부원금</em>을 확인해 보세요.</h3></div>
     <div class="contract-copy" data-contract-panel="4" hidden><h3>현 4개월 이후 요금제변경하는곳들은 <em>14일이후 개통취소가 불가능</em>해져 그에따른 부담은 고스란히 <em>고객님의 몫</em>이됩니다.</h3></div>
   </div>
-  <div class="contract-watch">
-    <h3>무료라고 받았는데,<br>알고 보니 약정이었다?</h3>
-    <div class="contract-watch-body">
-      <p>핸드폰 요금을 낮추면 웨어러블 요금제 <strong>월 11,000원</strong>을 부담해야 하는 조건인지 확인하세요.</p>
-      <p>중간에 해지할 때 <strong>위약금이 고객 부담</strong>인 계약인지 확인하세요.</p>
+  <div class="contract-watch" aria-labelledby="contract-watch-title">
+    <figure class="contract-watch-visual">
+      <img src="/assets/phonedirect-contract-watch-illustration.webp" width="200" height="200" alt="스마트폰과 스마트워치, 약정 계약서를 나타낸 일러스트" loading="lazy" decoding="async">
+    </figure>
+    <div class="contract-watch-content">
+      <h3 id="contract-watch-title">무료라고 받았는데,<span>알고 보니 약정이었다?</span></h3>
+      <div class="contract-watch-body">
+        <p>핸드폰 요금을 낮추면 웨어러블 요금제 <strong>월 11,000원</strong>을 부담해야 하는 조건인지 확인하세요.</p>
+        <p>중간에 해지할 때 <strong>위약금이 고객 부담</strong>인 계약인지 확인하세요.</p>
+      </div>
     </div>
-    <p class="contract-watch-promo"><strong>폰다이렉트에선 그만큼 할인에 할인을 더해드릴게요!</strong> 정확한 혜택, 투명한 조건으로 함께합니다!</p>
+    <p class="contract-watch-promo"><strong>폰다이렉트에선 그만큼 할인에 할인을 더해드릴게요!</strong>정확한 혜택, 투명한 조건으로 함께합니다!</p>
     <p class="contract-watch-notice">※ 요금제·금액·위약금은 가입 조건에 따라 달라질 수 있습니다.</p>
   </div>
   <div class="contract-signature"><div class="contract-signature-heading"><strong>폰다이렉트</strong><span>기기값은 직접 할인!</span></div><p>정확한 정보 확인이, 여러분의 <em>소중한 휴대폰</em>을 지키는 <em>첫걸음</em>입니다.</p></div>
