@@ -1004,7 +1004,7 @@ if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-moti
   const triggers=Array.from(document.querySelectorAll(".contract-trigger"));
   const panels=Array.from(document.querySelectorAll("[data-contract-panel]"));
   const reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
-  const ROTATE_MS=7000;
+  const ROTATE_MS=3500;
   let active=0, timer=null, inView=false, focusPaused=false;
   function show(index){
     active=index;
