@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#1769f5" />
 <title>폰다이렉트 | 갤럭시 휴대폰 가격·구매 상담</title>
 <meta name="description" content="폰다이렉트에서 갤럭시 S26·Z 시리즈 기종별 가격과 구매 조건을 확인하고 상담을 신청하세요. 원하는 기종과 통신사를 선택해 간편하게 접수할 수 있습니다." />
-<meta name="robots" content="index,follow,max-image-preview:large" />
+<meta name="robots" content="noindex,nofollow" />
 <link rel="canonical" href="https://phonedirect.pages.dev/" />
 <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any" />
 <link rel="icon" type="image/png" href="/favicon-48.png" sizes="48x48" />
@@ -67,17 +67,26 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   font-size:clamp(16px,2.15vw,20px);font-weight:800;
   letter-spacing:-.045em;line-height:1.25;
 }
+.sale-title .subline{
+  display:block;margin:15px 0 0;color:#233c5a;
+  font-size:clamp(21px,3vw,32px);font-weight:850;
+  letter-spacing:-.045em;line-height:1.25;
+}
+.sale-title .suffix{
+  color:#33465f;font-size:clamp(21px,3vw,37px);font-weight:800;
+  letter-spacing:-.065em;line-height:1.1;
+}
 .sale-title .headline{
   display:flex;align-items:baseline;justify-content:center;gap:clamp(9px,2vw,18px);
   width:100%;margin:16px auto 0;white-space:nowrap;
 }
 .sale-title .prefix{
-  color:#33465f;font-size:clamp(27px,4.6vw,43px);
+  color:#33465f;font-size:clamp(21px,3vw,37px);
   font-weight:800;letter-spacing:-.07em;line-height:1.1;
 }
 .sale-title .value{
   position:relative;display:inline-block;color:#0f5fe8;
-  font-size:clamp(88px,15vw,148px);font-weight:950;
+  font-size:clamp(69px,11vw,112px);font-weight:950;
   line-height:.99;letter-spacing:-.085em;
   font-variant-numeric:tabular-nums;text-shadow:none;
 }
@@ -144,8 +153,10 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   .sale-hero{padding-top:35px;padding-bottom:12px}
   .sale-title .line{min-height:36px;padding:7px 14px;font-size:15px}
   .sale-title .headline{gap:9px;margin-top:14px}
-  .sale-title .prefix{font-size:25px}
-  .sale-title .value{font-size:84px}
+  .sale-title .prefix{font-size:22px}
+  .sale-title .value{font-size:68px}
+  .sale-title .suffix{font-size:22px}
+  .sale-title .subline{font-size:20px}
   .sale-art{margin-top:6px}
 }
 /* Shared animation used elsewhere in the site. */
@@ -218,243 +229,91 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .price-sheet .offer-result b{font-size:clamp(24px,3vw,35px)}
 }
 
-/* Contract disclosure: editorial, single-column, one blue accent */
+/* Contract information — compact in the original navy design */
 .contract-alert{
   --contract-accent:#69a7ff;
-  padding:0 var(--page-gutter) clamp(64px,8vw,106px);
-  background:#0b1e3d;
-  color:#f5f8ff;
-  overflow:hidden;
-  scroll-margin-top:20px;
+  padding:0 var(--page-gutter) clamp(34px,5vw,62px);
+  background:#0b1e3d;color:#f5f8ff;scroll-margin-top:20px;
 }
-.contract-head{
-  position:relative;
-  max-width:920px;
-  margin:0 auto;
-  padding:clamp(55px,7vw,86px) 0 0;
-  text-align:center;
-}
-.contract-head::before{content:none}
-.contract-head h2{
-  max-width:800px;
-  margin:0 auto;
-  font-weight:900;
-  line-height:1.22;
-  letter-spacing:-.045em;
-  word-break:keep-all;
-}
-.contract-head h2 span{
-  display:block;
-  margin-bottom:10px;
-  color:#c0cde1;
-  font-size:clamp(19px,2.8vw,26px);
-  font-weight:700;
-  letter-spacing:-.025em;
-}
-.contract-head h2 strong{
-  display:block;
-  color:#fff;
-  font-size:clamp(34px,5vw,56px);
-  font-weight:900;
-  line-height:1.2;
-}
-.contract-head h2 em{
-  color:var(--contract-accent);
-  font-style:normal;
-}
-.contract-art{
-  width:min(100%,710px);
-  margin:22px auto 0;
-  border:0;
-  background:none;
-  box-shadow:none;
-  line-height:0;
-}
-.contract-art img{
-  display:block;
-  width:100%;
-  height:auto;
-  object-fit:contain;
-}
+.contract-head{max-width:920px;margin:0 auto;padding:clamp(30px,4vw,48px) 0 0;text-align:center}
+.contract-head h2{margin:0;font-weight:900;line-height:1.22;letter-spacing:-.045em;word-break:keep-all}
+.contract-head h2 span{display:block;margin-bottom:6px;color:#c0cde1;font-size:clamp(15px,1.65vw,18px);font-weight:700}
+.contract-head h2 strong{display:block;color:#fff;font-size:clamp(27px,3.2vw,38px);font-weight:900}
+.contract-head h2 em{color:var(--contract-accent);font-style:normal}
+.contract-art{width:min(100%,280px);margin:12px auto 0;border:0;background:none;line-height:0}
+.contract-art img{display:block;width:100%;height:auto;object-fit:contain}
 .contract-banner{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  max-width:920px;
-  margin:10px auto 0;
-  padding:22px 0 27px;
-  border:0;
-  border-bottom:1px solid rgba(210,228,255,.22);
-  border-radius:0;
-  background:transparent;
-  text-align:center;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  max-width:920px;margin:5px auto 0;padding:10px 0 19px;
+  border:0;border-bottom:1px solid rgba(210,228,255,.22);text-align:center
 }
 .contract-banner-icon{
-  display:grid;
-  place-items:center;
-  flex:none;
-  width:25px;
-  height:25px;
-  border:1px solid var(--contract-accent);
-  border-radius:50%;
-  background:transparent;
-  color:var(--contract-accent);
-  font-size:15px;
-  font-weight:800;
-  line-height:1;
+  display:grid;place-items:center;flex:none;width:21px;height:21px;
+  border:1px solid var(--contract-accent);border-radius:50%;
+  background:transparent;color:var(--contract-accent);font-size:12px;font-weight:800
 }
-.contract-banner strong{
-  color:#f5f8ff;
-  font-size:clamp(17px,2vw,22px);
-  font-weight:800;
-  line-height:1.5;
-  letter-spacing:-.035em;
-}
-.contract-banner em{
-  color:var(--contract-accent);
-  font-style:normal;
-}
+.contract-banner strong{color:#edf4ff;font-size:clamp(13px,1.5vw,16px);font-weight:750;line-height:1.48}
+.contract-banner em{color:var(--contract-accent);font-style:normal}
 .contract-list{
-  display:block;
-  max-width:920px;
-  margin:0 auto;
-  padding:0;
-  border:0;
-  border-radius:0;
-  background:none;
-  box-shadow:none;
-  list-style:none;
+  display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;
+  width:100%;max-width:920px;margin:15px auto 0;padding:0;list-style:none
 }
-.contract-item,
-.contract-item:last-child{
-  display:grid;
-  grid-template-columns:96px minmax(0,1fr);
-  align-items:center;
-  gap:clamp(22px,3vw,38px);
-  min-height:0;
-  margin:0;
-  padding:clamp(30px,4vw,48px) 0;
-  border:0;
-  border-bottom:1px solid rgba(210,228,255,.17);
-  border-radius:0;
-  background:transparent;
-  box-shadow:none;
-  color:#f5f8ff;
-  text-align:left;
-  overflow:visible;
-  transition:none;
+.contract-item{min-width:0;margin:0;padding:0;border:0}
+.contract-trigger{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  width:100%;min-height:106px;padding:10px 6px 12px;
+  border:0;border-bottom:2px solid transparent;background:transparent;
+  color:#dae7f7;text-align:center;cursor:pointer;transition:background-color .15s,color .15s;
 }
-.contract-item::before,
-.contract-item-4::before,
-.contract-item-5::before{content:none}
-.contract-illustration{
-  display:block;
-  grid-column:1;
-  align-self:center;
-  justify-self:center;
-  width:88px;
-  height:88px;
-  margin:0;
-  object-fit:contain;
-  /* Preserve the original illustrated icon detail. */
-  filter:none;
+.contract-trigger:hover,.contract-trigger:focus-visible{background:rgba(255,255,255,.065)}
+.contract-trigger[aria-expanded="true"]{border-bottom-color:var(--contract-accent);color:#fff;background:rgba(255,255,255,.045)}
+.contract-trigger img{width:42px;height:42px;object-fit:contain}
+.contract-trigger span{font-size:clamp(13px,1.4vw,16px);font-weight:760;line-height:1.35;word-break:keep-all}
+.contract-detail{max-width:920px;margin:0 auto;padding:18px 14px 20px;border-top:1px solid rgba(210,228,255,.12);border-bottom:1px solid rgba(210,228,255,.2)}
+.contract-copy[hidden]{display:none}
+.contract-copy h3{margin:0;color:#fff;font-size:clamp(17px,1.9vw,22px);font-weight:820;line-height:1.48;letter-spacing:-.035em;word-break:keep-all}
+.contract-copy h3 em{color:var(--contract-accent);font-style:normal;font-weight:820}
+.contract-copy p{margin:8px 0 0;color:#bac9df;font-size:clamp(13px,1.3vw,15px);line-height:1.68;word-break:keep-all}
+.contract-watch{
+  display:grid;grid-template-columns:1fr 1.65fr;gap:12px 25px;align-items:start;
+  max-width:920px;margin:20px auto 0;padding:18px 0 0;
+  border-top:1px solid rgba(210,228,255,.22)
 }
-.contract-copy{
-  display:block;
-  grid-column:2;
-  min-width:0;
-  margin:0;
-  padding:0;
-  text-align:left;
-}
-.contract-copy h3{
-  max-width:760px;
-  margin:0;
-  color:#fff;
-  font-size:clamp(21px,2.45vw,27px);
-  line-height:1.46;
-  letter-spacing:-.045em;
-  font-weight:800;
-  word-break:keep-all;
-}
-.contract-copy h3 em,
-.contract-item-2 .contract-copy h3 em,
-.contract-item-3 .contract-copy h3 em,
-.contract-item-5 .contract-copy h3 em{
-  color:var(--contract-accent);
-  font-style:normal;
-  font-weight:880;
-}
-.contract-copy p{
-  max-width:690px;
-  margin:15px 0 0;
-  color:#bac9df;
-  font-size:clamp(15px,1.55vw,18px);
-  line-height:1.76;
-  letter-spacing:-.018em;
-  font-weight:450;
-  word-break:keep-all;
-}
-.contract-signature{
-  max-width:920px;
-  margin:0 auto;
-  padding:clamp(43px,6vw,70px) 0 0;
-  border:0;
-  border-radius:0;
-  background:transparent;
-  color:#fff;
-  text-align:center;
-}
-.contract-signature::before{content:none}
-.contract-signature-heading{
-  display:flex;
-  align-items:baseline;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:4px 9px;
-  color:#fff;
-  font-size:clamp(27px,3.3vw,36px);
-  font-weight:860;
-  line-height:1.45;
-  letter-spacing:-.035em;
-  word-break:keep-all;
-}
+.contract-watch h3{margin:0;color:#fff;font-size:clamp(17px,1.95vw,22px);font-weight:820;line-height:1.4;letter-spacing:-.035em}
+.contract-watch-body p{margin:0 0 6px;color:#d0dcef;font-size:clamp(13px,1.3vw,15px);line-height:1.65;word-break:keep-all}
+.contract-watch-body strong{color:#fff}
+.contract-watch-promo{grid-column:1/-1;margin:1px 0 0;color:#d0dcef;font-size:14px;line-height:1.55;text-align:center}
+.contract-watch-promo strong{color:var(--contract-accent);font-weight:850}
+.contract-watch-notice{grid-column:1/-1;margin:0;color:#9eb1cd;font-size:12px;line-height:1.5;text-align:center}
+.contract-signature{max-width:920px;margin:0 auto;padding:24px 0 0;text-align:center}
+.contract-signature-heading{display:flex;align-items:baseline;justify-content:center;flex-wrap:wrap;gap:4px 8px;color:#fff;font-size:clamp(21px,2.4vw,28px);font-weight:850;line-height:1.4;letter-spacing:-.035em}
 .contract-signature-heading strong{font:inherit;color:#fff}
 .contract-signature-heading span{font:inherit;color:var(--contract-accent)}
-.contract-signature p{
-  max-width:640px;
-  margin:11px auto 0;
-  color:#bac9df;
-  font-size:clamp(19px,2.1vw,23px);
-  line-height:1.6;
-  word-break:keep-all;
-}
-.contract-signature p em{
-  color:#f5f8ff;
-  font-style:normal;
-  font-weight:760;
-}
+.contract-signature p{margin:5px auto 0;color:#bac9df;font-size:clamp(14px,1.6vw,17px);line-height:1.55;word-break:keep-all}
+.contract-signature p em{color:#fff;font-style:normal;font-weight:750}
 @media(max-width:640px){
-  .contract-head{padding-top:53px}
-  .contract-head h2 strong{font-size:clamp(32px,8.4vw,43px)}
-  .contract-art{margin-top:15px}
-  .contract-banner{gap:9px;padding:18px 0 22px}
-  .contract-banner strong{font-size:16px}
-  .contract-item,
-  .contract-item:last-child{
-    grid-template-columns:66px minmax(0,1fr);
-    align-items:center;
-    gap:14px;
-    padding:27px 0 30px;
-  }
-  .contract-illustration{width:62px;height:62px}
-  .contract-copy{grid-column:2}
-  .contract-copy h3{font-size:clamp(18px,4.8vw,21px);line-height:1.47}
-  .contract-copy p{margin-top:11px;font-size:14px;line-height:1.7}
-  .contract-signature{padding-top:42px}
-  .contract-signature-heading{font-size:clamp(26px,6.5vw,31px)}
-  .contract-signature p{font-size:clamp(18px,4.65vw,20px);line-height:1.65}
+  .contract-head{padding-top:34px}
+  .contract-head h2 strong{font-size:clamp(25px,6.6vw,30px)}
+  .contract-art{width:min(100%,190px);margin-top:11px}
+  .contract-banner{padding:11px 0 14px}
+  .contract-banner strong{font-size:13px}
+  .contract-list{display:flex;flex-wrap:wrap;justify-content:center;gap:5px 8px;margin-top:14px}
+  .contract-item:nth-child(-n+2){flex:0 0 calc((100% - 8px)/2)}
+  .contract-item:nth-child(n+3){flex:0 0 calc((100% - 16px)/3)}
+  .contract-trigger{min-height:90px;padding:9px 3px 10px;gap:4px}
+  .contract-trigger img{width:35px;height:35px}
+  .contract-trigger span{font-size:clamp(12px,3.4vw,14px)}
+  .contract-detail{padding:15px 5px 19px}
+  .contract-copy h3{font-size:17px}
+  .contract-copy p{font-size:13px;line-height:1.62}
+  .contract-watch{grid-template-columns:1fr;gap:9px;margin-top:18px;padding-top:15px}
+  .contract-watch h3{font-size:18px}
+  .contract-watch-body p{font-size:13px}
+  .contract-watch-promo{font-size:13px;text-align:left}
+  .contract-watch-notice{text-align:left}
+  .contract-signature{padding-top:22px}
+  .contract-signature-heading{font-size:22px}
+  .contract-signature p{font-size:14px}
 }
 .section{padding:60px 22px 67px;scroll-margin-top:20px}.sec-eyebrow{margin:0 0 11px;color:var(--blue);letter-spacing:.35px;font-weight:800;font-size:13px}.sec-title{margin:0;color:#14233b;font-size:34px;line-height:1.26;letter-spacing:-1.25px;font-weight:900}.sec-desc{margin:14px 0 0;font-size:16px;color:#617083;line-height:1.65}
 
@@ -615,8 +474,9 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   <div class="sale-head">
     
     <h1 class="sale-title" id="hero-title">
-      <span class="line">즉시 할인 혜택</span>
-      <span class="headline"><span class="prefix">최대</span><strong class="value">90%</strong></span>
+      <span class="line">삼성정품갤럭시 시리즈</span>
+      <span class="subline">즉시할인 할부원금</span>
+      <span class="headline"><span class="prefix">최대</span><strong class="value">90%</strong><span class="suffix">할인</span></span>
     </h1>
     
   </div>
@@ -683,23 +543,29 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
     <div class="contract-banner"><span class="contract-banner-icon" aria-hidden="true">!</span><strong>이런 곳들은 <em>비정상 영업행위</em>입니다!</strong></div>
   </div>
   
-  <ol class="contract-list">
-<li class="contract-item contract-item-1">
-    <img class="contract-illustration" src="/assets/icons/phonedirect_contract_25pct.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="contract-copy"><h3>선택약정은 고객님의 요금에서 <em>25%를 할인</em>해주는 <em>통신사 할인</em>입니다.</h3><p>즉, 기기값을 깎아주는 할인이 아니라 매달 내는 요금에서 25%를 할인해주는 제도입니다.</p></div>
-</li>
-<li class="contract-item contract-item-2">
-    <img class="contract-illustration" src="/assets/icons/phonedirect_four_months.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="contract-copy"><h3>4개월 뒤 요금제를 하향하면 <em>할인율은 낮아집니다.</em></h3><p>선택약정은 요금제에 따라 할인율이 달라질 수 있으며, 4개월 후 요금제를 낮추면 25% 할인율도 줄어듭니다. 따라서 ‘처음엔 공짜처럼 보였던 혜택’이 사라질 수 있습니다.</p></div>
-</li>
-<li class="contract-item contract-item-3">
-    <img class="contract-illustration" src="/assets/icons/phonedirect_no_extra_cost.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="contract-copy"><h3>기기값 할인을 가장한 <em>영업행위는 불법</em>입니다.</h3><p>이러한 기기값을 할인해 주는 것처럼 속여 판매하는 행위는 방송통신위원회에서 지정한 불법·비정상 영업행위입니다.</p></div>
-</li>
-<li class="contract-item contract-item-4">
-    <img class="contract-illustration" src="/assets/icons/phonedirect_phone_contact.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="contract-copy"><h3>폰다이렉트는 <em>기기값을 직접 할인</em>해주는 업체로 개통 후 고객센터를 통해 <em>할부원금</em>을 확인해 보세요.</h3></div>
-</li>
-<li class="contract-item contract-item-5">
-    <img class="contract-illustration" src="/assets/icons/phonedirect_14day_cancel.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="contract-copy"><h3>현 4개월 이후 요금제변경하는곳들은 <em>14일이후 개통취소가 불가능</em>해져 그에따른 부담은 고스란히 <em>고객님의 몫</em>이됩니다.</h3></div>
-</li>
+    <ol class="contract-list">
+    <li class="contract-item contract-item-1"><button type="button" class="contract-trigger" data-contract-index="0" aria-expanded="true" aria-controls="contract-detail"><img class="contract-illustration" src="/assets/icons/phonedirect_contract_25pct.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><span>선택약정</span></button></li>
+    <li class="contract-item contract-item-2"><button type="button" class="contract-trigger" data-contract-index="1" aria-expanded="false" aria-controls="contract-detail"><img class="contract-illustration" src="/assets/icons/phonedirect_four_months.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><span>4개월 이후</span></button></li>
+    <li class="contract-item contract-item-3"><button type="button" class="contract-trigger" data-contract-index="2" aria-expanded="false" aria-controls="contract-detail"><img class="contract-illustration" src="/assets/icons/phonedirect_no_extra_cost.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><span>기기값 할인</span></button></li>
+    <li class="contract-item contract-item-4"><button type="button" class="contract-trigger" data-contract-index="3" aria-expanded="false" aria-controls="contract-detail"><img class="contract-illustration" src="/assets/icons/phonedirect_phone_contact.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><span>할부원금</span></button></li>
+    <li class="contract-item contract-item-5"><button type="button" class="contract-trigger" data-contract-index="4" aria-expanded="false" aria-controls="contract-detail"><img class="contract-illustration" src="/assets/icons/phonedirect_14day_cancel.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><span>취소·해지</span></button></li>
   </ol>
+  <div class="contract-detail" id="contract-detail" aria-live="polite">
+    <div class="contract-copy" data-contract-panel="0"><h3>선택약정은 고객님의 요금에서 <em>25%를 할인</em>해주는 <em>통신사 할인</em>입니다.</h3><p>즉, 기기값을 깎아주는 할인이 아니라 매달 내는 요금에서 25%를 할인해주는 제도입니다.</p></div>
+    <div class="contract-copy" data-contract-panel="1" hidden><h3>4개월 뒤 요금제를 하향하면 <em>할인율은 낮아집니다.</em></h3><p>선택약정은 요금제에 따라 할인율이 달라질 수 있으며, 4개월 후 요금제를 낮추면 25% 할인율도 줄어듭니다. 따라서 ‘처음엔 공짜처럼 보였던 혜택’이 사라질 수 있습니다.</p></div>
+    <div class="contract-copy" data-contract-panel="2" hidden><h3>기기값 할인을 가장한 <em>영업행위는 불법</em>입니다.</h3><p>이러한 기기값을 할인해 주는 것처럼 속여 판매하는 행위는 방송통신위원회에서 지정한 불법·비정상 영업행위입니다.</p></div>
+    <div class="contract-copy" data-contract-panel="3" hidden><h3>폰다이렉트는 <em>기기값을 직접 할인</em>해주는 업체로 개통 후 고객센터를 통해 <em>할부원금</em>을 확인해 보세요.</h3></div>
+    <div class="contract-copy" data-contract-panel="4" hidden><h3>현 4개월 이후 요금제변경하는곳들은 <em>14일이후 개통취소가 불가능</em>해져 그에따른 부담은 고스란히 <em>고객님의 몫</em>이됩니다.</h3></div>
+  </div>
+  <div class="contract-watch">
+    <h3>무료라고 받았는데,<br>알고 보니 약정이었다?</h3>
+    <div class="contract-watch-body">
+      <p>핸드폰 요금을 낮추면 웨어러블 요금제 <strong>월 11,000원</strong>을 부담해야 하는 조건인지 확인하세요.</p>
+      <p>중간에 해지할 때 <strong>위약금이 고객 부담</strong>인 계약인지 확인하세요.</p>
+    </div>
+    <p class="contract-watch-promo"><strong>폰다이렉트에선 그만큼 할인에 할인을 더해드릴게요!</strong> 정확한 혜택, 투명한 조건으로 함께합니다!</p>
+    <p class="contract-watch-notice">※ 요금제·금액·위약금은 가입 조건에 따라 달라질 수 있습니다.</p>
+  </div>
   <div class="contract-signature"><div class="contract-signature-heading"><strong>폰다이렉트</strong><span>기기값은 직접 할인!</span></div><p>정확한 정보 확인이, 여러분의 <em>소중한 휴대폰</em>을 지키는 <em>첫걸음</em>입니다.</p></div>
 </section>
 <div class="divider"></div>
@@ -999,6 +865,25 @@ if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-moti
   else original.addEventListener('load',ready,{once:true});
 })();
 
+})();
+</script>
+<script>
+/* Preview-only information navigation. Original text is not modified. */
+(function(){
+  const triggers=Array.from(document.querySelectorAll(".contract-trigger"));
+  const panels=Array.from(document.querySelectorAll("[data-contract-panel]"));
+  triggers.forEach((button,index)=>{
+    button.addEventListener("click",()=>{
+      triggers.forEach((item,i)=>item.setAttribute("aria-expanded",i===index?"true":"false"));
+      panels.forEach((panel,i)=>{panel.hidden=i!==index});
+    });
+  });
+  const form=document.getElementById("leadForm");
+  if(form){form.addEventListener("submit",function(event){
+    event.preventDefault();event.stopImmediatePropagation();
+    const message=document.getElementById("formMessage");
+    if(message)message.textContent="미리보기에서는 실제 상담 신청을 전송하지 않습니다.";
+  },true)}
 })();
 </script>
 </body>
