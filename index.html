@@ -277,13 +277,14 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 }
 .contract-item{min-width:0;margin:0;padding:0;list-style:none}
 .contract-trigger{
-  display:flex;align-items:center;justify-content:center;width:100%;min-height:82px;
-  padding:15px 8px;border:0;border-bottom:3px solid transparent;
-  background:transparent;color:#cbd9ed;text-align:center;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:9px;width:100%;min-height:124px;padding:15px 8px;
+  border:0;border-bottom:3px solid transparent;background:transparent;
+  color:#cbd9ed;text-align:center;cursor:pointer;
   transition:color .18s,border-color .18s,background-color .18s
 }
 .contract-item+.contract-item .contract-trigger{border-left:1px solid rgba(255,255,255,.14)}
-.contract-trigger img{display:none}
+.contract-trigger img{display:block;width:48px;height:48px;object-fit:contain;flex:none}
 .contract-trigger span{
   font-size:clamp(16px,1.65vw,19px);font-weight:760;
   letter-spacing:-.04em;line-height:1.38;word-break:keep-all
@@ -387,7 +388,8 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   }
   .contract-item:nth-child(-n+2){grid-column:span 3}
   .contract-item:nth-child(n+3){grid-column:span 2}
-  .contract-trigger{min-height:64px;padding:14px 4px;border-bottom:2px solid transparent}
+  .contract-trigger{min-height:112px;padding:13px 4px;gap:8px;border-bottom:2px solid transparent}
+  .contract-trigger img{width:42px;height:42px}
   .contract-trigger span{font-size:clamp(15px,3.8vw,17px)}
   .contract-item:nth-child(2) .contract-trigger{border-left:1px solid rgba(255,255,255,.14)}
   .contract-item:nth-child(3) .contract-trigger{border-left:0}
@@ -417,6 +419,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 @media(max-width:359px){
   .contract-art{width:min(70%,240px)}
   .contract-trigger span{font-size:15px}
+  .contract-trigger img{width:38px;height:38px}
   .contract-head h2 span{font-size:17px}
   .watch-info-heading h2{letter-spacing:-.06em}
 }
@@ -655,7 +658,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
     <li class="contract-item contract-item-4"><button type="button" class="contract-trigger" data-contract-index="3" aria-expanded="false" aria-controls="contract-detail"><img class="contract-illustration" src="/assets/icons/phonedirect_phone_contact.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><span>할부원금</span></button></li>
     <li class="contract-item contract-item-5"><button type="button" class="contract-trigger" data-contract-index="4" aria-expanded="false" aria-controls="contract-detail"><img class="contract-illustration" src="/assets/icons/phonedirect_14day_cancel.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><span>취소·해지</span></button></li>
   </ol>
-  <div class="contract-detail" id="contract-detail" aria-live="polite">
+  <div class="contract-detail" id="contract-detail" aria-live="off">
     <div class="contract-copy" data-contract-panel="0"><h3>선택약정은 고객님의 요금에서 <em>25%를 할인</em>해주는 <em>통신사 할인</em>입니다.</h3><p>즉, 기기값을 깎아주는 할인이 아니라 매달 내는 요금에서 25%를 할인해주는 제도입니다.</p></div>
     <div class="contract-copy" data-contract-panel="1" hidden><h3>4개월 뒤 요금제를 하향하면 <em>할인율은 낮아집니다.</em></h3><p>선택약정은 요금제에 따라 할인율이 달라질 수 있으며, 4개월 후 요금제를 낮추면 25% 할인율도 줄어듭니다. 따라서 ‘처음엔 공짜처럼 보였던 혜택’이 사라질 수 있습니다.</p></div>
     <div class="contract-copy" data-contract-panel="2" hidden><h3>기기값 할인을 가장한 <em>영업행위는 불법</em>입니다.</h3><p>이러한 기기값을 할인해 주는 것처럼 속여 판매하는 행위는 방송통신위원회에서 지정한 불법·비정상 영업행위입니다.</p></div>
@@ -995,16 +998,55 @@ if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-moti
 })();
 </script>
 <script>
-/* Preview-only information navigation. Original text is not modified. */
+/* Preview-only auto-rotating disclosure; original text is unchanged. */
 (function(){
+  const section=document.getElementById("conditions");
   const triggers=Array.from(document.querySelectorAll(".contract-trigger"));
   const panels=Array.from(document.querySelectorAll("[data-contract-panel]"));
+  const reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
+  const hoverDevice=window.matchMedia("(hover: hover)");
+  const ROTATE_MS=7000;
+  let active=0, timer=null, inView=false, hoverPaused=false, focusPaused=false;
+  function show(index){
+    active=index;
+    triggers.forEach((item,i)=>item.setAttribute("aria-expanded",i===active?"true":"false"));
+    panels.forEach((panel,i)=>{panel.hidden=i!==active});
+  }
+  function stop(){if(timer!==null){clearTimeout(timer);timer=null}}
+  function canPlay(){
+    return inView && !document.hidden && !reduceMotion.matches &&
+      !hoverPaused && !focusPaused && triggers.length===5 && panels.length===5;
+  }
+  function schedule(){
+    stop();
+    if(canPlay())timer=setTimeout(()=>{
+      show((active+1)%triggers.length);
+      schedule();
+    },ROTATE_MS);
+  }
   triggers.forEach((button,index)=>{
-    button.addEventListener("click",()=>{
-      triggers.forEach((item,i)=>item.setAttribute("aria-expanded",i===index?"true":"false"));
-      panels.forEach((panel,i)=>{panel.hidden=i!==index});
-    });
+    button.addEventListener("click",()=>{show(index);schedule()});
   });
+  if(section && triggers.length===5 && panels.length===5){
+    if("IntersectionObserver" in window){
+      const observer=new IntersectionObserver(entries=>{
+        inView=entries[0]?.isIntersecting===true;
+        schedule();
+      },{threshold:.12});
+      observer.observe(section);
+    }else{inView=true;schedule()}
+    section.addEventListener("mouseenter",()=>{if(hoverDevice.matches){hoverPaused=true;stop()}});
+    section.addEventListener("mouseleave",()=>{hoverPaused=false;schedule()});
+    section.addEventListener("focusin",event=>{
+      if(event.target.matches(":focus-visible")){focusPaused=true;stop()}
+    });
+    section.addEventListener("focusout",()=>{
+      focusPaused=false;schedule();
+    });
+    document.addEventListener("visibilitychange",schedule);
+    window.addEventListener("pagehide",stop);
+    if(reduceMotion.addEventListener)reduceMotion.addEventListener("change",schedule);
+  }
   const form=document.getElementById("leadForm");
   if(form){form.addEventListener("submit",function(event){
     event.preventDefault();event.stopImmediatePropagation();
