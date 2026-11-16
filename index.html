@@ -1004,9 +1004,8 @@ if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-moti
   const triggers=Array.from(document.querySelectorAll(".contract-trigger"));
   const panels=Array.from(document.querySelectorAll("[data-contract-panel]"));
   const reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
-  const hoverDevice=window.matchMedia("(hover: hover)");
   const ROTATE_MS=7000;
-  let active=0, timer=null, inView=false, hoverPaused=false, focusPaused=false;
+  let active=0, timer=null, inView=false, focusPaused=false;
   function show(index){
     active=index;
     triggers.forEach((item,i)=>item.setAttribute("aria-expanded",i===active?"true":"false"));
@@ -1015,7 +1014,7 @@ if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-moti
   function stop(){if(timer!==null){clearTimeout(timer);timer=null}}
   function canPlay(){
     return inView && !document.hidden && !reduceMotion.matches &&
-      !hoverPaused && !focusPaused && triggers.length===5 && panels.length===5;
+      !focusPaused && triggers.length===5 && panels.length===5;
   }
   function schedule(){
     stop();
@@ -1035,8 +1034,6 @@ if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-moti
       },{threshold:.12});
       observer.observe(section);
     }else{inView=true;schedule()}
-    section.addEventListener("mouseenter",()=>{if(hoverDevice.matches){hoverPaused=true;stop()}});
-    section.addEventListener("mouseleave",()=>{hoverPaused=false;schedule()});
     section.addEventListener("focusin",event=>{
       if(event.target.matches(":focus-visible")){focusPaused=true;stop()}
     });
