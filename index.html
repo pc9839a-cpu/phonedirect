@@ -572,6 +572,37 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .price-sheet .offer-card.ad-reveal:nth-child(2n),.contract-item.ad-reveal:nth-child(2n),.journey-step.ad-reveal:nth-child(2n){transition-delay:.09s}
 .price-sheet .offer-card.ad-reveal:nth-child(3n),.contract-item.ad-reveal:nth-child(3n),.journey-step.ad-reveal:nth-child(3n){transition-delay:.16s}
 }
+
+/* Scroll entrance motion — appearance only; layout, copy, and interactions stay intact. */
+@media (prefers-reduced-motion: no-preference) {
+  html.ph-motion-ready .ph-enter {
+    opacity:0;
+    translate:0 20px;
+    transition-property:opacity,translate;
+    transition-duration:660ms;
+    transition-timing-function:cubic-bezier(.22,1,.36,1);
+    transition-delay:var(--ph-enter-delay,0ms);
+  }
+  html.ph-motion-ready .ph-enter.ph-entered {
+    opacity:1;
+    translate:0 0;
+  }
+}
+@media (max-width:640px) and (prefers-reduced-motion: no-preference) {
+  html.ph-motion-ready .ph-enter {
+    translate:0 12px;
+    transition-duration:510ms;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html .ph-enter,
+  html.ph-motion-ready .ph-enter {
+    opacity:1!important;
+    translate:none!important;
+    transition:none!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1050,6 +1081,79 @@ if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-moti
     const message=document.getElementById("formMessage");
     if(message)message.textContent="미리보기에서는 실제 상담 신청을 전송하지 않습니다.";
   },true)}
+})();
+</script>
+<script>
+/* One-time progressive reveal; disabled for reduced motion or missing browser support. */
+(function(){
+  if (!("IntersectionObserver" in window) || !("requestAnimationFrame" in window)) return;
+  const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (reducedMotion.matches) return;
+  const groups=[
+    [".sale-hero .sale-head",0],
+    [".sale-hero .sale-art",140],
+    [".offer-heading",0],
+    [".price-sheet .offer-card",75],
+    [".contract-head h2",0],
+    [".contract-art",120],
+    [".contract-banner",80],
+    [".contract-item",65],
+    [".contract-detail",0],
+    [".contract-signature",0],
+    [".watch-info-heading",0],
+    [".watch-info-row",85],
+    [".watch-info-promo",120],
+    [".watch-info-visual",90],
+    [".journey-heading",0],
+    [".journey-step",75],
+    [".activity-topline",0],
+    [".activity-board",60],
+    [".activity-limit",80],
+    [".form-header",0],
+    [".form-panel",80],
+    [".company-footer-bottom",0]
+  ];
+  const targets=[];
+  const seen=new Set();
+  for(const [selector,step] of groups){
+    const nodes=document.querySelectorAll(selector);
+    nodes.forEach((el,i)=>{
+      if(seen.has(el) || el.hidden) return;
+      seen.add(el);
+      el.classList.add("ph-enter");
+      el.style.setProperty("--ph-enter-delay",Math.min(i*step,360)+"ms");
+      targets.push(el);
+    });
+  }
+  if(targets.length===0) return;
+  const observer=new IntersectionObserver((entries)=>{
+    for(const entry of entries){
+      if(!entry.isIntersecting) continue;
+      entry.target.classList.add("ph-entered");
+      observer.unobserve(entry.target);
+    }
+  },{root:null,rootMargin:"0px 0px -24px 0px",threshold:0.06});
+  for(const el of targets){
+    const bounds=el.getBoundingClientRect();
+    if(bounds.bottom<0) el.classList.add("ph-entered");
+    observer.observe(el);
+  }
+  document.documentElement.classList.add("ph-motion-ready");
+  requestAnimationFrame(()=>{
+    for(const el of targets){
+      if(el.classList.contains("ph-entered"))continue;
+      const b=el.getBoundingClientRect();
+      if(b.top<window.innerHeight && b.bottom>0)el.classList.add("ph-entered");
+    }
+  });
+  const showAll=()=>{
+    for(const el of targets)el.classList.add("ph-entered");
+    observer.disconnect();
+    document.documentElement.classList.remove("ph-motion-ready");
+  };
+  if(reducedMotion.addEventListener){
+    reducedMotion.addEventListener("change",(event)=>{if(event.matches)showAll()},{once:true});
+  }
 })();
 </script>
 </body>
