@@ -236,7 +236,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   background:#0b1e3d;color:#f5f8ff;scroll-margin-top:20px;
 }
 .contract-head{
-  max-width:920px;margin:0 auto;
+  max-width:var(--aligned-width);margin:0 auto;
   padding:clamp(54px,6vw,78px) 0 0;text-align:center
 }
 .contract-head h2{
@@ -261,7 +261,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 }
 .contract-banner{
   display:flex;align-items:center;justify-content:center;gap:12px;
-  max-width:920px;margin:10px auto 0;padding:18px 0 25px;
+  max-width:var(--aligned-width);margin:10px auto 0;padding:18px 0 25px;
   border:0;border-bottom:1px solid rgba(210,228,255,.22);
   text-align:center
 }
@@ -278,7 +278,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .contract-banner em{color:var(--contract-accent);font-style:normal}
 .contract-list{
   display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;
-  max-width:920px;margin:23px auto 0;padding:0;list-style:none
+  max-width:var(--aligned-width);margin:23px auto 0;padding:0;list-style:none
 }
 .contract-item{min-width:0;margin:0;padding:0;border:0}
 .contract-trigger{
@@ -299,7 +299,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   line-height:1.35;letter-spacing:-.035em;word-break:keep-all
 }
 .contract-detail{
-  max-width:920px;margin:0 auto;padding:27px 16px 30px;
+  max-width:var(--aligned-width);margin:0 auto;padding:27px 16px 30px;
   border-bottom:1px solid rgba(210,228,255,.22)
 }
 .contract-copy[hidden]{display:none}
@@ -314,46 +314,48 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   margin:13px 0 0;color:#bac9df;font-size:var(--type-body);
   line-height:1.7;letter-spacing:-.018em;word-break:keep-all
 }
+
 .contract-watch{
-  max-width:920px;margin:36px auto 0;padding:32px 0 0;
-  border-top:1px solid rgba(210,228,255,.22);
-  display:grid;grid-template-columns:220px minmax(0,1fr);
-  column-gap:clamp(20px,3.5vw,40px);row-gap:12px;
-  align-items:center
+ display:grid;grid-template-columns:230px minmax(0,1fr);align-items:center;
+ column-gap:clamp(22px,3.5vw,40px);row-gap:10px;
+ max-width:var(--aligned-width);margin:36px auto 0;padding:30px 0 0;
+ border-top:1px solid rgba(210,228,255,.22)
 }
 .contract-watch-visual{
-  grid-column:1;grid-row:1 / 3;align-self:center;
-  width:100%;max-width:220px;margin:0;line-height:0
+ grid-column:1;grid-row:1 / 3;justify-self:center;align-self:center;
+ width:100%;max-width:220px;margin:0;line-height:0
 }
-.contract-watch-visual img{
-  display:block;width:100%;height:auto;object-fit:contain
-}
-.contract-watch-content{grid-column:2;min-width:0;align-self:end}
+.contract-watch-visual img{display:block;width:100%;height:auto;object-fit:contain}
 .contract-watch h3{
-  margin:0;color:#fff;font-size:clamp(24px,2.6vw,29px);
-  font-weight:860;line-height:1.37;letter-spacing:-.04em;word-break:keep-all
+ grid-column:2;grid-row:1;margin:0;color:#fff;
+ font-size:clamp(26px,3vw,34px);font-weight:880;
+ line-height:1.35;letter-spacing:-.045em;word-break:keep-all
 }
 .contract-watch h3 span{display:block;color:var(--contract-accent)}
-.contract-watch-body{margin-top:19px}
+.contract-watch-body{grid-column:2;grid-row:2;margin-top:0}
 .contract-watch-body p{
-  margin:0 0 12px;color:#d0dcef;font-size:var(--type-body);
-  line-height:1.63;word-break:keep-all
+ margin:0 0 12px;padding-left:15px;border-left:3px solid rgba(105,167,255,.7);
+ color:#d0dcef;font-size:var(--type-body);line-height:1.65;word-break:keep-all
 }
+.contract-watch-body p:last-child{margin-bottom:0}
 .contract-watch-body strong{color:#fff;font-weight:850}
 .contract-watch-promo{
-  grid-column:2;margin:0;color:#d0dcef;
-  font-size:var(--type-body);line-height:1.6;word-break:keep-all
+ grid-column:1/-1;margin:18px 0 0;padding:21px 0 0;
+ border-top:1px solid rgba(210,228,255,.18);
+ color:#d0dcef;font-size:clamp(17px,1.8vw,20px);
+ line-height:1.55;text-align:center;word-break:keep-all
 }
 .contract-watch-promo strong{
-  display:block;color:var(--contract-accent);font-weight:850
+ display:block;margin-bottom:5px;color:var(--contract-accent);
+ font-size:clamp(20px,2.3vw,25px);font-weight:860;line-height:1.45
 }
 .contract-watch-notice{
-  grid-column:1/-1;margin:13px 0 0;padding-top:15px;
-  border-top:1px solid rgba(210,228,255,.14);
-  color:#aabbd3;font-size:14px;line-height:1.6;text-align:center
+ grid-column:1/-1;margin:12px 0 0;padding:0;color:#aabbd3;
+ font-size:13px;line-height:1.6;text-align:center;
+ letter-spacing:-.02em;word-break:keep-all
 }
 .contract-signature{
-  max-width:920px;margin:0 auto;
+  max-width:var(--aligned-width);margin:0 auto;
   padding:clamp(34px,5vw,58px) 0 0;text-align:center
 }
 .contract-signature-heading{
@@ -388,19 +390,31 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   .contract-copy h3{font-size:var(--type-card)}
   .contract-copy p{font-size:var(--type-body);line-height:1.65}
   .contract-watch{
-    grid-template-columns:minmax(0,1fr);gap:12px;
-    margin-top:32px;padding-top:27px
+    grid-template-columns:112px minmax(0,1fr);
+    column-gap:13px;row-gap:0;margin-top:28px;padding-top:22px
   }
   .contract-watch-visual{
-    grid-column:1;grid-row:auto;
-    width:min(56%,195px);max-width:195px;margin:0 auto 5px
+    grid-column:1;grid-row:1;justify-self:center;
+    width:112px;max-width:112px;margin:0
   }
-  .contract-watch-content{grid-column:1}
-  .contract-watch h3{font-size:var(--type-card);text-align:center}
-  .contract-watch-body{margin-top:18px}
-  .contract-watch-body p{font-size:var(--type-body);margin-bottom:13px}
-  .contract-watch-promo{grid-column:1;font-size:var(--type-body);text-align:center}
-  .contract-watch-notice{text-align:center;margin-top:7px;padding-top:13px}
+  .contract-watch h3{
+    grid-column:2;grid-row:1;align-self:center;
+    font-size:clamp(23px,6vw,27px);text-align:left
+  }
+  .contract-watch-body{grid-column:1/-1;grid-row:2;margin-top:18px}
+  .contract-watch-body p{
+    padding-left:12px;font-size:var(--type-body);margin-bottom:12px
+  }
+  .contract-watch-promo{
+    grid-column:1/-1;margin-top:19px;padding-top:18px;
+    font-size:var(--type-body);text-align:center
+  }
+  .contract-watch-promo strong{
+    font-size:clamp(19px,5vw,22px);margin-bottom:7px
+  }
+  .contract-watch-notice{
+    grid-column:1/-1;margin-top:11px;font-size:12px;text-align:center
+  }
   .contract-signature{padding-top:40px}
   .contract-signature-heading{font-size:clamp(27px,6.5vw,31px)}
   .contract-signature p{font-size:clamp(19px,4.65vw,20px)}
@@ -653,14 +667,12 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   </div>
   <div class="contract-watch" aria-labelledby="contract-watch-title">
     <figure class="contract-watch-visual">
-      <img src="/assets/phonedirect-contract-watch-illustration.webp" width="200" height="200" alt="스마트폰과 스마트워치, 약정 계약서를 나타낸 일러스트" loading="lazy" decoding="async">
+      <img src="/assets/phonedirect-contract-watch-illustration.webp" width="200" height="200" alt="스마트폰과 스마트워치, 약정 계약서 일러스트" loading="lazy" decoding="async">
     </figure>
-    <div class="contract-watch-content">
-      <h3 id="contract-watch-title">무료라고 받았는데,<span>알고 보니 약정이었다?</span></h3>
-      <div class="contract-watch-body">
-        <p>핸드폰 요금을 낮추면 웨어러블 요금제 <strong>월 11,000원</strong>을 부담해야 하는 조건인지 확인하세요.</p>
-        <p>중간에 해지할 때 <strong>위약금이 고객 부담</strong>인 계약인지 확인하세요.</p>
-      </div>
+    <h3 id="contract-watch-title">무료라고 받았는데,<span>알고 보니 약정이었다?</span></h3>
+    <div class="contract-watch-body">
+      <p>핸드폰 요금을 낮추면 웨어러블 요금제 <strong>월 11,000원</strong>을 부담해야 하는 조건인지 확인하세요.</p>
+      <p>중간에 해지할 때 <strong>위약금이 고객 부담</strong>인 계약인지 확인하세요.</p>
     </div>
     <p class="contract-watch-promo"><strong>폰다이렉트에선 그만큼 할인에 할인을 더해드릴게요!</strong>정확한 혜택, 투명한 조건으로 함께합니다!</p>
     <p class="contract-watch-notice">※ 요금제·금액·위약금은 가입 조건에 따라 달라질 수 있습니다.</p>
