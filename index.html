@@ -328,65 +328,68 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .contract-signature p em{color:#fff;font-style:normal;font-weight:750}
 
 /* Watch advisory — source-approved warning copy and restrained editorial typography. */
-.watch-info{
-  padding:clamp(72px,8vw,116px) var(--page-gutter) 0;
-  background:#fff;color:#142a46;scroll-margin-top:18px
+/* Smartphone/watch contract warning: generated editorial cutout + crisp HTML copy */
+.watch-info{background:#fff;color:#132940;scroll-margin-top:18px}
+.watch-info-campaign{
+  overflow:hidden;background:#eef4ff;
+  padding:clamp(56px,7vw,88px) var(--page-gutter) clamp(27px,4vw,52px)
 }
-.watch-info-inner{width:100%;max-width:var(--aligned-width);margin:0 auto}
-.watch-info-heading{margin:0 0 clamp(30px,5vw,52px);text-align:left}
+.watch-info-campaign-inner{
+  display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);
+  align-items:center;gap:clamp(14px,2.4vw,36px);
+  width:100%;max-width:var(--aligned-width);margin:0 auto
+}
+.watch-info-heading{position:relative;z-index:2;min-width:0}
 .watch-info-heading h2{
-  max-width:1000px;margin:0;color:#142841;
-  font-size:clamp(39px,5.6vw,68px);font-weight:920;
-  line-height:1.18;letter-spacing:-.06em;word-break:keep-all
+  margin:0;color:#102844;font-size:clamp(39px,4.8vw,62px);
+  font-weight:930;line-height:1.21;letter-spacing:-.06em;word-break:keep-all
 }
 .watch-info-heading h2 span{
-  display:inline;color:var(--blue);font-weight:940
-}
-.watch-info-layout{
-  display:grid;grid-template-columns:minmax(0,1.13fr) minmax(0,.87fr);
-  gap:clamp(28px,5vw,66px);align-items:center;
-  border-top:1px solid #dce5f0;padding-top:clamp(26px,4vw,42px)
-}
-.watch-info-content{min-width:0}
-.watch-info-rows{display:grid;gap:0}
-.watch-info-row{padding:23px 0 25px;border-bottom:1px solid #e2e9f2}
-.watch-info-row:first-child{padding-top:8px}
-.watch-info-row h3{
-  margin:0 0 11px;color:#1c2e47;font-size:clamp(22px,2.35vw,29px);
-  line-height:1.35;font-weight:860;letter-spacing:-.048em;word-break:keep-all
-}
-.watch-info-row h3 em{color:var(--blue);font-style:normal;font-weight:900}
-.watch-info-row p{
-  margin:0;color:#52647b;font-size:clamp(16px,1.55vw,19px);
-  font-weight:500;line-height:1.77;letter-spacing:-.014em;word-break:keep-all
+  display:block;width:fit-content;max-width:100%;
+  margin-top:16px;padding:10px 13px 12px;
+  background:#102e61;color:#ffe336;
+  font-size:clamp(37px,4.5vw,58px);font-weight:950;
+  line-height:1.19;letter-spacing:-.062em;
+  box-decoration-break:clone;-webkit-box-decoration-break:clone
 }
 .watch-info-visual{
-  width:100%;max-width:390px;margin:0;justify-self:center;
-  line-height:0;aspect-ratio:1;overflow:visible
+  position:relative;z-index:1;justify-self:center;
+  width:100%;max-width:610px;margin:0;line-height:0;overflow:visible
 }
-.watch-info-visual picture{display:block;width:100%;height:100%}
-.watch-info-visual img{display:block;width:100%;height:100%;object-fit:contain}
+.watch-info-visual picture{display:block;width:100%;height:auto}
+.watch-info-visual img{display:block;width:100%;height:auto;object-fit:contain}
+.watch-info-inner{
+  width:100%;max-width:var(--aligned-width);margin:0 auto;
+  padding:clamp(42px,6vw,72px) 0 clamp(56px,7vw,86px)
+}
+.watch-info-rows{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2vw,24px)}
+.watch-info-row{
+  min-width:0;padding:clamp(24px,3vw,34px);
+  background:#fff;border:1px solid #dbe5f2;border-top:4px solid #e22f37;
+  box-shadow:0 10px 26px rgba(15,44,83,.055)
+}
+.watch-info-row h3{
+  margin:0;color:#172c47;font-size:clamp(22px,2.35vw,28px);
+  font-weight:880;line-height:1.42;letter-spacing:-.05em;word-break:keep-all
+}
+.watch-info-row h3 em{color:#d8212d;font-style:normal;font-weight:930}
+.watch-info-row p{
+  margin:15px 0 0;color:#445770;font-size:clamp(16px,1.6vw,19px);
+  font-weight:540;line-height:1.72;letter-spacing:-.016em;word-break:keep-all
+}
 .watch-info-promo{
-  width:calc(100% + 2 * var(--page-gutter));
-  margin:clamp(48px,6vw,78px) calc(-1 * var(--page-gutter)) 0;
-  padding:clamp(46px,7vw,86px) var(--page-gutter);
+  width:100%;margin:0;padding:clamp(48px,7vw,85px) var(--page-gutter);
   background:#1769f5;color:#fff;text-align:center
 }
 .watch-info-promo-inner{width:100%;max-width:var(--aligned-width);margin:0 auto}
 .watch-info-promo-head{
-  display:block;margin:0;color:rgba(255,255,255,.83);
-  font-size:clamp(19px,2.15vw,24px);line-height:1.46;
-  font-weight:540;letter-spacing:-.035em;word-break:keep-all
+  display:block;margin:0;color:#fff;font-size:clamp(23px,3vw,35px);
+  font-weight:820;letter-spacing:-.047em;line-height:1.38;word-break:keep-all
 }
 .watch-info-promo-main{
-  display:block;margin:13px 0 0;color:#fff;
-  font-size:clamp(38px,5.1vw,62px);font-weight:950;
-  line-height:1.19;letter-spacing:-.07em;word-break:keep-all
-}
-.watch-info-promo-foot{
-  margin:26px 0 0;padding-top:21px;border-top:1px solid rgba(255,255,255,.36);
-  color:#f5f9ff;font-size:clamp(17px,1.85vw,22px);
-  font-weight:700;line-height:1.55;word-break:keep-all
+  display:block;margin:16px 0 0;color:#ffe139;
+  font-size:clamp(35px,4.7vw,60px);font-weight:950;
+  line-height:1.22;letter-spacing:-.067em;word-break:keep-all
 }
 @media(max-width:767px){
   .contract-alert{padding-top:58px;padding-bottom:66px}
@@ -419,21 +422,23 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   .contract-signature-heading{justify-content:center;font-size:clamp(21px,5.3vw,25px)}
   .contract-signature p{font-size:var(--type-body)}
 
-  .watch-info{padding-top:67px;padding-bottom:0}
-  .watch-info-heading{margin-bottom:26px;text-align:center}
-  .watch-info-heading h2{font-size:clamp(36px,8.9vw,48px);line-height:1.22}
-  .watch-info-heading h2 span{display:block}
-  .watch-info-layout{display:flex;flex-direction:column-reverse;gap:8px;padding-top:20px}
-  .watch-info-visual{width:min(80%,290px);max-width:290px;margin:0 auto 8px}
-  .watch-info-content{width:100%}
-  .watch-info-row{padding:23px 0}
-  .watch-info-row:first-child{padding-top:12px}
-  .watch-info-row h3{font-size:clamp(22px,5.55vw,26px);margin-bottom:8px}
-  .watch-info-row p{font-size:var(--type-body);line-height:1.71}
-  .watch-info-promo{margin-top:44px;padding:49px var(--page-gutter) 54px}
-  .watch-info-promo-head{font-size:clamp(17px,4.5vw,20px);line-height:1.52}
-  .watch-info-promo-main{margin-top:13px;font-size:clamp(35px,8.6vw,45px);line-height:1.2}
-  .watch-info-promo-foot{margin-top:25px;padding-top:20px;font-size:clamp(17px,4.2vw,20px)}
+  .watch-info-campaign{padding-top:53px;padding-bottom:14px}
+  .watch-info-campaign-inner{grid-template-columns:1fr;gap:20px}
+  .watch-info-heading{text-align:center}
+  .watch-info-heading h2{font-size:clamp(34px,8.45vw,46px);line-height:1.2}
+  .watch-info-heading h2 span{
+    width:fit-content;max-width:100%;margin:13px auto 0;
+    padding:9px 12px 11px;font-size:clamp(32px,8.1vw,44px);line-height:1.21
+  }
+  .watch-info-visual{width:min(100%,510px);max-width:510px;margin:0 auto}
+  .watch-info-inner{padding:36px var(--page-gutter) 58px}
+  .watch-info-rows{grid-template-columns:1fr;gap:14px}
+  .watch-info-row{padding:25px 21px 27px}
+  .watch-info-row h3{font-size:clamp(22px,5.6vw,27px)}
+  .watch-info-row p{margin-top:13px;font-size:var(--type-body);line-height:1.72}
+  .watch-info-promo{padding:53px var(--page-gutter) 59px}
+  .watch-info-promo-head{font-size:clamp(20px,5.3vw,27px)}
+  .watch-info-promo-main{margin-top:15px;font-size:clamp(31px,7.7vw,43px);line-height:1.22}
 
 }
 @media(max-width:359px){
@@ -441,7 +446,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   .contract-trigger span{font-size:15px}
   .contract-trigger img{width:38px;height:38px}
   .contract-head h2 span{font-size:17px}
-  .watch-info-heading h2{letter-spacing:-.06em}
+  .watch-info-heading h2 span{padding-left:9px;padding-right:9px}
 }
 .section{padding:60px 22px 67px;scroll-margin-top:20px}.sec-eyebrow{margin:0 0 11px;color:var(--blue);letter-spacing:.35px;font-weight:800;font-size:13px}.sec-title{margin:0;color:#14233b;font-size:34px;line-height:1.26;letter-spacing:-1.25px;font-weight:900}.sec-desc{margin:14px 0 0;font-size:16px;color:#617083;line-height:1.65}
 
@@ -719,29 +724,29 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   <div class="contract-signature"><div class="contract-signature-heading"><strong>폰다이렉트</strong><span>기기값은 직접 할인!</span></div><p>정확한 정보 확인이, 여러분의 <em>소중한 휴대폰</em>을 지키는 <em>첫걸음</em>입니다.</p></div>
 </section>
 <section class="watch-info" id="watch-info" aria-labelledby="watch-info-title">
-  <div class="watch-info-inner">
-    <div class="watch-info-heading">
-      <h2 id="watch-info-title">무료라고 받았는데 <span>알고보니 약정이었다?</span></h2>
-    </div>
-    <div class="watch-info-layout">
-      <div class="watch-info-content">
-        <div class="watch-info-rows">
-          <div class="watch-info-row">
-            <h3>무료 증정인 줄 알았는데, <em>매달 11,000원?</em></h3>
-            <p>휴대폰을 싸게 해준다며 워치를 무료로 준다고요? 웨어러블 요금제 월 11,000원을 추가로 부담해야 한다면 결코 공짜가 아닙니다.</p>
-          </div>
-          <div class="watch-info-row">
-            <h3>중도 해지하면 <em>위약금까지 고객 부담!</em></h3>
-            <p>워치 증정을 내세워 추가 요금과 위약금 부담을 떠넘기는 판매 조건, 처음부터 피하세요.</p>
-          </div>
-        </div>
+  <div class="watch-info-campaign">
+    <div class="watch-info-campaign-inner">
+      <div class="watch-info-heading">
+        <h2 id="watch-info-title">무료라고 받았는데 <span>알고보니 약정이었다?</span></h2>
       </div>
       <figure class="watch-info-visual">
         <picture>
-          <source srcset="/assets/phonedirect-contract-watch-hires.avif" type="image/avif">
-          <img src="/assets/phonedirect-contract-watch-illustration.webp" width="1100" height="1100" alt="스마트폰, 스마트워치와 약정 계약서 일러스트" loading="lazy" decoding="async">
+          <source srcset="/assets/phonedirect-watch-warning-collage.avif" type="image/avif">
+          <img src="/assets/phonedirect-watch-warning-collage.webp" width="1448" height="1086" alt="놀란 인물이 스마트폰을 들고 있는 장면과 스마트워치·약정서·경고 표시" loading="lazy" decoding="async">
         </picture>
       </figure>
+    </div>
+  </div>
+  <div class="watch-info-inner">
+    <div class="watch-info-rows">
+      <div class="watch-info-row">
+        <h3>무료 증정인 줄 알았는데, <em>매달 11,000원?</em></h3>
+        <p>휴대폰을 싸게 해준다며 워치를 무료로 준다고요? 웨어러블 요금제 월 11,000원을 추가로 부담해야 한다면 결코 공짜가 아닙니다.</p>
+      </div>
+      <div class="watch-info-row">
+        <h3>중도 해지하면 <em>위약금까지 고객 부담!</em></h3>
+        <p>워치 증정을 내세워 추가 요금과 위약금 부담을 떠넘기는 판매 조건, 처음부터 피하세요.</p>
+      </div>
     </div>
   </div>
   <div class="watch-info-promo">
