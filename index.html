@@ -328,69 +328,90 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .contract-signature p em{color:#fff;font-style:normal;font-weight:750}
 
 /* Watch advisory — source-approved warning copy and restrained editorial typography. */
-/* Smartphone/watch contract warning: generated editorial cutout + crisp HTML copy */
-.watch-info{background:#fff;color:#132940;scroll-margin-top:18px}
+/* Smartwatch contract warning — existing transparent image + editable HTML advertising typography */
+.watch-info{background:#fff;color:#102844;scroll-margin-top:18px}
 .watch-info-campaign{
-  overflow:hidden;background:#eef4ff;
-  padding:clamp(56px,7vw,88px) var(--page-gutter) clamp(27px,4vw,52px)
+  overflow:hidden;background:#fff;
+  padding:clamp(58px,7.2vw,95px) var(--page-gutter) clamp(10px,2.5vw,28px)
 }
 .watch-info-campaign-inner{
-  display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);
-  align-items:center;gap:clamp(14px,2.4vw,36px);
-  width:100%;max-width:var(--aligned-width);margin:0 auto
+  display:flex;flex-direction:column;align-items:center;
+  gap:clamp(6px,1.5vw,20px);width:100%;max-width:var(--aligned-width);margin:0 auto
 }
-.watch-info-heading{position:relative;z-index:2;min-width:0}
+.watch-info-heading{position:relative;z-index:2;width:100%;text-align:center}
 .watch-info-heading h2{
-  margin:0;color:#102844;font-size:clamp(39px,4.8vw,62px);
-  font-weight:930;line-height:1.21;letter-spacing:-.06em;word-break:keep-all
+  margin:0;color:#101010;font-size:clamp(42px,5.45vw,69px);
+  font-weight:950;line-height:1.18;letter-spacing:-.067em;word-break:keep-all
 }
 .watch-info-heading h2 span{
-  display:block;width:fit-content;max-width:100%;
-  margin-top:16px;padding:10px 13px 12px;
-  background:#102e61;color:#ffe336;
-  font-size:clamp(37px,4.5vw,58px);font-weight:950;
-  line-height:1.19;letter-spacing:-.062em;
-  box-decoration-break:clone;-webkit-box-decoration-break:clone
+  display:block;width:fit-content;max-width:100%;margin:14px auto 0;
+  padding:10px clamp(16px,3vw,36px) 13px;
+  background:#111923;color:#ffe52d;
+  font-size:clamp(42px,5.7vw,72px);font-weight:950;
+  line-height:1.19;letter-spacing:-.07em;
+  box-shadow:7px 8px 0 #e3212a
 }
 .watch-info-visual{
-  position:relative;z-index:1;justify-self:center;
-  width:100%;max-width:610px;margin:0;line-height:0;overflow:visible
+  position:relative;z-index:1;display:block;align-self:center;
+  width:min(100%,790px);max-width:790px;margin:0 auto;line-height:0
 }
-.watch-info-visual picture{display:block;width:100%;height:auto}
-.watch-info-visual img{display:block;width:100%;height:auto;object-fit:contain}
+.watch-info-visual picture,.watch-info-visual img{
+  display:block;width:100%;height:auto;object-fit:contain
+}
 .watch-info-inner{
-  width:100%;max-width:var(--aligned-width);margin:0 auto;
-  padding:clamp(42px,6vw,72px) 0 clamp(56px,7vw,86px)
+  width:100%;max-width:var(--aligned-width);
+  margin:0 auto;padding:clamp(18px,3vw,38px) 0 clamp(55px,6vw,84px)
 }
-.watch-info-rows{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2vw,24px)}
+.watch-info-rows{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,2vw,22px)}
 .watch-info-row{
-  min-width:0;padding:clamp(24px,3vw,34px);
-  background:#fff;border:1px solid #dbe5f2;border-top:4px solid #e22f37;
-  box-shadow:0 10px 26px rgba(15,44,83,.055)
+  min-width:0;overflow:hidden;border:1px solid #d9e0e8;
+  border-radius:17px;background:#fff;
+  box-shadow:0 13px 28px rgba(22,35,61,.12)
 }
 .watch-info-row h3{
-  margin:0;color:#172c47;font-size:clamp(22px,2.35vw,28px);
-  font-weight:880;line-height:1.42;letter-spacing:-.05em;word-break:keep-all
+  display:flex;flex-direction:column;justify-content:center;
+  min-height:132px;margin:0;padding:20px clamp(17px,2.4vw,30px);
+  background:#d91023;color:#fff;text-align:center;
+  font-size:clamp(23px,2.7vw,33px);font-weight:920;
+  line-height:1.36;letter-spacing:-.06em;word-break:keep-all
 }
-.watch-info-row h3 em{color:#d8212d;font-style:normal;font-weight:930}
+.watch-info-row h3 em{color:#ffeb27;font-style:normal;font-weight:950}
 .watch-info-row p{
-  margin:15px 0 0;color:#445770;font-size:clamp(16px,1.6vw,19px);
-  font-weight:540;line-height:1.72;letter-spacing:-.016em;word-break:keep-all
+  margin:0;padding:clamp(23px,2.9vw,31px);
+  color:#26354a;font-size:clamp(16px,1.63vw,20px);
+  font-weight:570;line-height:1.74;letter-spacing:-.018em;word-break:keep-all
 }
 .watch-info-promo{
-  width:100%;margin:0;padding:clamp(48px,7vw,85px) var(--page-gutter);
-  background:#1769f5;color:#fff;text-align:center
+  position:relative;isolation:isolate;overflow:hidden;
+  width:100%;margin:0;padding:clamp(58px,7.3vw,92px) var(--page-gutter);
+  background:#d90d20;color:#fff;text-align:center
 }
-.watch-info-promo-inner{width:100%;max-width:var(--aligned-width);margin:0 auto}
+.watch-info-promo::before,.watch-info-promo::after{
+  content:"";position:absolute;z-index:-1;pointer-events:none
+}
+.watch-info-promo::before{
+  inset:0;background:#c90d20;
+  clip-path:polygon(0 9%,13% 0,22% 5%,41% 0,60% 5%,83% 0,100% 10%,100% 90%,88% 100%,64% 96%,43% 100%,23% 95%,0 100%)
+}
+.watch-info-promo::after{
+  left:12%;right:12%;bottom:13%;height:5px;
+  background:#ffe52d;transform:skewX(-23deg)
+}
+.watch-info-promo-inner{position:relative;width:100%;max-width:var(--aligned-width);margin:0 auto}
 .watch-info-promo-head{
-  display:block;margin:0;color:#fff;font-size:clamp(23px,3vw,35px);
-  font-weight:820;letter-spacing:-.047em;line-height:1.38;word-break:keep-all
+  display:table;max-width:100%;margin:0 auto;padding:11px clamp(15px,2.5vw,28px);
+  background:#101820;color:#fff;
+  font-size:clamp(23px,3vw,36px);font-weight:900;
+  line-height:1.37;letter-spacing:-.055em;word-break:keep-all;
+  transform:skewX(-5deg)
 }
 .watch-info-promo-main{
-  display:block;margin:16px 0 0;color:#ffe139;
-  font-size:clamp(35px,4.7vw,60px);font-weight:950;
-  line-height:1.22;letter-spacing:-.067em;word-break:keep-all
+  display:block;margin:clamp(24px,3.2vw,39px) auto 0;color:#fff;
+  font-size:clamp(37px,5.1vw,68px);font-weight:950;
+  line-height:1.25;letter-spacing:-.07em;word-break:keep-all;
+  text-shadow:0 3px 0 rgba(0,0,0,.26)
 }
+.watch-info-promo-main span{color:#ffe52d}
 @media(max-width:767px){
   .contract-alert{padding-top:58px;padding-bottom:66px}
   .contract-head{grid-template-columns:1fr;grid-template-rows:auto auto auto;text-align:center;gap:0}
@@ -422,23 +443,25 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   .contract-signature-heading{justify-content:center;font-size:clamp(21px,5.3vw,25px)}
   .contract-signature p{font-size:var(--type-body)}
 
-  .watch-info-campaign{padding-top:53px;padding-bottom:14px}
-  .watch-info-campaign-inner{grid-template-columns:1fr;gap:20px}
+  .watch-info-campaign{padding-top:56px;padding-bottom:8px}
+  .watch-info-campaign-inner{gap:18px}
   .watch-info-heading{text-align:center}
-  .watch-info-heading h2{font-size:clamp(34px,8.45vw,46px);line-height:1.2}
+  .watch-info-heading h2{font-size:clamp(33px,8.5vw,46px);line-height:1.2}
   .watch-info-heading h2 span{
-    width:fit-content;max-width:100%;margin:13px auto 0;
-    padding:9px 12px 11px;font-size:clamp(32px,8.1vw,44px);line-height:1.21
+    margin:13px auto 0;padding:9px 10px 12px;
+    font-size:clamp(31px,7.9vw,45px);line-height:1.19;
+    box-shadow:4px 5px 0 #e3212a
   }
-  .watch-info-visual{width:min(100%,510px);max-width:510px;margin:0 auto}
-  .watch-info-inner{padding:36px var(--page-gutter) 58px}
-  .watch-info-rows{grid-template-columns:1fr;gap:14px}
-  .watch-info-row{padding:25px 21px 27px}
-  .watch-info-row h3{font-size:clamp(22px,5.6vw,27px)}
-  .watch-info-row p{margin-top:13px;font-size:var(--type-body);line-height:1.72}
-  .watch-info-promo{padding:53px var(--page-gutter) 59px}
-  .watch-info-promo-head{font-size:clamp(20px,5.3vw,27px)}
-  .watch-info-promo-main{margin-top:15px;font-size:clamp(31px,7.7vw,43px);line-height:1.22}
+  .watch-info-visual{width:min(100%,580px);max-width:580px}
+  .watch-info-inner{padding:24px var(--page-gutter) 61px}
+  .watch-info-rows{grid-template-columns:1fr;gap:17px}
+  .watch-info-row{border-radius:14px}
+  .watch-info-row h3{min-height:114px;padding:20px 16px;font-size:clamp(23px,5.9vw,29px)}
+  .watch-info-row p{padding:23px 20px 25px;font-size:var(--type-body)}
+  .watch-info-promo{padding:66px var(--page-gutter) 72px}
+  .watch-info-promo-head{padding:11px 11px;font-size:clamp(21px,5.3vw,28px)}
+  .watch-info-promo-main{margin-top:26px;font-size:clamp(32px,8vw,46px);line-height:1.29}
+  .watch-info-promo-main span{display:inline}
 
 }
 @media(max-width:359px){
@@ -446,7 +469,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   .contract-trigger span{font-size:15px}
   .contract-trigger img{width:38px;height:38px}
   .contract-head h2 span{font-size:17px}
-  .watch-info-heading h2 span{padding-left:9px;padding-right:9px}
+  .watch-info-heading h2 span{padding-left:8px;padding-right:8px;font-size:clamp(29px,7.7vw,34px)}
 }
 .section{padding:60px 22px 67px;scroll-margin-top:20px}.sec-eyebrow{margin:0 0 11px;color:var(--blue);letter-spacing:.35px;font-weight:800;font-size:13px}.sec-title{margin:0;color:#14233b;font-size:34px;line-height:1.26;letter-spacing:-1.25px;font-weight:900}.sec-desc{margin:14px 0 0;font-size:16px;color:#617083;line-height:1.65}
 
@@ -752,7 +775,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   <div class="watch-info-promo">
     <div class="watch-info-promo-inner">
       <p class="watch-info-promo-head">폰다이렉트는 현혹하지 않습니다.</p>
-      <strong class="watch-info-promo-main">휴대폰 기기값을 직접 할인합니다.</strong>
+      <strong class="watch-info-promo-main">휴대폰 기기값을 <span>직접 할인합니다.</span></strong>
     </div>
   </div>
 </section>
