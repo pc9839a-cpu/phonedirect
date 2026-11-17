@@ -67,17 +67,26 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   font-size:clamp(16px,2.15vw,20px);font-weight:800;
   letter-spacing:-.045em;line-height:1.25;
 }
+.sale-title .subline{
+  display:block;margin:15px 0 0;color:#233c5a;
+  font-size:clamp(21px,3vw,32px);font-weight:850;
+  letter-spacing:-.045em;line-height:1.25;
+}
+.sale-title .suffix{
+  color:#33465f;font-size:clamp(21px,3vw,37px);font-weight:800;
+  letter-spacing:-.065em;line-height:1.1;
+}
 .sale-title .headline{
   display:flex;align-items:baseline;justify-content:center;gap:clamp(9px,2vw,18px);
   width:100%;margin:16px auto 0;white-space:nowrap;
 }
 .sale-title .prefix{
-  color:#33465f;font-size:clamp(27px,4.6vw,43px);
+  color:#33465f;font-size:clamp(21px,3vw,37px);
   font-weight:800;letter-spacing:-.07em;line-height:1.1;
 }
 .sale-title .value{
   position:relative;display:inline-block;color:#0f5fe8;
-  font-size:clamp(88px,15vw,148px);font-weight:950;
+  font-size:clamp(69px,11vw,112px);font-weight:950;
   line-height:.99;letter-spacing:-.085em;
   font-variant-numeric:tabular-nums;text-shadow:none;
 }
@@ -144,8 +153,10 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   .sale-hero{padding-top:35px;padding-bottom:12px}
   .sale-title .line{min-height:36px;padding:7px 14px;font-size:15px}
   .sale-title .headline{gap:9px;margin-top:14px}
-  .sale-title .prefix{font-size:25px}
-  .sale-title .value{font-size:84px}
+  .sale-title .prefix{font-size:22px}
+  .sale-title .value{font-size:68px}
+  .sale-title .suffix{font-size:22px}
+  .sale-title .subline{font-size:20px}
   .sale-art{margin-top:6px}
 }
 /* Shared animation used elsewhere in the site. */
@@ -218,243 +229,199 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .price-sheet .offer-result b{font-size:clamp(24px,3vw,35px)}
 }
 
-/* Contract disclosure: editorial, single-column, one blue accent */
+/* PhoneDirect information sections: editorial layout, shared scale, one accent color */
 .contract-alert{
-  --contract-accent:#69a7ff;
-  padding:0 var(--page-gutter) clamp(64px,8vw,106px);
-  background:#0b1e3d;
-  color:#f5f8ff;
-  overflow:hidden;
-  scroll-margin-top:20px;
+  --contract-accent:#7cb4ff;
+  padding:var(--section-padding) var(--page-gutter) clamp(56px,6vw,82px);
+  background:#0b1e3d;color:#f7faff;scroll-margin-top:20px
 }
 .contract-head{
-  position:relative;
-  max-width:920px;
-  margin:0 auto;
-  padding:clamp(55px,7vw,86px) 0 0;
-  text-align:center;
+  display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);
+  grid-template-rows:auto auto;align-items:center;column-gap:clamp(20px,4vw,56px);
+  max-width:var(--aligned-width);margin:0 auto;text-align:left
 }
-.contract-head::before{content:none}
 .contract-head h2{
-  max-width:800px;
-  margin:0 auto;
-  font-weight:900;
-  line-height:1.22;
-  letter-spacing:-.045em;
-  word-break:keep-all;
+  grid-column:1;grid-row:1;margin:0;font-size:inherit;
+  font-weight:900;line-height:1.19;letter-spacing:-.05em;word-break:keep-all
 }
 .contract-head h2 span{
-  display:block;
-  margin-bottom:10px;
-  color:#c0cde1;
-  font-size:clamp(19px,2.8vw,26px);
-  font-weight:700;
-  letter-spacing:-.025em;
+  display:block;margin:0 0 14px;color:#aec6e5;
+  font-size:clamp(17px,1.9vw,21px);font-weight:700;letter-spacing:-.025em
 }
 .contract-head h2 strong{
-  display:block;
-  color:#fff;
-  font-size:clamp(34px,5vw,56px);
-  font-weight:900;
-  line-height:1.2;
+  display:block;color:#fff;font-size:var(--type-section);
+  font-weight:920;line-height:1.16;letter-spacing:-.055em
 }
-.contract-head h2 em{
-  color:var(--contract-accent);
-  font-style:normal;
-}
+.contract-head h2 em{color:var(--contract-accent);font-style:normal}
 .contract-art{
-  width:min(100%,710px);
-  margin:22px auto 0;
-  border:0;
-  background:none;
-  box-shadow:none;
-  line-height:0;
+  grid-column:2;grid-row:1 / 3;justify-self:center;
+  width:100%;max-width:365px;margin:0;line-height:0
 }
-.contract-art img{
-  display:block;
-  width:100%;
-  height:auto;
-  object-fit:contain;
-}
+.contract-art img{display:block;width:100%;height:auto;object-fit:contain}
 .contract-banner{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  max-width:920px;
-  margin:10px auto 0;
-  padding:22px 0 27px;
-  border:0;
-  border-bottom:1px solid rgba(210,228,255,.22);
-  border-radius:0;
-  background:transparent;
-  text-align:center;
+  grid-column:1;grid-row:2;display:flex;align-items:center;justify-content:flex-start;
+  width:100%;margin:26px 0 0;padding:22px 0 0;
+  border-top:1px solid rgba(255,255,255,.19);border-bottom:0;text-align:left
 }
-.contract-banner-icon{
-  display:grid;
-  place-items:center;
-  flex:none;
-  width:25px;
-  height:25px;
-  border:1px solid var(--contract-accent);
-  border-radius:50%;
-  background:transparent;
-  color:var(--contract-accent);
-  font-size:15px;
-  font-weight:800;
-  line-height:1;
-}
+.contract-banner-icon{display:none}
 .contract-banner strong{
-  color:#f5f8ff;
-  font-size:clamp(17px,2vw,22px);
-  font-weight:800;
-  line-height:1.5;
-  letter-spacing:-.035em;
+  color:#d9e6f8;font-size:clamp(17px,1.85vw,21px);
+  font-weight:750;line-height:1.5;letter-spacing:-.035em
 }
-.contract-banner em{
-  color:var(--contract-accent);
-  font-style:normal;
-}
+.contract-banner em{color:var(--contract-accent);font-style:normal}
 .contract-list{
-  display:block;
-  max-width:920px;
-  margin:0 auto;
-  padding:0;
-  border:0;
-  border-radius:0;
-  background:none;
-  box-shadow:none;
-  list-style:none;
+  display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;
+  width:100%;max-width:var(--aligned-width);margin:38px auto 0;padding:0;
+  list-style:none;border-top:1px solid rgba(255,255,255,.25);
+  border-bottom:1px solid rgba(255,255,255,.25)
 }
-.contract-item,
-.contract-item:last-child{
-  display:grid;
-  grid-template-columns:96px minmax(0,1fr);
-  align-items:center;
-  gap:clamp(22px,3vw,38px);
-  min-height:0;
-  margin:0;
-  padding:clamp(30px,4vw,48px) 0;
-  border:0;
-  border-bottom:1px solid rgba(210,228,255,.17);
-  border-radius:0;
-  background:transparent;
-  box-shadow:none;
-  color:#f5f8ff;
-  text-align:left;
-  overflow:visible;
-  transition:none;
+.contract-item{min-width:0;margin:0;padding:0;list-style:none}
+.contract-trigger{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:9px;width:100%;min-height:124px;padding:15px 8px;
+  border:0;border-bottom:3px solid transparent;background:transparent;
+  color:#cbd9ed;text-align:center;cursor:pointer;
+  transition:color .18s,border-color .18s,background-color .18s
 }
-.contract-item::before,
-.contract-item-4::before,
-.contract-item-5::before{content:none}
-.contract-illustration{
-  display:block;
-  grid-column:1;
-  align-self:center;
-  justify-self:center;
-  width:88px;
-  height:88px;
-  margin:0;
-  object-fit:contain;
-  /* Preserve the original illustrated icon detail. */
-  filter:none;
+.contract-item+.contract-item .contract-trigger{border-left:1px solid rgba(255,255,255,.14)}
+.contract-trigger img{display:block;width:48px;height:48px;object-fit:contain;flex:none}
+.contract-trigger span{
+  font-size:clamp(16px,1.65vw,19px);font-weight:760;
+  letter-spacing:-.04em;line-height:1.38;word-break:keep-all
 }
-.contract-copy{
-  display:block;
-  grid-column:2;
-  min-width:0;
-  margin:0;
-  padding:0;
-  text-align:left;
+.contract-trigger:hover,.contract-trigger:focus-visible{
+  background:rgba(255,255,255,.055);color:#fff;outline-offset:-2px
 }
+.contract-trigger[aria-expanded="true"]{
+  color:#fff;border-bottom-color:var(--contract-accent);background:rgba(255,255,255,.065)
+}
+.contract-detail{
+  width:100%;max-width:var(--aligned-width);margin:0 auto;
+  padding:27px 0 29px;border-bottom:1px solid rgba(255,255,255,.2)
+}
+.contract-copy[hidden]{display:none}
 .contract-copy h3{
-  max-width:760px;
-  margin:0;
-  color:#fff;
-  font-size:clamp(21px,2.45vw,27px);
-  line-height:1.46;
-  letter-spacing:-.045em;
-  font-weight:800;
-  word-break:keep-all;
+  margin:0;color:#fff;font-size:var(--type-card);font-weight:810;
+  line-height:1.48;letter-spacing:-.04em;word-break:keep-all
 }
-.contract-copy h3 em,
-.contract-item-2 .contract-copy h3 em,
-.contract-item-3 .contract-copy h3 em,
-.contract-item-5 .contract-copy h3 em{
-  color:var(--contract-accent);
-  font-style:normal;
-  font-weight:880;
-}
+.contract-copy h3 em{color:var(--contract-accent);font-style:normal;font-weight:830}
 .contract-copy p{
-  max-width:690px;
-  margin:15px 0 0;
-  color:#bac9df;
-  font-size:clamp(15px,1.55vw,18px);
-  line-height:1.76;
-  letter-spacing:-.018em;
-  font-weight:450;
-  word-break:keep-all;
+  margin:9px 0 0;color:#becde2;font-size:var(--type-body);
+  line-height:1.68;letter-spacing:-.015em;word-break:keep-all
 }
 .contract-signature{
-  max-width:920px;
-  margin:0 auto;
-  padding:clamp(43px,6vw,70px) 0 0;
-  border:0;
-  border-radius:0;
-  background:transparent;
-  color:#fff;
-  text-align:center;
+  display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
+  gap:28px;align-items:center;max-width:var(--aligned-width);
+  margin:0 auto;padding:30px 0 0;text-align:left
 }
-.contract-signature::before{content:none}
 .contract-signature-heading{
-  display:flex;
-  align-items:baseline;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:4px 9px;
-  color:#fff;
-  font-size:clamp(27px,3.3vw,36px);
-  font-weight:860;
-  line-height:1.45;
-  letter-spacing:-.035em;
-  word-break:keep-all;
+  display:flex;align-items:baseline;flex-wrap:wrap;gap:2px 7px;
+  font-size:clamp(21px,2.25vw,27px);font-weight:830;
+  letter-spacing:-.04em;line-height:1.42
 }
 .contract-signature-heading strong{font:inherit;color:#fff}
 .contract-signature-heading span{font:inherit;color:var(--contract-accent)}
 .contract-signature p{
-  max-width:640px;
-  margin:11px auto 0;
-  color:#bac9df;
-  font-size:clamp(19px,2.1vw,23px);
-  line-height:1.6;
-  word-break:keep-all;
+  margin:0;color:#b9c9df;font-size:clamp(16px,1.6vw,19px);
+  line-height:1.59;word-break:keep-all
 }
-.contract-signature p em{
-  color:#f5f8ff;
-  font-style:normal;
-  font-weight:760;
+.contract-signature p em{color:#fff;font-style:normal;font-weight:750}
+.watch-info{
+  padding:var(--section-padding) var(--page-gutter) clamp(68px,7vw,98px);
+  background:#fff;color:var(--ink);scroll-margin-top:20px
 }
-@media(max-width:640px){
-  .contract-head{padding-top:53px}
-  .contract-head h2 strong{font-size:clamp(32px,8.4vw,43px)}
-  .contract-art{margin-top:15px}
-  .contract-banner{gap:9px;padding:18px 0 22px}
-  .contract-banner strong{font-size:16px}
-  .contract-item,
-  .contract-item:last-child{
-    grid-template-columns:66px minmax(0,1fr);
-    align-items:center;
-    gap:14px;
-    padding:27px 0 30px;
+.watch-info-inner{width:100%;max-width:var(--aligned-width);margin:0 auto}
+.watch-info-heading{margin:0 0 clamp(20px,3vw,35px)}
+.watch-info-heading h2{
+  margin:0;color:#132944;font-size:var(--type-section);font-weight:930;
+  line-height:1.18;letter-spacing:-.052em;word-break:keep-all
+}
+.watch-info-heading h2 span{display:block;color:var(--blue)}
+.watch-info-layout{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.86fr);
+  gap:clamp(30px,5vw,72px);align-items:center;
+  border-top:1px solid #dfe7f2;padding-top:clamp(24px,3.5vw,42px)
+}
+.watch-info-content{min-width:0}
+.watch-info-rows{display:grid;gap:0}
+.watch-info-row{
+  display:grid;grid-template-columns:21px minmax(0,1fr);gap:14px;
+  padding:19px 0;border-bottom:1px solid #e3e9f2;align-items:start
+}
+.watch-info-row:first-child{padding-top:4px}
+.watch-info-check{
+  display:block;width:21px;height:27px;background:transparent;color:var(--blue);
+  font-size:25px;font-weight:650;line-height:1.15;letter-spacing:0;text-align:left
+}
+.watch-info-row p{
+  margin:0;color:#32445a;font-size:var(--type-body);
+  font-weight:510;line-height:1.65;word-break:keep-all
+}
+.watch-info-row strong{color:#135dd5;font-weight:830}
+.watch-info-promo{margin:30px 0 0;padding:0;border:0;background:transparent;text-align:left}
+.watch-info-promo strong{
+  display:block;color:var(--blue);font-size:clamp(20px,2.3vw,26px);
+  font-weight:850;line-height:1.48;letter-spacing:-.042em;word-break:keep-all
+}
+.watch-info-promo p{margin:8px 0 0;color:#536782;font-size:var(--type-body);line-height:1.6}
+.watch-info-visual{
+  width:100%;max-width:410px;justify-self:center;margin:0;
+  line-height:0;aspect-ratio:1;overflow:visible
+}
+.watch-info-visual picture{display:block;width:100%;height:100%}
+.watch-info-visual img{display:block;width:100%;height:100%;object-fit:contain}
+@media(max-width:767px){
+  .contract-alert{padding-top:58px;padding-bottom:66px}
+  .contract-head{grid-template-columns:1fr;grid-template-rows:auto auto auto;text-align:center;gap:0}
+  .contract-head h2{grid-column:1;grid-row:1}
+  .contract-head h2 span{margin-bottom:10px;font-size:18px}
+  .contract-head h2 strong{font-size:var(--type-section)}
+  .contract-art{grid-column:1;grid-row:2;width:min(72%,265px);margin:20px auto 0}
+  .contract-banner{
+    grid-column:1;grid-row:3;justify-content:center;text-align:center;
+    margin:15px 0 0;padding-top:16px
   }
-  .contract-illustration{width:62px;height:62px}
-  .contract-copy{grid-column:2}
-  .contract-copy h3{font-size:clamp(18px,4.8vw,21px);line-height:1.47}
-  .contract-copy p{margin-top:11px;font-size:14px;line-height:1.7}
-  .contract-signature{padding-top:42px}
-  .contract-signature-heading{font-size:clamp(26px,6.5vw,31px)}
-  .contract-signature p{font-size:clamp(18px,4.65vw,20px);line-height:1.65}
+  .contract-banner strong{font-size:16px}
+  .contract-list{
+    display:grid;grid-template-columns:repeat(6,minmax(0,1fr));
+    margin-top:29px;border-top:1px solid rgba(255,255,255,.22)
+  }
+  .contract-item:nth-child(-n+2){grid-column:span 3}
+  .contract-item:nth-child(n+3){grid-column:span 2}
+  .contract-trigger{min-height:112px;padding:13px 4px;gap:8px;border-bottom:2px solid transparent}
+  .contract-trigger img{width:42px;height:42px}
+  .contract-trigger span{font-size:clamp(15px,3.8vw,17px)}
+  .contract-item:nth-child(2) .contract-trigger{border-left:1px solid rgba(255,255,255,.14)}
+  .contract-item:nth-child(3) .contract-trigger{border-left:0}
+  .contract-item:nth-child(n+3) .contract-trigger{border-top:1px solid rgba(255,255,255,.14)}
+  .contract-detail{padding:25px 0 27px}
+  .contract-copy h3{font-size:var(--type-card)}
+  .contract-copy p{font-size:var(--type-body)}
+  .contract-signature{grid-template-columns:1fr;gap:7px;padding-top:27px;text-align:center}
+  .contract-signature-heading{justify-content:center;font-size:clamp(21px,5.3vw,25px)}
+  .contract-signature p{font-size:var(--type-body)}
+  .watch-info{padding-top:67px;padding-bottom:76px}
+  .watch-info-heading{margin-bottom:23px;text-align:center}
+  .watch-info-heading h2{font-size:var(--type-section)}
+  .watch-info-layout{
+    display:flex;flex-direction:column-reverse;gap:10px;
+    padding-top:24px
+  }
+  .watch-info-visual{width:min(76%,290px);max-width:290px;margin:0 auto 4px}
+  .watch-info-content{width:100%}
+  .watch-info-row{grid-template-columns:20px minmax(0,1fr);gap:11px;padding:16px 0}
+  .watch-info-check{font-size:23px;width:20px}
+  .watch-info-row p{font-size:var(--type-body);line-height:1.62}
+  .watch-info-promo{margin-top:25px;text-align:center}
+  .watch-info-promo strong{font-size:clamp(22px,5.45vw,26px)}
+  .watch-info-promo p{font-size:var(--type-body)}
+}
+@media(max-width:359px){
+  .contract-art{width:min(70%,240px)}
+  .contract-trigger span{font-size:15px}
+  .contract-trigger img{width:38px;height:38px}
+  .contract-head h2 span{font-size:17px}
+  .watch-info-heading h2{letter-spacing:-.06em}
 }
 .section{padding:60px 22px 67px;scroll-margin-top:20px}.sec-eyebrow{margin:0 0 11px;color:var(--blue);letter-spacing:.35px;font-weight:800;font-size:13px}.sec-title{margin:0;color:#14233b;font-size:34px;line-height:1.26;letter-spacing:-1.25px;font-weight:900}.sec-desc{margin:14px 0 0;font-size:16px;color:#617083;line-height:1.65}
 
@@ -605,6 +572,37 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .price-sheet .offer-card.ad-reveal:nth-child(2n),.contract-item.ad-reveal:nth-child(2n),.journey-step.ad-reveal:nth-child(2n){transition-delay:.09s}
 .price-sheet .offer-card.ad-reveal:nth-child(3n),.contract-item.ad-reveal:nth-child(3n),.journey-step.ad-reveal:nth-child(3n){transition-delay:.16s}
 }
+
+/* Scroll entrance motion — appearance only; layout, copy, and interactions stay intact. */
+@media (prefers-reduced-motion: no-preference) {
+  html.ph-motion-ready .ph-enter {
+    opacity:0;
+    translate:0 20px;
+    transition-property:opacity,translate;
+    transition-duration:660ms;
+    transition-timing-function:cubic-bezier(.22,1,.36,1);
+    transition-delay:var(--ph-enter-delay,0ms);
+  }
+  html.ph-motion-ready .ph-enter.ph-entered {
+    opacity:1;
+    translate:0 0;
+  }
+}
+@media (max-width:640px) and (prefers-reduced-motion: no-preference) {
+  html.ph-motion-ready .ph-enter {
+    translate:0 12px;
+    transition-duration:510ms;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html .ph-enter,
+  html.ph-motion-ready .ph-enter {
+    opacity:1!important;
+    translate:none!important;
+    transition:none!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -615,8 +613,9 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   <div class="sale-head">
     
     <h1 class="sale-title" id="hero-title">
-      <span class="line">즉시 할인 혜택</span>
-      <span class="headline"><span class="prefix">최대</span><strong class="value">90%</strong></span>
+      <span class="line">삼성정품갤럭시 시리즈</span>
+      <span class="subline">즉시할인 할부원금</span>
+      <span class="headline"><span class="prefix">최대</span><strong class="value">90%</strong><span class="suffix">할인</span></span>
     </h1>
     
   </div>
@@ -683,24 +682,52 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
     <div class="contract-banner"><span class="contract-banner-icon" aria-hidden="true">!</span><strong>이런 곳들은 <em>비정상 영업행위</em>입니다!</strong></div>
   </div>
   
-  <ol class="contract-list">
-<li class="contract-item contract-item-1">
-    <img class="contract-illustration" src="/assets/icons/phonedirect_contract_25pct.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="contract-copy"><h3>선택약정은 고객님의 요금에서 <em>25%를 할인</em>해주는 <em>통신사 할인</em>입니다.</h3><p>즉, 기기값을 깎아주는 할인이 아니라 매달 내는 요금에서 25%를 할인해주는 제도입니다.</p></div>
-</li>
-<li class="contract-item contract-item-2">
-    <img class="contract-illustration" src="/assets/icons/phonedirect_four_months.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="contract-copy"><h3>4개월 뒤 요금제를 하향하면 <em>할인율은 낮아집니다.</em></h3><p>선택약정은 요금제에 따라 할인율이 달라질 수 있으며, 4개월 후 요금제를 낮추면 25% 할인율도 줄어듭니다. 따라서 ‘처음엔 공짜처럼 보였던 혜택’이 사라질 수 있습니다.</p></div>
-</li>
-<li class="contract-item contract-item-3">
-    <img class="contract-illustration" src="/assets/icons/phonedirect_no_extra_cost.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="contract-copy"><h3>기기값 할인을 가장한 <em>영업행위는 불법</em>입니다.</h3><p>이러한 기기값을 할인해 주는 것처럼 속여 판매하는 행위는 방송통신위원회에서 지정한 불법·비정상 영업행위입니다.</p></div>
-</li>
-<li class="contract-item contract-item-4">
-    <img class="contract-illustration" src="/assets/icons/phonedirect_phone_contact.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="contract-copy"><h3>폰다이렉트는 <em>기기값을 직접 할인</em>해주는 업체로 개통 후 고객센터를 통해 <em>할부원금</em>을 확인해 보세요.</h3></div>
-</li>
-<li class="contract-item contract-item-5">
-    <img class="contract-illustration" src="/assets/icons/phonedirect_14day_cancel.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="contract-copy"><h3>현 4개월 이후 요금제변경하는곳들은 <em>14일이후 개통취소가 불가능</em>해져 그에따른 부담은 고스란히 <em>고객님의 몫</em>이됩니다.</h3></div>
-</li>
+    <ol class="contract-list">
+    <li class="contract-item contract-item-1"><button type="button" class="contract-trigger" data-contract-index="0" aria-expanded="true" aria-controls="contract-detail"><img class="contract-illustration" src="/assets/icons/phonedirect_contract_25pct.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><span>선택약정</span></button></li>
+    <li class="contract-item contract-item-2"><button type="button" class="contract-trigger" data-contract-index="1" aria-expanded="false" aria-controls="contract-detail"><img class="contract-illustration" src="/assets/icons/phonedirect_four_months.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><span>4개월 이후</span></button></li>
+    <li class="contract-item contract-item-3"><button type="button" class="contract-trigger" data-contract-index="2" aria-expanded="false" aria-controls="contract-detail"><img class="contract-illustration" src="/assets/icons/phonedirect_no_extra_cost.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><span>기기값 할인</span></button></li>
+    <li class="contract-item contract-item-4"><button type="button" class="contract-trigger" data-contract-index="3" aria-expanded="false" aria-controls="contract-detail"><img class="contract-illustration" src="/assets/icons/phonedirect_phone_contact.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><span>할부원금</span></button></li>
+    <li class="contract-item contract-item-5"><button type="button" class="contract-trigger" data-contract-index="4" aria-expanded="false" aria-controls="contract-detail"><img class="contract-illustration" src="/assets/icons/phonedirect_14day_cancel.png" width="90" height="90" alt="" aria-hidden="true" loading="lazy" decoding="async"><span>취소·해지</span></button></li>
   </ol>
+  <div class="contract-detail" id="contract-detail" aria-live="off">
+    <div class="contract-copy" data-contract-panel="0"><h3>선택약정은 고객님의 요금에서 <em>25%를 할인</em>해주는 <em>통신사 할인</em>입니다.</h3><p>즉, 기기값을 깎아주는 할인이 아니라 매달 내는 요금에서 25%를 할인해주는 제도입니다.</p></div>
+    <div class="contract-copy" data-contract-panel="1" hidden><h3>4개월 뒤 요금제를 하향하면 <em>할인율은 낮아집니다.</em></h3><p>선택약정은 요금제에 따라 할인율이 달라질 수 있으며, 4개월 후 요금제를 낮추면 25% 할인율도 줄어듭니다. 따라서 ‘처음엔 공짜처럼 보였던 혜택’이 사라질 수 있습니다.</p></div>
+    <div class="contract-copy" data-contract-panel="2" hidden><h3>기기값 할인을 가장한 <em>영업행위는 불법</em>입니다.</h3><p>이러한 기기값을 할인해 주는 것처럼 속여 판매하는 행위는 방송통신위원회에서 지정한 불법·비정상 영업행위입니다.</p></div>
+    <div class="contract-copy" data-contract-panel="3" hidden><h3>폰다이렉트는 <em>기기값을 직접 할인</em>해주는 업체로 개통 후 고객센터를 통해 <em>할부원금</em>을 확인해 보세요.</h3></div>
+    <div class="contract-copy" data-contract-panel="4" hidden><h3>현 4개월 이후 요금제변경하는곳들은 <em>14일이후 개통취소가 불가능</em>해져 그에따른 부담은 고스란히 <em>고객님의 몫</em>이됩니다.</h3></div>
+  </div>
   <div class="contract-signature"><div class="contract-signature-heading"><strong>폰다이렉트</strong><span>기기값은 직접 할인!</span></div><p>정확한 정보 확인이, 여러분의 <em>소중한 휴대폰</em>을 지키는 <em>첫걸음</em>입니다.</p></div>
+</section>
+<section class="watch-info" id="watch-info" aria-labelledby="watch-info-title">
+  <div class="watch-info-inner">
+    <div class="watch-info-heading">
+      <h2 id="watch-info-title">무료라고 받았는데,<span>알고 보니 약정이었다?</span></h2>
+    </div>
+    <div class="watch-info-layout">
+      <div class="watch-info-content">
+        <div class="watch-info-rows">
+          <div class="watch-info-row">
+            <span class="watch-info-check" aria-hidden="true">✓</span>
+            <p>핸드폰 요금을 낮추면 웨어러블 요금제 <strong>월 11,000원</strong>을 부담해야 하는 조건인지 확인하세요.</p>
+          </div>
+          <div class="watch-info-row">
+            <span class="watch-info-check" aria-hidden="true">✓</span>
+            <p>중간에 해지할 때 <strong>위약금이 고객 부담</strong>인 계약인지 확인하세요.</p>
+          </div>
+        </div>
+        <div class="watch-info-promo">
+          <strong>폰다이렉트에선 그만큼 할인에 할인을 더해드릴게요!</strong>
+          <p>정확한 혜택, 투명한 조건으로 함께합니다!</p>
+        </div>
+      </div>
+      <figure class="watch-info-visual">
+        <picture>
+          <source srcset="/assets/phonedirect-contract-watch-hires.avif" type="image/avif">
+          <img src="/assets/phonedirect-contract-watch-illustration.webp" width="1100" height="1100" alt="스마트폰, 스마트워치와 약정 계약서 일러스트" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+    </div>
+  </div>
 </section>
 <div class="divider"></div>
 <section class="purchase-journey" id="steps" aria-labelledby="journey-title">
@@ -999,6 +1026,128 @@ if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-moti
   else original.addEventListener('load',ready,{once:true});
 })();
 
+})();
+</script>
+<script>
+/* Contract disclosure auto-rotation, original text unchanged. */
+(function(){
+  const section=document.getElementById("conditions");
+  const triggers=Array.from(document.querySelectorAll(".contract-trigger"));
+  const panels=Array.from(document.querySelectorAll("[data-contract-panel]"));
+  const reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
+  const ROTATE_MS=3500;
+  let active=0, timer=null, inView=false, focusPaused=false;
+  function show(index){
+    active=index;
+    triggers.forEach((item,i)=>item.setAttribute("aria-expanded",i===active?"true":"false"));
+    panels.forEach((panel,i)=>{panel.hidden=i!==active});
+  }
+  function stop(){if(timer!==null){clearTimeout(timer);timer=null}}
+  function canPlay(){
+    return inView && !document.hidden && !reduceMotion.matches &&
+      !focusPaused && triggers.length===5 && panels.length===5;
+  }
+  function schedule(){
+    stop();
+    if(canPlay())timer=setTimeout(()=>{
+      show((active+1)%triggers.length);
+      schedule();
+    },ROTATE_MS);
+  }
+  triggers.forEach((button,index)=>{
+    button.addEventListener("click",()=>{show(index);schedule()});
+  });
+  if(section && triggers.length===5 && panels.length===5){
+    if("IntersectionObserver" in window){
+      const observer=new IntersectionObserver(entries=>{
+        inView=entries[0]?.isIntersecting===true;
+        schedule();
+      },{threshold:.12});
+      observer.observe(section);
+    }else{inView=true;schedule()}
+    section.addEventListener("focusin",event=>{
+      if(event.target.matches(":focus-visible")){focusPaused=true;stop()}
+    });
+    section.addEventListener("focusout",()=>{
+      focusPaused=false;schedule();
+    });
+    document.addEventListener("visibilitychange",schedule);
+    window.addEventListener("pagehide",stop);
+    if(reduceMotion.addEventListener)reduceMotion.addEventListener("change",schedule);
+  }
+})();
+</script>
+<script>
+/* One-time progressive reveal; disabled for reduced motion or missing browser support. */
+(function(){
+  if (!("IntersectionObserver" in window) || !("requestAnimationFrame" in window)) return;
+  const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (reducedMotion.matches) return;
+  const groups=[
+    [".sale-hero .sale-head",0],
+    [".sale-hero .sale-art",140],
+    [".offer-heading",0],
+    [".price-sheet .offer-card",75],
+    [".contract-head h2",0],
+    [".contract-art",120],
+    [".contract-banner",80],
+    [".contract-item",65],
+    [".contract-detail",0],
+    [".contract-signature",0],
+    [".watch-info-heading",0],
+    [".watch-info-row",85],
+    [".watch-info-promo",120],
+    [".watch-info-visual",90],
+    [".journey-heading",0],
+    [".journey-step",75],
+    [".activity-topline",0],
+    [".activity-board",60],
+    [".activity-limit",80],
+    [".form-header",0],
+    [".form-panel",80],
+    [".company-footer-bottom",0]
+  ];
+  const targets=[];
+  const seen=new Set();
+  for(const [selector,step] of groups){
+    const nodes=document.querySelectorAll(selector);
+    nodes.forEach((el,i)=>{
+      if(seen.has(el) || el.hidden) return;
+      seen.add(el);
+      el.classList.add("ph-enter");
+      el.style.setProperty("--ph-enter-delay",Math.min(i*step,360)+"ms");
+      targets.push(el);
+    });
+  }
+  if(targets.length===0) return;
+  const observer=new IntersectionObserver((entries)=>{
+    for(const entry of entries){
+      if(!entry.isIntersecting) continue;
+      entry.target.classList.add("ph-entered");
+      observer.unobserve(entry.target);
+    }
+  },{root:null,rootMargin:"0px 0px -24px 0px",threshold:0.06});
+  for(const el of targets){
+    const bounds=el.getBoundingClientRect();
+    if(bounds.bottom<0) el.classList.add("ph-entered");
+    observer.observe(el);
+  }
+  document.documentElement.classList.add("ph-motion-ready");
+  requestAnimationFrame(()=>{
+    for(const el of targets){
+      if(el.classList.contains("ph-entered"))continue;
+      const b=el.getBoundingClientRect();
+      if(b.top<window.innerHeight && b.bottom>0)el.classList.add("ph-entered");
+    }
+  });
+  const showAll=()=>{
+    for(const el of targets)el.classList.add("ph-entered");
+    observer.disconnect();
+    document.documentElement.classList.remove("ph-motion-ready");
+  };
+  if(reducedMotion.addEventListener){
+    reducedMotion.addEventListener("change",(event)=>{if(event.matches)showAll()},{once:true});
+  }
 })();
 </script>
 </body>
