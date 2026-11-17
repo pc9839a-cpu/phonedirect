@@ -363,24 +363,31 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 }
 .watch-info-rows{
   display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:clamp(13px,2vw,24px)
+  align-items:stretch;gap:clamp(16px,2.2vw,26px)
 }
 .watch-info-row{
-  min-width:0;overflow:hidden;border:1px solid #d4e2f5;
-  border-radius:16px;background:#fff;box-shadow:0 14px 26px rgba(18,57,114,.085)
+  display:grid;grid-template-rows:auto 1fr;
+  min-width:0;height:100%;overflow:hidden;
+  border:1px solid #d5e2f4;border-radius:15px;
+  background:#fff;box-shadow:0 10px 26px rgba(17,55,107,.075)
 }
 .watch-info-row h3{
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  min-height:130px;margin:0;padding:20px clamp(17px,2.4vw,30px);
-  background:#0d54cb;color:#fff;text-align:center;
-  font-size:clamp(22px,2.65vw,32px);font-weight:940;
-  line-height:1.37;letter-spacing:-.055em;word-break:keep-all
+  gap:7px;min-height:124px;margin:0;
+  padding:23px clamp(14px,1.9vw,25px);
+  background:#1157ce;color:#fff;text-align:center;
+  font-size:clamp(21px,2.1vw,27px);font-weight:880;
+  line-height:1.35;letter-spacing:-.045em;word-break:keep-all
 }
-.watch-info-row h3 em{color:#ffe248;font-style:normal;font-weight:950}
+.watch-info-row h3 em{
+  display:block;color:#ffe248;font-style:normal;font-weight:940;
+  font-size:clamp(22px,2.45vw,29px);line-height:1.32;letter-spacing:-.045em
+}
 .watch-info-row p{
-  margin:0;padding:clamp(23px,2.7vw,32px);
-  color:#263a56;font-size:clamp(16px,1.6vw,20px);
-  font-weight:560;line-height:1.73;letter-spacing:-.018em;word-break:keep-all
+  min-width:0;margin:0;padding:clamp(22px,2.5vw,29px) clamp(22px,2.65vw,32px) clamp(25px,2.6vw,31px);
+  color:#283e5c;font-size:clamp(16px,1.5vw,18px);
+  font-weight:520;line-height:1.74;letter-spacing:-.018em;
+  word-break:keep-all;overflow-wrap:break-word
 }
 .watch-info-promo{
   position:relative;overflow:hidden;width:100%;margin:0;
@@ -449,10 +456,11 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   }
   .watch-info-visual{width:100%;max-width:580px}
   .watch-info-inner{padding:31px var(--page-gutter) 59px}
-  .watch-info-rows{grid-template-columns:1fr;gap:16px}
+  .watch-info-rows{grid-template-columns:1fr;gap:17px}
   .watch-info-row{border-radius:13px}
-  .watch-info-row h3{min-height:111px;padding:20px 16px;font-size:clamp(22px,5.9vw,28px)}
-  .watch-info-row p{padding:23px 20px 25px;font-size:var(--type-body);line-height:1.7}
+  .watch-info-row h3{min-height:115px;padding:22px 15px;gap:6px;font-size:clamp(21px,5.25vw,26px)}
+  .watch-info-row h3 em{font-size:clamp(22px,5.6vw,28px)}
+  .watch-info-row p{padding:23px 22px 27px;font-size:var(--type-body);line-height:1.72}
   .watch-info-promo{padding:60px var(--page-gutter) 69px}
   .watch-info-promo-head{padding:10px 12px;font-size:clamp(20px,5.2vw,27px)}
   .watch-info-promo-main{margin-top:28px;font-size:clamp(31px,7.9vw,44px);line-height:1.26}
@@ -616,33 +624,30 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .price-sheet .offer-card.ad-reveal:nth-child(3n),.contract-item.ad-reveal:nth-child(3n),.journey-step.ad-reveal:nth-child(3n){transition-delay:.16s}
 }
 
-/* Scroll entrance motion — appearance only; layout, copy, and interactions stay intact. */
+/* Consistent one-time entrance movement, independent of existing component transforms. */
 @media (prefers-reduced-motion: no-preference) {
   html.ph-motion-ready .ph-enter {
-    opacity:0;
-    translate:0 20px;
+    opacity:0;translate:0 27px;
     transition-property:opacity,translate;
-    transition-duration:660ms;
-    transition-timing-function:cubic-bezier(.22,1,.36,1);
+    transition-duration:720ms;
+    transition-timing-function:cubic-bezier(.16,1,.3,1);
     transition-delay:var(--ph-enter-delay,0ms);
   }
-  html.ph-motion-ready .ph-enter.ph-entered {
-    opacity:1;
-    translate:0 0;
-  }
+  html.ph-motion-ready .ph-enter.ph-enter-left{translate:-28px 0}
+  html.ph-motion-ready .ph-enter.ph-enter-right{translate:28px 0}
+  html.ph-motion-ready .ph-enter.ph-entered{opacity:1;translate:0 0}
 }
 @media (max-width:640px) and (prefers-reduced-motion: no-preference) {
-  html.ph-motion-ready .ph-enter {
-    translate:0 12px;
-    transition-duration:510ms;
+  html.ph-motion-ready .ph-enter,
+  html.ph-motion-ready .ph-enter.ph-enter-left,
+  html.ph-motion-ready .ph-enter.ph-enter-right {
+    translate:0 15px;transition-duration:580ms
   }
+  html.ph-motion-ready .ph-enter.ph-entered{translate:0 0}
 }
 @media (prefers-reduced-motion: reduce) {
-  html .ph-enter,
-  html.ph-motion-ready .ph-enter {
-    opacity:1!important;
-    translate:none!important;
-    transition:none!important;
+  html .ph-enter,html.ph-motion-ready .ph-enter{
+    opacity:1!important;translate:none!important;transition:none!important
   }
 }
 
@@ -759,11 +764,11 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
     <div class="watch-info-rows">
       <div class="watch-info-row">
         <h3>무료증정인데 <em>웨어러블 요금값이 11000원?</em></h3>
-        <p>휴대폰을 구매시 무제한요금제를 쓰는동안은 무료혜택이지만<br>4개월이후 요금제를 낮추면 요금은 청구됩니다. 결코 공짜가 아닙니다.</p>
+        <p>휴대폰을 구매시 무제한요금제를 쓰는동안은 무료혜택이지만 4개월이후 요금제를 낮추면 요금은 청구됩니다. 결코 공짜가 아닙니다.</p>
       </div>
       <div class="watch-info-row">
         <h3>중도해지하면 <em>위약금까지 고객부담!</em></h3>
-        <p>워치증정을 내세워 핸드폰을 구입하게한뒤 원치는 24개월약정간을 유지하여<br>중도해지시 위약금부담을 떠넘기는 판매방식 처음부터 피하세요</p>
+        <p>워치증정을 내세워 핸드폰을 구입하게한뒤 원치는 24개월약정간을 유지하여 중도해지시 위약금부담을 떠넘기는 판매방식 처음부터 피하세요</p>
       </div>
     </div>
   </div>
@@ -1123,75 +1128,76 @@ if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-moti
 })();
 </script>
 <script>
-/* One-time progressive reveal; disabled for reduced motion or missing browser support. */
+/* Progressive entrance animation for existing sections; once only, motion-safe. */
 (function(){
-  if (!("IntersectionObserver" in window) || !("requestAnimationFrame" in window)) return;
-  const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
-  if (reducedMotion.matches) return;
+  if(!("IntersectionObserver" in window)||!("requestAnimationFrame" in window))return;
+  const reduced=window.matchMedia("(prefers-reduced-motion: reduce)");
+  if(reduced.matches)return;
   const groups=[
-    [".sale-hero .sale-head",0],
-    [".sale-hero .sale-art",140],
-    [".offer-heading",0],
-    [".price-sheet .offer-card",75],
-    [".contract-head h2",0],
-    [".contract-art",120],
-    [".contract-banner",80],
-    [".contract-item",65],
-    [".contract-detail",0],
-    [".contract-signature",0],
-    [".watch-info-heading",0],
-    [".watch-info-row",85],
-    [".watch-info-promo",120],
-    [".watch-info-visual",90],
-    [".journey-heading",0],
-    [".journey-step",75],
-    [".activity-topline",0],
-    [".activity-board",60],
-    [".activity-limit",80],
-    [".form-header",0],
-    [".form-panel",80],
-    [".company-footer-bottom",0]
+    [".sale-hero .sale-head",0,"up"],
+    [".sale-hero .sale-art",90,"up"],
+    [".offer-heading",0,"up"],
+    [".price-sheet .offer-card",90,"up"],
+    [".contract-head h2",0,"left"],
+    [".contract-art",80,"right"],
+    [".contract-banner",0,"up"],
+    [".contract-item",55,"up"],
+    [".contract-detail",0,"up"],
+    [".contract-signature",0,"up"],
+    [".watch-info-heading",0,"up"],
+    [".watch-info-visual",100,"up"],
+    [".watch-info-row",115,"up"],
+    [".watch-info-promo-head",0,"up"],
+    [".watch-info-promo-main",110,"up"],
+    [".journey-heading",0,"up"],
+    [".journey-step",75,"up"],
+    [".activity-topline",0,"up"],
+    [".activity-board",85,"up"],
+    [".activity-limit",0,"up"],
+    [".form-header",0,"up"],
+    [".form-panel",100,"up"],
+    [".company-list",0,"up"],
+    [".company-card",90,"up"],
+    [".company-footer-bottom",0,"up"]
   ];
-  const targets=[];
-  const seen=new Set();
-  for(const [selector,step] of groups){
-    const nodes=document.querySelectorAll(selector);
-    nodes.forEach((el,i)=>{
-      if(seen.has(el) || el.hidden) return;
+  const targets=[],seen=new Set();
+  for(const [selector,stagger,direction] of groups){
+    document.querySelectorAll(selector).forEach((el,i)=>{
+      if(seen.has(el)||el.hidden||el.closest("[hidden]"))return;
       seen.add(el);
       el.classList.add("ph-enter");
-      el.style.setProperty("--ph-enter-delay",Math.min(i*step,360)+"ms");
+      if(direction==="left"||direction==="right")el.classList.add("ph-enter-"+direction);
+      el.style.setProperty("--ph-enter-delay",Math.min(i*stagger,300)+"ms");
       targets.push(el);
     });
   }
-  if(targets.length===0) return;
-  const observer=new IntersectionObserver((entries)=>{
+  if(!targets.length)return;
+  document.documentElement.classList.add("ph-motion-ready");
+  const observer=new IntersectionObserver(entries=>{
     for(const entry of entries){
-      if(!entry.isIntersecting) continue;
+      if(!entry.isIntersecting)continue;
       entry.target.classList.add("ph-entered");
       observer.unobserve(entry.target);
     }
-  },{root:null,rootMargin:"0px 0px -24px 0px",threshold:0.06});
-  for(const el of targets){
-    const bounds=el.getBoundingClientRect();
-    if(bounds.bottom<0) el.classList.add("ph-entered");
-    observer.observe(el);
-  }
-  document.documentElement.classList.add("ph-motion-ready");
-  requestAnimationFrame(()=>{
+  },{root:null,rootMargin:"0px 0px -20px 0px",threshold:.07});
+  /* Two paint frames allow the initial hidden state to exist before transition. */
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
     for(const el of targets){
-      if(el.classList.contains("ph-entered"))continue;
-      const b=el.getBoundingClientRect();
-      if(b.top<window.innerHeight && b.bottom>0)el.classList.add("ph-entered");
+      observer.observe(el);
+      const rect=el.getBoundingClientRect();
+      if(rect.bottom<0||rect.top<window.innerHeight&&rect.bottom>0){
+        el.classList.add("ph-entered");
+        observer.unobserve(el);
+      }
     }
-  });
-  const showAll=()=>{
-    for(const el of targets)el.classList.add("ph-entered");
-    observer.disconnect();
-    document.documentElement.classList.remove("ph-motion-ready");
-  };
-  if(reducedMotion.addEventListener){
-    reducedMotion.addEventListener("change",(event)=>{if(event.matches)showAll()},{once:true});
+  }));
+  if(reduced.addEventListener){
+    reduced.addEventListener("change",event=>{
+      if(!event.matches)return;
+      for(const el of targets)el.classList.add("ph-entered");
+      observer.disconnect();
+      document.documentElement.classList.remove("ph-motion-ready");
+    });
   }
 })();
 </script>
