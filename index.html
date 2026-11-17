@@ -329,7 +329,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 
 /* Watch advisory — source-approved warning copy and restrained editorial typography. */
 .watch-info{
-  padding:clamp(72px,8vw,116px) var(--page-gutter) clamp(76px,8vw,112px);
+  padding:clamp(72px,8vw,116px) var(--page-gutter) 0;
   background:#fff;color:#142a46;scroll-margin-top:18px
 }
 .watch-info-inner{width:100%;max-width:var(--aligned-width);margin:0 auto}
@@ -367,27 +367,26 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
 .watch-info-visual picture{display:block;width:100%;height:100%}
 .watch-info-visual img{display:block;width:100%;height:100%;object-fit:contain}
 .watch-info-promo{
-  position:relative;max-width:var(--aligned-width);
-  margin:clamp(49px,7vw,80px) auto 0;padding:clamp(33px,4vw,50px) 0 0;
-  border-top:1px solid #d4dfed;background:transparent;text-align:center
+  width:calc(100% + 2 * var(--page-gutter));
+  margin:clamp(48px,6vw,78px) calc(-1 * var(--page-gutter)) 0;
+  padding:clamp(46px,7vw,86px) var(--page-gutter);
+  background:#1769f5;color:#fff;text-align:center
 }
-.watch-info-promo::before{
-  content:"";position:absolute;top:-2px;left:50%;transform:translateX(-50%);
-  width:68px;height:3px;background:var(--blue)
-}
+.watch-info-promo-inner{width:100%;max-width:var(--aligned-width);margin:0 auto}
 .watch-info-promo-head{
-  display:block;margin:0;color:#1b304d;
-  font-size:clamp(22px,2.55vw,30px);line-height:1.45;
-  font-weight:870;letter-spacing:-.047em;word-break:keep-all
+  display:block;margin:0;color:#fff;
+  font-size:clamp(25px,3.15vw,37px);line-height:1.33;
+  font-weight:870;letter-spacing:-.055em;word-break:keep-all
 }
 .watch-info-promo-main{
-  display:block;margin:12px 0 0;color:#1262ef;
-  font-size:clamp(31px,4.05vw,48px);font-weight:950;
-  line-height:1.27;letter-spacing:-.065em;word-break:keep-all
+  display:block;margin:13px 0 0;color:#fff;
+  font-size:clamp(38px,5.1vw,62px);font-weight:950;
+  line-height:1.19;letter-spacing:-.07em;word-break:keep-all
 }
 .watch-info-promo-foot{
-  margin:17px 0 0;color:#687b91;
-  font-size:clamp(16px,1.7vw,19px);font-weight:560;line-height:1.6
+  margin:26px 0 0;padding-top:21px;border-top:1px solid rgba(255,255,255,.36);
+  color:#f5f9ff;font-size:clamp(17px,1.85vw,22px);
+  font-weight:700;line-height:1.55;word-break:keep-all
 }
 @media(max-width:767px){
   .contract-alert{padding-top:58px;padding-bottom:66px}
@@ -420,7 +419,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   .contract-signature-heading{justify-content:center;font-size:clamp(21px,5.3vw,25px)}
   .contract-signature p{font-size:var(--type-body)}
 
-  .watch-info{padding-top:67px;padding-bottom:76px}
+  .watch-info{padding-top:67px;padding-bottom:0}
   .watch-info-heading{margin-bottom:26px;text-align:center}
   .watch-info-heading h2{font-size:clamp(36px,8.9vw,48px);line-height:1.22}
   .watch-info-heading h2 span{display:block}
@@ -431,10 +430,10 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
   .watch-info-row:first-child{padding-top:12px}
   .watch-info-row h3{font-size:clamp(22px,5.55vw,26px);margin-bottom:8px}
   .watch-info-row p{font-size:var(--type-body);line-height:1.71}
-  .watch-info-promo{margin-top:44px;padding-top:34px}
-  .watch-info-promo-head{font-size:clamp(22px,5.55vw,27px)}
-  .watch-info-promo-main{margin-top:15px;font-size:clamp(29px,7.4vw,37px)}
-  .watch-info-promo-foot{margin-top:14px;font-size:var(--type-body)}
+  .watch-info-promo{margin-top:44px;padding:49px var(--page-gutter) 54px}
+  .watch-info-promo-head{font-size:clamp(24px,6.15vw,30px);line-height:1.35}
+  .watch-info-promo-main{margin-top:13px;font-size:clamp(35px,8.6vw,45px);line-height:1.2}
+  .watch-info-promo-foot{margin-top:25px;padding-top:20px;font-size:clamp(17px,4.2vw,20px)}
 
 }
 @media(max-width:359px){
@@ -744,7 +743,9 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,[role='but
         </picture>
       </figure>
     </div>
-    <div class="watch-info-promo">
+  </div>
+  <div class="watch-info-promo">
+    <div class="watch-info-promo-inner">
       <strong class="watch-info-promo-head">폰다이렉트는 워치 증정으로 현혹하지 않습니다.</strong>
       <strong class="watch-info-promo-main">휴대폰 기기값을 직접 할인합니다.</strong>
       <p class="watch-info-promo-foot">정확한 혜택, 투명한 조건으로 함께합니다!</p>
