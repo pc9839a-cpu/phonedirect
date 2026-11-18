@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - 'functions/api/lead.js'
+      - 'functions/api/_ses.js'
+      - 'index.html'
       - 'google-apps-script/Code.gs'
       - 'tests/lead.test.mjs'
       - '.github/workflows/lead-integrity.yml'
@@ -59,6 +61,11 @@ jobs:
           done
           missing="$(python3 -c 'from pathlib import Path; lines=Path("headers.txt").read_text().splitlines(); print(next((s.partition(":")[2].strip() for s in reversed(lines) if s.lower().startswith("x-lead-bridge-missing:")), "unknown"))')"
           echo "DB bridge configured: ${bridge:-unknown}; missing: ${missing:-unknown} (GET HTTP ${status})"
+          email="$(python3 -c 'from pathlib import Path; lines=Path("headers.txt").read_text().splitlines(); print(next((s.partition(":")[2].strip() for s in reversed(lines) if s.lower().startswith("x-lead-email-configured:")), "unknown"))')"
+          echo "SES mail configured: ${email:-unknown} (no secrets or recipient exposed)"
+          if [[ "$email" != 'yes' ]]; then
+            echo '::warning::PhoneDirect SES mail secrets are missing or not deployed. Copy AWS_SES_ACCESS_KEY_ID and AWS_SES_SECRET_ACCESS_KEY into the phonedirect Cloudflare Pages Production variables.'
+          fi
           if [[ "$bridge" != 'yes' ]]; then
             echo '::error::Cloudflare Pages Sheets bridge secrets are missing (no) or the new backend is not deployed (unknown). Configure SHEETS_WEB_APP_URL and SHEETS_INGEST_TOKEN.'
             exit 1
@@ -70,7 +77,7 @@ jobs:
       - name: Verify Google Apps Script deployment (GET only)
         shell: bash
         env:
-          WEB_APP_URL: 'https://script.google.com/macros/s/AKfycbxazF_2GoLRzRt8ySITkcwS5ZFXXq-FpLYlkuZdvx68JpKoo4lLhHyw4QPvdkYxDK40sA/exec'
+          WEB_APP_URL: 'https://script.google.com/macros/s/AKfycbwYmSXOh_XQCp-RCK5WCGKqv5bboQB-nSkqXiJFEgqPiUhZQj7UIq1kNoFiCjuKg3sQhg/exec'
         run: |
           set -euo pipefail
           status="$(curl --retry 2 --max-time 25 --location --silent --show-error --output web-app.json --write-out '%{http_code}' "$WEB_APP_URL")"
