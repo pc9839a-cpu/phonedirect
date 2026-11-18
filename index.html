@@ -927,7 +927,9 @@ qs('#leadForm').addEventListener('submit',async e=>{
     let result=null;try{result=await response.json()}catch(_){}
     if(!response.ok||!result||result.ok!==true||result.receipt!==pendingReceipt)
       throw Error(result&&typeof result.message==='string'?result.message:'신청을 저장하지 못했습니다. 잠시 후 다시 시도해 주세요.');
-    m.classList.remove('error');m.textContent='상담 신청이 정상 접수되었습니다. 담당자가 연락드리겠습니다.';
+    m.classList.remove('error');m.textContent=result.sheet_status==='failed'&&result.email_status==='sent'
+      ?'상담 신청이 이메일로 접수되었습니다. 구글시트 저장은 확인되지 않았습니다.'
+      :'상담 신청이 정상 접수되었습니다. 담당자가 연락드리겠습니다.';
     form.reset();syncPhone();pendingReceipt='';pendingFingerprint='';
   }catch(err){
     m.classList.add('error');
