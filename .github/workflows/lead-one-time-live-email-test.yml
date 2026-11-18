@@ -1,0 +1,55 @@
+name: PhoneDirect one-time live SES delivery check
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lead-one-time-live-email-test.yml'
+permissions:
+  contents: read
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Submit one clearly marked synthetic test lead to Production
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,os
+          payload={
+            "name":"폰다이렉트_연동테스트_삭제",
+            "phone":"01000000000",
+            "carrier":"SK",
+            "model":"s26",
+            "consent":True,
+            "receipt":"phonedirect-ci-%s-%s"%(os.environ["GITHUB_RUN_ID"],os.environ["GITHUB_RUN_ATTEMPT"]),
+            "source":"/ci-ses-test",
+            "referrer":"",
+            "utm_source":"internal-test",
+            "utm_campaign":"ses-live-check"
+          }
+          with open("test-request.json","w",encoding="utf-8") as f:json.dump(payload,f,ensure_ascii=False)
+          PY
+          status="$(curl --retry 0 --max-time 35 --silent --show-error -o test-response.json -w '%{http_code}' \
+            -X POST 'https://phonedirect.pages.dev/api/lead' \
+            -H 'Content-Type: application/json' \
+            -H 'Accept: application/json' \
+            -H 'Origin: https://phonedirect.pages.dev' \
+            --data-binary @test-request.json)"
+          STATUS="$status" python3 - <<'PY'
+          import json,os
+          with open("test-response.json",encoding="utf-8") as f: result=json.load(f)
+          summary={
+            "http_status":os.environ.get("STATUS"),
+            "ok":result.get("ok"),
+            "sheet_status":result.get("sheet_status"),
+            "email_status":result.get("email_status"),
+            "error_code":result.get("error_code")
+          }
+          print("TEST_RESULT "+json.dumps(summary,ensure_ascii=False))
+          assert os.environ.get("STATUS")=="200",summary
+          assert result.get("ok") is True,summary
+          assert result.get("email_status")=="sent",summary
+          print("AWS SES accepted the synthetic PhoneDirect lead email. Inbox delivery still requires recipient confirmation.")
+          PY
