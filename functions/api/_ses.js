@@ -1,4 +1,5 @@
 // PhoneDirect server-side Amazon SES v2 transport, adapted from Pagero.
+// Redeployment refresh: Cloudflare Pages Production SES secrets check (2026-11-18).
 // Secrets must be injected into this Cloudflare Pages project, never committed.
 export function normalizeEmailAddress(value = '') {
   return String(value || '').trim().toLowerCase();
