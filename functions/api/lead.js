@@ -28,7 +28,7 @@ export async function onRequestGet({env}){
 
 // Same twelve columns as google-apps-script/Code.gs, in the same order.
 // The timestamp here represents receipt time at the edge, not the Sheet cell's write timestamp.
-const sanitizeCell=(v)=>{const s=String(v??'').trim();return /^[=+\\-@]/.test(s)?"'"+s:s;};
+const sanitizeCell=(v)=>{const s=String(v??'').trim();return /^[=+@-]/.test(s)?"'"+s:s;};
 const escapeHtml=(v)=>String(v??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 const LABELS=['접수일시','성함','연락처','통신사','희망기종','상태','메모','유입경로','UTM 출처','UTM 캠페인','개인정보 동의','접수ID'];
 function sheetRow(lead, timestamp){
