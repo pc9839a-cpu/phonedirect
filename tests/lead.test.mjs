@@ -72,11 +72,11 @@ test('does not show success if Google Apps Script cannot confirm receipt',async 
 });
 test('Apps Script writes 12 expected columns and preserves phone as text',()=>{
   const code=readFileSync(new URL('../google-apps-script/Code.gs',import.meta.url),'utf8');
-  let saved=null, format=null, released=false;
+  let saved=null, phoneFormat=null, dateTimeFormat=null, released=false;
   const sheet={
     getLastRow:()=>1,
     getRange:(row,col,rows,cols)=>({
-      setNumberFormat:v=>{format={row,col,v};},
+      setNumberFormat:v=>{if(col===1)dateTimeFormat={row,col,v};else phoneFormat={row,col,v};},
       setValues:v=>{saved={row,col,rows,cols,values:v};}
     })
   };
@@ -92,7 +92,9 @@ test('Apps Script writes 12 expected columns and preserves phone as text',()=>{
   const result=JSON.parse(output.text);
   assert.equal(result.ok,true);
   assert.equal(result.receipt,receipt);
-  assert.deepEqual(format,{row:2,col:3,v:'@'});
+  assert.deepEqual(phoneFormat,{row:2,col:3,v:'@'});
+  assert.deepEqual(dateTimeFormat,{row:2,col:1,v:'yyyy-mm-dd hh:mm:ss'});
+  assert.ok(saved.values[0][0] instanceof Date || Object.prototype.toString.call(saved.values[0][0])==='[object Date]');
   assert.equal(saved.values[0].length,12);
   assert.equal(saved.values[0][1],'Test Customer');
   assert.equal(saved.values[0][2],'01012345678');
