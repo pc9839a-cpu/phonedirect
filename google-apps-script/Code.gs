@@ -35,6 +35,8 @@ function doPost(e){
         if(existing)return response_({ok:true,receipt:receipt,duplicate:true});
       }
       var row=last+1;
+      // Preserve native date value while explicitly displaying time in Sheet column A.
+      sheet.getRange(row,1).setNumberFormat('yyyy-mm-dd hh:mm:ss');
       sheet.getRange(row,3).setNumberFormat('@');
       sheet.getRange(row,1,1,12).setValues([[
         new Date(),literal_(name),phone,literal_(v.carrier),literal_(v.model),'신규','',
