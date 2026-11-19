@@ -124,6 +124,8 @@ test('SES sends the same twelve sheet columns to the fixed recipient after confi
   const mail=JSON.parse(calls[1].opts.body);
   assert.deepEqual(mail.Destination.ToAddresses,['jiyounicom@gmail.com']);
   assert.match(mail.FromEmailAddress,/support@pagero\.kr/);
+  assert.match(mail.Content.Simple.Body.Text.Data,/접수일시: \\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}/);
+  assert.match(mail.Content.Simple.Body.Html.Data,/접수일시/);
   assert.match(mail.Content.Simple.Body.Text.Data,/성함: Test Customer/);
   assert.match(mail.Content.Simple.Body.Text.Data,/연락처: 01012345678/);
   assert.match(mail.Content.Simple.Body.Text.Data,/통신사: SKT/);
